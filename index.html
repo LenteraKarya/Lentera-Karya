@@ -1,1 +1,414 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lentera Karya Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .gallery-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-intro h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .gallery-intro p {
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-details {
+            padding: 1.5rem;
+        }
+        
+        .gallery-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .gallery-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        
+        .gallery-description.active {
+            display: block;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .btn-small {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+        
+        .contact-bar {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+        
+        .contact-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp {
+            background-color: #25D366;
+        }
+        
+        .order {
+            background-color: var(--accent);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Admin Edit Notice */
+        .admin-notice {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .admin-notice strong {
+            color: var(--primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .contact-bar {
+                bottom: 1rem;
+                right: 1rem;
+            }
+            
+            .contact-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-camera-retro"></i>
+            <span>Lentera Karya</span>
+        </div>
+        <p class="tagline">Professional Gallery showcasing our finest works and creations</p>
+    </header>
+    
+    <div class="container">
+        <!-- ADMIN NOTICE - YOU CAN EDIT BELOW THIS LINE -->
+        <div class="admin-notice">
+            <strong>Admin Instructions:</strong> To add new items to the gallery, copy and paste the gallery item block below and update the image link, title, and description. The WhatsApp number is set to 6287865614222.
+        </div>
+        
+        <div class="gallery-intro">
+            <h2>Our Gallery</h2>
+            <p>Explore our collection of premium works. Click on "Details" to learn more about each item.</p>
+        </div>
+        
+        <div class="gallery-grid">
+            <!-- GALLERY ITEM 1 - EDIT THIS SECTION TO ADD NEW ITEMS -->
+            <div class="gallery-item">
+                <img src="https://github.com/LenteraKarya/Lentera-Karya/blob/main/assets/images/gambar1.jpg?raw=true" alt="Gallery Item 1" class="gallery-image">
+                <div class="gallery-details">
+                    <h3 class="gallery-title">Sample Item 1</h3>
+                    <p class="gallery-description">
+                        This is a detailed description of the first gallery item. You can include specifications, 
+                        dimensions, materials used, or any other relevant information here. The description will 
+                        be shown when the user clicks the "Details" button.
+                    </p>
+                    <div class="action-buttons">
+                        <button class="btn btn-outline btn-small toggle-description">Details</button>
+                        <button class="btn btn-primary btn-small order-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GALLERY ITEM 2 - COPY THIS BLOCK TO ADD MORE ITEMS -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/600x400?text=Your+Image+Here" alt="Gallery Item 2" class="gallery-image">
+                <div class="gallery-details">
+                    <h3 class="gallery-title">Sample Item 2</h3>
+                    <p class="gallery-description">
+                        This is another sample item description. Replace this with your actual product or service 
+                        details. Include all necessary information that potential customers might need to know.
+                    </p>
+                    <div class="action-buttons">
+                        <button class="btn btn-outline btn-small toggle-description">Details</button>
+                        <button class="btn btn-primary btn-small order-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ADD MORE GALLERY ITEMS BY COPYING THE BLOCK ABOVE -->
+        </div>
+    </div>
+    
+    <!-- Floating Contact Buttons -->
+    <div class="contact-bar">
+        <a href="https://wa.me/6287865614222" class="contact-btn whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button class="contact-btn order" id="quick-order">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">Gallery</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </div>
+            <p class="copyright">© 2023 Lentera Karya. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Audio Element for Button Sounds -->
+    <audio id="buttonSound" src="https://github.com/LenteraKarya/Lentera-Karya/blob/main/assets/audio/audiotombol.mp3?raw=true"></audio>
+    
+    <script>
+        // Toggle description visibility
+        document.querySelectorAll('.toggle-description').forEach(button => {
+            button.addEventListener('click', function() {
+                const description = this.closest('.gallery-details').querySelector('.gallery-description');
+                description.classList.toggle('active');
+                
+                // Update button text
+                this.textContent = description.classList.contains('active') ? 'Hide' : 'Details';
+                
+                // Play button sound
+                playButtonSound();
+            });
+        });
+        
+        // Order button functionality
+        document.querySelectorAll('.order-btn, #quick-order').forEach(button => {
+            button.addEventListener('click', function() {
+                // Redirect to WhatsApp for ordering
+                window.open('https://wa.me/6287865614222?text=Hi,%20I%20would%20like%20to%20order%20an%20item%20from%20your%20gallery.', '_blank');
+                
+                // Play button sound
+                playButtonSound();
+            });
+        });
+        
+        // Play button sound function
+        function playButtonSound() {
+            const sound = document.getElementById('buttonSound');
+            sound.currentTime = 0; // Rewind to start
+            sound.play().catch(e => console.log("Audio play prevented:", e));
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
