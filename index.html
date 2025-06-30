@@ -801,6 +801,28 @@
             resize: vertical;
         }
         
+        /* Form Status */
+        .form-status {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        
+        .form-status.success {
+            background-color: rgba(39, 174, 96, 0.1);
+            color: var(--success);
+            border: 1px solid var(--success);
+            display: block;
+        }
+        
+        .form-status.error {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            display: block;
+        }
+        
         /* Floating Contact Buttons */
         .contact-bar {
             position: fixed;
@@ -1586,6 +1608,7 @@
                 </div>
                 <div class="contact-form">
                     <h3>Kirim Pesan</h3>
+                    <div id="formStatus" class="form-status" style="display: none;"></div>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Nama Anda</label>
@@ -1597,11 +1620,12 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Nomor Telepon</label>
-                            <input type="tel" id="phone" name="phone">
+                            <input type="tel" id="phone" name="phone" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subjek</label>
-                            <select id="subject" name="subject">
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Pilih subjek</option>
                                 <option value="general">Pertanyaan Umum</option>
                                 <option value="order">Pemesanan Produk</option>
                                 <option value="rental">Pertanyaan Sewa</option>
@@ -1864,9 +1888,66 @@
         // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // Dalam implementasi nyata, Anda akan mengirim data ini ke server
-            alert('Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda.');
-            this.reset();
+            
+            const formStatus = document.getElementById('formStatus');
+            formStatus.style.display = 'none';
+            
+            // Validasi form
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !phone || !subject || !message) {
+                formStatus.textContent = 'Mohon lengkapi semua field yang wajib diisi';
+                formStatus.className = 'form-status error';
+                formStatus.style.display = 'block';
+                return;
+            }
+            
+            // Kirim ke WhatsApp
+            const whatsappMessage = `*Pesan dari Website Lentera Karya*:\n\nNama: ${name}\nEmail: ${email}\nTelepon: ${phone}\nSubjek: ${document.getElementById('subject').options[document.getElementById('subject').selectedIndex].text}\nPesan: ${message}`;
+            const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+            
+            // Kirim ke Email (menggunakan FormSubmit.co)
+            const formData = new FormData(this);
+            
+            // Kirim ke FormSubmit.co (email)
+            fetch('https://formsubmit.co/ajax/lenterakaryasitubondo@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success === 'true') {
+                    // Tampilkan pesan sukses
+                    formStatus.textContent = 'Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.';
+                    formStatus.className = 'form-status success';
+                    formStatus.style.display = 'block';
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Buka WhatsApp
+                    window.open(`https://wa.me/6287865614222?text=${encodedWhatsappMessage}`, '_blank');
+                } else {
+                    throw new Error('Gagal mengirim ke email');
+                }
+            })
+            .catch(error => {
+                // Jika gagal ke email, coba hanya ke WhatsApp
+                formStatus.textContent = 'Pesan Anda telah dikirim melalui WhatsApp. Kami akan segera menghubungi Anda.';
+                formStatus.className = 'form-status success';
+                formStatus.style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                
+                // Buka WhatsApp
+                window.open(`https://wa.me/6287865614222?text=${encodedWhatsappMessage}`, '_blank');
+            });
+            
             playButtonSound();
         });
         
@@ -1874,9 +1955,28 @@
         document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = this.querySelector('input').value;
-            // Dalam implementasi nyata, Anda akan mengirim ini ke layanan mailing list
-            alert(`Terima kasih telah berlangganan dengan ${email}!`);
-            this.reset();
+            
+            // Kirim ke FormSubmit.co (email)
+            fetch('https://formsubmit.co/ajax/lenterakaryasitubondo@gmail.com', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: email,
+                    _subject: 'Berlangganan Newsletter'
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(`Terima kasih telah berlangganan dengan ${email}!`);
+                this.reset();
+            })
+            .catch(error => {
+                alert('Terjadi kesalahan. Silakan coba lagi nanti.');
+            });
+            
             playButtonSound();
         });
         
