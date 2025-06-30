@@ -85,8 +85,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), 
-                        url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.95)), 
+                        url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             z-index: 1;
         }
         
@@ -250,7 +250,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
-                        url('https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -577,7 +577,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover fixed;
+            background: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover fixed;
             opacity: 0.05;
             z-index: 0;
         }
@@ -639,6 +639,20 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--secondary);
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .testimonial-avatar.male {
+            background-color: #e3f2fd;
+        }
+        
+        .testimonial-avatar.female {
+            background-color: #fce4ec;
         }
         
         .author-info h4 {
@@ -1378,10 +1392,12 @@
                             Produk kerajinan tangan dari Lentera Karya sangat berkualitas tinggi. Saya membeli patung kayu ukir untuk hadiah ulang tahun istri dan dia sangat menyukainya!
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Budi Santoso" class="testimonial-avatar">
+                            <div class="testimonial-avatar male">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Budi Santoso</h4>
-                                <p>Pengusaha - Jakarta</p>
+                                <p>Pengusaha - Situbondo</p>
                             </div>
                         </div>
                     </div>
@@ -1392,10 +1408,12 @@
                             Saya menyewa dekorasi untuk pernikahan adik saya. Hasilnya sangat memuaskan, tamu-tamu banyak yang bertanya tentang dekorasinya. Terima kasih Lentera Karya!
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dewi Lestari" class="testimonial-avatar">
+                            <div class="testimonial-avatar female">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Dewi Lestari</h4>
-                                <p>PNS - Surabaya</p>
+                                <p>PNS - Jember</p>
                             </div>
                         </div>
                     </div>
@@ -1406,10 +1424,12 @@
                             Barang promosi yang saya pesan untuk perusahaan sangat bagus kualitasnya. Desainnya sesuai permintaan dan dikirim tepat waktu. Sangat recommended!
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Hendra Wijaya" class="testimonial-avatar">
+                            <div class="testimonial-avatar male">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Hendra Wijaya</h4>
-                                <p>Direktur Marketing - Bandung</p>
+                                <p>Direktur Marketing - Bondowoso</p>
                             </div>
                         </div>
                     </div>
@@ -1420,10 +1440,12 @@
                             Keranjang anyaman yang saya beli sangat kuat dan cantik. Sekarang saya punya 3 buah untuk tempat buah dan sayuran di dapur. Terima kasih!
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Siti Rahayu" class="testimonial-avatar">
+                            <div class="testimonial-avatar female">
+                                <i class="fas fa-user-edit"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Siti Rahayu</h4>
-                                <p>Ibu Rumah Tangga - Yogyakarta</p>
+                                <p>Ibu Rumah Tangga - Malang</p>
                             </div>
                         </div>
                     </div>
@@ -1434,10 +1456,12 @@
                             Sebagai wedding planner, saya sering bekerja sama dengan Lentera Karya untuk dekorasi acara. Hasilnya selalu memuaskan dan harganya bersaing.
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Rina Permata" class="testimonial-avatar">
+                            <div class="testimonial-avatar female">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Rina Permata</h4>
-                                <p>Wedding Planner - Bali</p>
+                                <p>Wedding Planner - Sidoarjo</p>
                             </div>
                         </div>
                     </div>
@@ -1448,10 +1472,12 @@
                             Banner stand yang saya pesan untuk pameran sangat kokoh dan desainnya menarik. Banyak pengunjung yang berhenti di booth kami karena tertarik dengan banner-nya.
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Agus Setiawan" class="testimonial-avatar">
+                            <div class="testimonial-avatar male">
+                                <i class="fas fa-user"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Agus Setiawan</h4>
-                                <p>UMKM - Semarang</p>
+                                <p>UMKM - Gresik</p>
                             </div>
                         </div>
                     </div>
@@ -1462,10 +1488,12 @@
                             Saya memesan mug custom untuk hadiah karyawan. Hasil cetaknya tajam dan tidak mudah luntur. Karyawan saya sangat senang menerimanya.
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Linda Hartati" class="testimonial-avatar">
+                            <div class="testimonial-avatar female">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Linda Hartati</h4>
-                                <p>HR Manager - Medan</p>
+                                <p>HR Manager - Tuban</p>
                             </div>
                         </div>
                     </div>
@@ -1476,10 +1504,12 @@
                             Sebagai kolektor seni, saya sangat menghargai karya-karya Lentera Karya. Detail pengerjaannya sangat halus dan menunjukkan keahlian yang tinggi.
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Joko Widodo" class="testimonial-avatar">
+                            <div class="testimonial-avatar male">
+                                <i class="fas fa-user-astronaut"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Joko Widodo</h4>
-                                <p>Kolektor Seni - Solo</p>
+                                <p>Kolektor Seni - Bali</p>
                             </div>
                         </div>
                     </div>
@@ -1490,10 +1520,12 @@
                             Saya menyewa peralatan fotografi untuk project dokumentasi desa. Peralatannya lengkap dan dalam kondisi sangat baik. Pelayanannya juga ramah.
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Maya Sari" class="testimonial-avatar">
+                            <div class="testimonial-avatar female">
+                                <i class="fas fa-camera"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Maya Sari</h4>
-                                <p>Fotografer - Lombok</p>
+                                <p>Fotografer - Banyuwangi</p>
                             </div>
                         </div>
                     </div>
@@ -1504,10 +1536,12 @@
                             Tote bag custom yang saya pesan untuk event komunitas sangat bagus. Bahan tebal dan jahitannya rapi. Pesanan 100 pcs selesai tepat waktu.
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="Ahmad Fauzi" class="testimonial-avatar">
+                            <div class="testimonial-avatar male">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
                             <div class="author-info">
                                 <h4>Ahmad Fauzi</h4>
-                                <p>Ketua Komunitas - Makassar</p>
+                                <p>Ketua Komunitas - Situbondo</p>
                             </div>
                         </div>
                     </div>
