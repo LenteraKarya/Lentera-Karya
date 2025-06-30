@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lentera Karya - Handmade crafts, rental services, and promotional solutions. Quality products and services for your needs.">
-    <title>Lentera Karya | Handmade Crafts & Services</title>
+    <meta name="description" content="Lentera Karya - Kerajinan tangan, jasa sewa, dan solusi promosi berkualitas di Situbondo. Produk dan layanan terbaik untuk kebutuhan Anda.">
+    <title>Lentera Karya | Kerajinan Tangan & Jasa Profesional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,54 +33,126 @@
             background-color: #f5f7fa;
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
+        /* Animasi Partikel */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Header Modern */
         header {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
-            padding: 2rem 0;
+            padding: 4rem 0 6rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
         
-        header::before {
-            content: "";
+        .header-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
             background: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-            opacity: 0.15;
-            z-index: 0;
+            opacity: 0.2;
+            z-index: 1;
         }
         
         .header-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .logo {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .logo i {
             color: var(--secondary);
+            font-size: 3.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         .tagline {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.3rem;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 2rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
         }
         
         .container {
@@ -91,11 +163,18 @@
         
         /* Navigation */
         nav {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         }
         
         .nav-container {
@@ -111,7 +190,14 @@
             font-weight: 600;
             color: var(--primary);
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-logo i {
+            color: var(--secondary);
         }
         
         .nav-links {
@@ -123,8 +209,9 @@
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 0.5rem 0;
         }
         
         .nav-links a:hover {
@@ -136,7 +223,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             background-color: var(--secondary);
             transition: width 0.3s ease;
@@ -148,36 +235,48 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
                         url('https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
-            padding: 5rem 1.5rem;
+            padding: 8rem 1.5rem;
             text-align: center;
             margin-bottom: 3rem;
+            position: relative;
         }
         
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            animation: slideIn 1s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 3rem;
+            animation: slideIn 1s ease-out 0.2s forwards;
+            opacity: 0;
         }
         
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
+            animation: slideIn 1s ease-out 0.4s forwards;
+            opacity: 0;
         }
         
         /* Services Section */
         .services {
-            margin: 4rem 0;
+            margin: 5rem 0;
         }
         
         .section-title {
@@ -185,6 +284,7 @@
             margin-bottom: 3rem;
             color: var(--primary);
             position: relative;
+            font-size: 2.2rem;
         }
         
         .section-title::after {
@@ -193,114 +293,134 @@
             width: 80px;
             height: 4px;
             background: var(--secondary);
-            margin: 0.5rem auto 0;
+            margin: 1rem auto 0;
             border-radius: 2px;
         }
         
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
         
         .service-card {
             background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
             text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
         
         .service-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--secondary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
         }
         
         .service-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
             color: var(--primary);
         }
         
         /* Gallery Section */
         .gallery-intro {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
         
         .gallery-intro h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .gallery-intro p {
             color: var(--text-light);
             max-width: 800px;
             margin: 0 auto;
+            font-size: 1.1rem;
         }
         
         .category-tabs {
             display: flex;
             justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
             flex-wrap: wrap;
         }
         
         .category-btn {
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
             background: white;
             border: 1px solid #ddd;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
         
         .category-btn.active, .category-btn:hover {
             background: var(--secondary);
             color: white;
             border-color: var(--secondary);
+            transform: translateY(-2px);
         }
         
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
             margin-top: 2rem;
         }
         
         .gallery-item {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         
         .gallery-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 15px;
+            right: 15px;
             background: var(--accent);
             color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 500;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
         }
         
         .gallery-badge.rental {
@@ -311,35 +431,48 @@
             background: var(--success);
         }
         
+        .gallery-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+        }
+        
         .gallery-image {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
         }
         
         .gallery-details {
-            padding: 1.5rem;
+            padding: 2rem;
         }
         
         .gallery-title {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: var(--primary);
         }
         
         .gallery-price {
             color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
         
         .gallery-description {
             color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            margin-bottom: 2rem;
             display: none;
+            line-height: 1.7;
         }
         
         .gallery-description.active {
@@ -348,14 +481,14 @@
         
         .btn {
             display: inline-block;
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            font-weight: 500;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
         
         .btn-primary {
@@ -365,19 +498,21 @@
         
         .btn-primary:hover {
             background-color: #2980b9;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
         }
         
         .btn-outline {
             background-color: transparent;
-            border: 1px solid var(--secondary);
+            border: 2px solid var(--secondary);
             color: var(--secondary);
         }
         
         .btn-outline:hover {
             background-color: var(--secondary);
             color: white;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
         }
         
         .btn-accent {
@@ -387,7 +522,8 @@
         
         .btn-accent:hover {
             background-color: #c0392b;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
         }
         
         .btn-success {
@@ -397,144 +533,230 @@
         
         .btn-success:hover {
             background-color: #219653;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
         }
         
         .action-buttons {
             display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
         
         .btn-small {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.8rem;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
         }
         
         /* Testimonials */
         .testimonials {
             background-color: var(--light);
-            padding: 4rem 0;
-            margin: 4rem 0;
+            padding: 6rem 0;
+            margin: 6rem 0;
+            position: relative;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover fixed;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
         }
         
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
         
         .testimonial-card {
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
         
         .testimonial-card::before {
             content: '"';
             position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 4rem;
+            top: 15px;
+            left: 15px;
+            font-size: 5rem;
             color: rgba(52, 152, 219, 0.1);
             font-family: serif;
             line-height: 1;
+            z-index: 0;
         }
         
-        .testimonial-content {
-            margin-bottom: 1rem;
+        .testimonial-text {
+            margin-bottom: 2rem;
             font-style: italic;
             position: relative;
             z-index: 1;
+            line-height: 1.8;
         }
         
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
         
         .testimonial-avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
+            border: 3px solid var(--secondary);
         }
         
         .author-info h4 {
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
             color: var(--primary);
+            font-size: 1.1rem;
         }
         
         .author-info p {
             color: var(--text-light);
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
         
         /* Contact Section */
         .contact {
-            margin-bottom: 4rem;
+            margin-bottom: 6rem;
         }
         
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
         
         .contact-info {
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
         
         .contact-info h3 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             color: var(--primary);
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
         }
         
         .contact-detail {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .contact-icon {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--secondary);
-            margin-top: 0.2rem;
+            margin-top: 0.3rem;
+            min-width: 30px;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .contact-text p {
+            color: var(--text-light);
+            line-height: 1.7;
         }
         
         .contact-form {
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h3 {
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .contact-form h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-weight: 500;
+            color: var(--primary);
         }
         
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 0.8rem;
+            padding: 1rem;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
         }
         
         .form-group input:focus,
@@ -542,35 +764,56 @@
         .form-group select:focus {
             border-color: var(--secondary);
             outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            background-color: white;
         }
         
         .form-group textarea {
-            min-height: 120px;
+            min-height: 150px;
             resize: vertical;
         }
         
         /* Floating Contact Buttons */
         .contact-bar {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 2.5rem;
+            right: 2.5rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.2rem;
             z-index: 100;
         }
         
         .contact-btn {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-size: 1.8rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(0);
+            border-radius: 50%;
             transition: transform 0.3s ease;
+        }
+        
+        .contact-btn:hover::after {
+            transform: scale(1);
         }
         
         .contact-btn:hover {
@@ -593,7 +836,8 @@
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 3rem 0 1.5rem;
+            padding: 5rem 0 2rem;
+            position: relative;
         }
         
         .footer-container {
@@ -602,14 +846,16 @@
             padding: 0 1.5rem;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
         }
         
         .footer-col h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 1rem;
         }
         
         .footer-col h3::after {
@@ -618,8 +864,13 @@
             left: 0;
             bottom: 0;
             width: 50px;
-            height: 2px;
+            height: 3px;
             background: var(--secondary);
+        }
+        
+        .footer-about p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
         
         .footer-links {
@@ -627,60 +878,72 @@
         }
         
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
         
         .footer-links a {
             color: var(--light);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             display: inline-block;
+            padding: 0.3rem 0;
         }
         
         .footer-links a:hover {
             color: var(--secondary);
-            transform: translateX(5px);
+            transform: translateX(8px);
         }
         
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 1.2rem;
+            margin-top: 2rem;
         }
         
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             color: white;
             transition: all 0.3s ease;
+            font-size: 1.2rem;
         }
         
         .social-links a:hover {
             background: var(--secondary);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
         
         .newsletter-form {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
         
         .newsletter-form input {
             width: 100%;
-            padding: 0.8rem;
+            padding: 1rem;
             border: none;
-            border-radius: 4px;
-            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .newsletter-form button {
+            width: 100%;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
+            padding-top: 3rem;
+            margin-top: 3rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             opacity: 0.8;
@@ -690,11 +953,12 @@
         .admin-notice {
             background-color: #f8f9fa;
             border-left: 4px solid var(--secondary);
-            padding: 1rem;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            font-size: 1rem;
             color: var(--text-light);
-            border-radius: 0 4px 4px 0;
+            border-radius: 0 8px 8px 0;
+            animation: fadeIn 0.5s ease-out;
         }
         
         .admin-notice strong {
@@ -709,26 +973,28 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(5px);
         }
         
         .modal-content {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             max-width: 500px;
             width: 90%;
-            padding: 2rem;
+            padding: 3rem;
             position: relative;
-            animation: modalFadeIn 0.3s ease;
+            animation: modalFadeIn 0.4s ease;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
         
         @keyframes modalFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
@@ -738,23 +1004,87 @@
         
         .close-modal {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+        
+        .modal h2 {
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .modal h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
         }
         
         /* Responsive */
+        @media (max-width: 992px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .logo i {
+                font-size: 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
         @media (max-width: 768px) {
+            header {
+                padding: 3rem 0 5rem;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .logo i {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
             .nav-container {
                 flex-direction: column;
                 gap: 1rem;
+                padding: 1rem;
             }
             
             .nav-links {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 1rem;
+            }
+            
+            .hero {
+                padding: 6rem 1.5rem;
             }
             
             .hero h1 {
@@ -762,7 +1092,7 @@
             }
             
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .hero-buttons {
@@ -770,75 +1100,123 @@
                 align-items: center;
             }
             
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
             .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
             
             .contact-bar {
-                bottom: 1rem;
-                right: 1rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
             }
             
             .contact-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 2rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Partikel Animasi -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Header Modern -->
+    <header>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-lightbulb"></i>
+                <span>Lentera Karya</span>
+            </div>
+            <p class="tagline">Kreasi tangan berkualitas dengan sentuhan seni yang memukau</p>
+            <div class="header-buttons">
+                <a href="#gallery" class="btn btn-primary">Lihat Karya Kami</a>
+                <a href="#contact" class="btn btn-outline">Hubungi Kami</a>
+            </div>
+            <a href="#services" class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </header>
+    
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">Lentera Karya</a>
+            <a href="#" class="nav-logo">
+                <i class="fas fa-lightbulb"></i>
+                <span>Lentera Karya</span>
+            </a>
             <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#contact">Contact</a>
+                <a href="#home">Beranda</a>
+                <a href="#services">Layanan</a>
+                <a href="#gallery">Galeri</a>
+                <a href="#testimonials">Testimoni</a>
+                <a href="#contact">Kontak</a>
             </div>
         </div>
     </nav>
     
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Handmade Crafts & Creative Services</h1>
-            <p>Discover unique handmade products, rental services, and promotional solutions tailored to your needs.</p>
-            <div class="hero-buttons">
-                <a href="#gallery" class="btn btn-primary">Browse Gallery</a>
-                <a href="#contact" class="btn btn-outline">Contact Us</a>
-            </div>
-        </div>
-    </section>
-    
     <div class="container">
         <!-- Services Section -->
         <section class="services" id="services">
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-title">Layanan Kami</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-hands"></i>
                     </div>
-                    <h3 class="service-title">Handmade Crafts</h3>
-                    <p>Unique, high-quality handmade products crafted with passion and attention to detail.</p>
+                    <h3 class="service-title">Kerajinan Tangan</h3>
+                    <p>Produk handmade unik berkualitas tinggi yang dibuat dengan penuh passion dan perhatian pada detail.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3 class="service-title">Rental Services</h3>
-                    <p>Flexible rental options for decorations, equipment, and other items for your events.</p>
+                    <h3 class="service-title">Jasa Sewa</h3>
+                    <p>Pilihan sewa fleksibel untuk dekorasi, peralatan, dan berbagai kebutuhan acara Anda.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-bullhorn"></i>
                     </div>
-                    <h3 class="service-title">Promotional Solutions</h3>
-                    <p>Creative marketing materials and strategies to boost your brand visibility.</p>
+                    <h3 class="service-title">Solusi Promosi</h3>
+                    <p>Material pemasaran kreatif dan strategi untuk meningkatkan visibilitas merek Anda.</p>
                 </div>
             </div>
         </section>
@@ -847,18 +1225,18 @@
         <section class="gallery" id="gallery">
             <!-- ADMIN NOTICE - YOU CAN EDIT BELOW THIS LINE -->
             <div class="admin-notice">
-                <strong>Admin Instructions:</strong> To add new items to the gallery, copy and paste the gallery item block below and update the image link, title, description, and price. The WhatsApp number is set to 6287865614222.
+                <strong>Petunjuk Admin:</strong> Untuk menambahkan item baru ke galeri, salin dan tempel blok item galeri di bawah ini dan perbarui tautan gambar, judul, deskripsi, dan harga. Nomor WhatsApp sudah diatur ke 6287865614222.
             </div>
             
             <div class="gallery-intro">
-                <h2 class="section-title">Our Gallery</h2>
-                <p>Explore our collection of premium works and services. Click on "Details" to learn more about each item.</p>
+                <h2 class="section-title">Galeri Kami</h2>
+                <p>Jelajahi koleksi karya dan layanan premium kami. Klik "Detail" untuk mengetahui lebih lanjut tentang setiap item.</p>
                 
                 <div class="category-tabs">
-                    <button class="category-btn active" data-category="all">All</button>
-                    <button class="category-btn" data-category="crafts">Handmade Crafts</button>
-                    <button class="category-btn" data-category="rental">Rental Items</button>
-                    <button class="category-btn" data-category="promo">Promotional</button>
+                    <button class="category-btn active" data-category="all">Semua</button>
+                    <button class="category-btn" data-category="crafts">Kerajinan Tangan</button>
+                    <button class="category-btn" data-category="rental">Sewa</button>
+                    <button class="category-btn" data-category="promo">Promosi</button>
                 </div>
             </div>
             
@@ -866,37 +1244,41 @@
                 <!-- GALLERY ITEM 1 - HANDMADE CRAFT -->
                 <div class="gallery-item" data-category="crafts">
                     <span class="gallery-badge">Handmade</span>
-                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Handmade Wooden Sculpture" class="gallery-image">
+                    <div class="gallery-image-container">
+                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patung Kayu Handmade" class="gallery-image">
+                    </div>
                     <div class="gallery-details">
-                        <h3 class="gallery-title">Wooden Sculpture</h3>
+                        <h3 class="gallery-title">Patung Kayu Ukir</h3>
                         <p class="gallery-price">Rp 450.000</p>
                         <p class="gallery-description">
-                            Beautiful hand-carved wooden sculpture made from sustainable teak wood. 
-                            Dimensions: 30cm x 15cm x 10cm. Each piece is unique and signed by the artist. 
-                            Perfect for home decoration or as a special gift.
+                            Patung kayu ukir tangan yang indah dibuat dari kayu jati yang berkelanjutan. 
+                            Dimensi: 30cm x 15cm x 10cm. Setiap karya unik dan ditandatangani oleh pengrajin. 
+                            Sempurna untuk dekorasi rumah atau hadiah spesial.
                         </p>
                         <div class="action-buttons">
-                            <button class="btn btn-outline btn-small toggle-description">Details</button>
-                            <button class="btn btn-primary btn-small order-btn">Order Now</button>
+                            <button class="btn btn-outline btn-small toggle-description">Detail</button>
+                            <button class="btn btn-primary btn-small order-btn">Pesan Sekarang</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- GALLERY ITEM 2 - RENTAL ITEM -->
                 <div class="gallery-item" data-category="rental">
-                    <span class="gallery-badge rental">For Rent</span>
-                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Event Decoration Set" class="gallery-image">
+                    <span class="gallery-badge rental">Sewa</span>
+                    <div class="gallery-image-container">
+                        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paket Dekorasi Acara" class="gallery-image">
+                    </div>
                     <div class="gallery-details">
-                        <h3 class="gallery-title">Premium Event Decor</h3>
-                        <p class="gallery-price">Rp 1.200.000/day</p>
+                        <h3 class="gallery-title">Dekorasi Acara Premium</h3>
+                        <p class="gallery-price">Rp 1.200.000/hari</p>
                         <p class="gallery-description">
-                            Complete event decoration package including backdrops, centerpieces, 
-                            and lighting. Suitable for weddings, birthdays, and corporate events. 
-                            Includes setup and teardown services. Minimum rental: 2 days.
+                            Paket lengkap dekorasi acara termasuk backdrop, centerpiece, 
+                            dan pencahayaan. Cocok untuk pernikahan, ulang tahun, dan acara perusahaan. 
+                            Termasuk jasa pemasangan dan pembongkaran. Sewa minimal: 2 hari.
                         </p>
                         <div class="action-buttons">
-                            <button class="btn btn-outline btn-small toggle-description">Details</button>
-                            <button class="btn btn-primary btn-small order-btn">Inquire</button>
+                            <button class="btn btn-outline btn-small toggle-description">Detail</button>
+                            <button class="btn btn-primary btn-small order-btn">Tanya</button>
                         </div>
                     </div>
                 </div>
@@ -904,18 +1286,20 @@
                 <!-- GALLERY ITEM 3 - PROMOTIONAL ITEM -->
                 <div class="gallery-item" data-category="promo">
                     <span class="gallery-badge promo">Promo</span>
-                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Custom Printed Merchandise" class="gallery-image">
+                    <div class="gallery-image-container">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Merchandise Custom" class="gallery-image">
+                    </div>
                     <div class="gallery-details">
-                        <h3 class="gallery-title">Custom Merchandise</h3>
-                        <p class="gallery-price">From Rp 25.000/pc</p>
+                        <h3 class="gallery-title">Merchandise Custom</h3>
+                        <p class="gallery-price">Mulai Rp 25.000/pcs</p>
                         <p class="gallery-description">
-                            Custom printed promotional items including t-shirts, mugs, and tote bags. 
-                            Minimum order: 50 pieces. High-quality printing with your logo or design. 
-                            Perfect for corporate gifts, events, or brand promotions.
+                            Barang promosi custom termasuk kaos, mug, dan tote bag. 
+                            Pesanan minimal: 50 pcs. Cetakan berkualitas tinggi dengan logo atau desain Anda. 
+                            Sempurna untuk hadiah perusahaan, acara, atau promosi merek.
                         </p>
                         <div class="action-buttons">
-                            <button class="btn btn-outline btn-small toggle-description">Details</button>
-                            <button class="btn btn-primary btn-small order-btn">Get Quote</button>
+                            <button class="btn btn-outline btn-small toggle-description">Detail</button>
+                            <button class="btn btn-primary btn-small order-btn">Dapatkan Penawaran</button>
                         </div>
                     </div>
                 </div>
@@ -923,37 +1307,41 @@
                 <!-- GALLERY ITEM 4 - HANDMADE CRAFT -->
                 <div class="gallery-item" data-category="crafts">
                     <span class="gallery-badge">Handmade</span>
-                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Handwoven Basket" class="gallery-image">
+                    <div class="gallery-image-container">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Keranjang Anyaman" class="gallery-image">
+                    </div>
                     <div class="gallery-details">
-                        <h3 class="gallery-title">Handwoven Basket</h3>
+                        <h3 class="gallery-title">Keranjang Anyaman</h3>
                         <p class="gallery-price">Rp 180.000</p>
                         <p class="gallery-description">
-                            Traditional handwoven basket made from natural rattan. 
-                            Dimensions: 40cm diameter x 25cm height. Eco-friendly and durable. 
-                            Perfect for storage or as a decorative piece. Available in various sizes.
+                            Keranjang anyaman tradisional dibuat dari rotan alami. 
+                            Dimensi: diameter 40cm x tinggi 25cm. Ramah lingkungan dan tahan lama. 
+                            Sempurna untuk penyimpanan atau sebagai hiasan. Tersedia dalam berbagai ukuran.
                         </p>
                         <div class="action-buttons">
-                            <button class="btn btn-outline btn-small toggle-description">Details</button>
-                            <button class="btn btn-primary btn-small order-btn">Order Now</button>
+                            <button class="btn btn-outline btn-small toggle-description">Detail</button>
+                            <button class="btn btn-primary btn-small order-btn">Pesan Sekarang</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- GALLERY ITEM 5 - RENTAL ITEM -->
                 <div class="gallery-item" data-category="rental">
-                    <span class="gallery-badge rental">For Rent</span>
-                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Photography Equipment" class="gallery-image">
+                    <span class="gallery-badge rental">Sewa</span>
+                    <div class="gallery-image-container">
+                        <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paket Fotografi" class="gallery-image">
+                    </div>
                     <div class="gallery-details">
-                        <h3 class="gallery-title">Photography Package</h3>
-                        <p class="gallery-price">Rp 750.000/day</p>
+                        <h3 class="gallery-title">Paket Fotografi</h3>
+                        <p class="gallery-price">Rp 750.000/hari</p>
                         <p class="gallery-description">
-                            Professional photography equipment rental including DSLR camera, 
-                            lenses, lighting, and accessories. Includes basic training for beginners. 
-                            Deposit required. Insurance available for additional fee.
+                            Sewa peralatan fotografi profesional termasuk kamera DSLR, 
+                            lensa, pencahayaan, dan aksesoris. Termasuk pelatihan dasar untuk pemula. 
+                            Deposit diperlukan. Asuransi tersedia dengan biaya tambahan.
                         </p>
                         <div class="action-buttons">
-                            <button class="btn btn-outline btn-small toggle-description">Details</button>
-                            <button class="btn btn-primary btn-small order-btn">Inquire</button>
+                            <button class="btn btn-outline btn-small toggle-description">Detail</button>
+                            <button class="btn btn-primary btn-small order-btn">Tanya</button>
                         </div>
                     </div>
                 </div>
@@ -961,63 +1349,65 @@
                 <!-- GALLERY ITEM 6 - PROMOTIONAL ITEM -->
                 <div class="gallery-item" data-category="promo">
                     <span class="gallery-badge promo">Promo</span>
-                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand" class="gallery-image">
+                    <div class="gallery-image-container">
+                        <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand" class="gallery-image">
+                    </div>
                     <div class="gallery-details">
-                        <h3 class="gallery-title">Banner Stand Package</h3>
+                        <h3 class="gallery-title">Paket Banner Stand</h3>
                         <p class="gallery-price">Rp 350.000</p>
                         <p class="gallery-description">
-                            Complete banner stand package including design, printing, and stand. 
-                            Size: 80cm x 200cm. High-quality vinyl printing. Perfect for trade shows, 
-                            events, or in-store promotions. Setup instructions included.
+                            Paket lengkap banner stand termasuk desain, cetak, dan stand. 
+                            Ukuran: 80cm x 200cm. Cetakan vinyl berkualitas tinggi. Sempurna untuk pameran, 
+                            acara, atau promosi di toko. Panduan pemasangan termasuk.
                         </p>
                         <div class="action-buttons">
-                            <button class="btn btn-outline btn-small toggle-description">Details</button>
-                            <button class="btn btn-primary btn-small order-btn">Get Quote</button>
+                            <button class="btn btn-outline btn-small toggle-description">Detail</button>
+                            <button class="btn btn-primary btn-small order-btn">Dapatkan Penawaran</button>
                         </div>
                     </div>
                 </div>
-                
-                <!-- ADD MORE GALLERY ITEMS BY COPYING THE BLOCK ABOVE -->
             </div>
         </section>
         
         <!-- Testimonials Section -->
         <section class="testimonials" id="testimonials">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-content">
-                        The handmade wooden sculpture I ordered exceeded my expectations! The craftsmanship is exceptional and it looks beautiful in my living room.
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="testimonial-avatar">
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Art Collector</p>
+            <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
+            <div class="testimonial-content">
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Patung kayu yang saya pesan melebihi ekspektasi! Kualitas kerajinan tangan sangat luar biasa dan terlihat cantik di ruang tamu saya.
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Kolektor Seni</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-content">
-                        Rented their event decoration package for my daughter's wedding. The team was professional and the setup was stunning. Highly recommended!
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David Wilson" class="testimonial-avatar">
-                        <div class="author-info">
-                            <h4>David Wilson</h4>
-                            <p>Wedding Planner</p>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Menyewa paket dekorasi mereka untuk pernikahan anak saya. Tim sangat profesional dan hasil dekorasinya menakjubkan. Sangat direkomendasikan!
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David Wilson" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h4>David Wilson</h4>
+                                <p>Wedding Planner</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-content">
-                        Ordered custom merchandise for our company event. The quality was excellent and they delivered on time despite our tight deadline.
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa Chen" class="testimonial-avatar">
-                        <div class="author-info">
-                            <h4>Lisa Chen</h4>
-                            <p>Marketing Director</p>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Memesan merchandise custom untuk acara perusahaan kami. Kualitasnya sangat bagus dan mereka mengirim tepat waktu meski deadline kami ketat.
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa Chen" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h4>Lisa Chen</h4>
+                                <p>Direktur Pemasaran</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1026,69 +1416,69 @@
         
         <!-- Contact Section -->
         <section class="contact" id="contact">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-title">Hubungi Kami</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
+                    <h3>Informasi Kontak</h3>
                     <div class="contact-detail">
                         <i class="fas fa-map-marker-alt contact-icon"></i>
-                        <div>
-                            <h4>Address</h4>
-                            <p>123 Creative Street, Art District<br>Jakarta, Indonesia 12345</p>
+                        <div class="contact-text">
+                            <h4>Alamat</h4>
+                            <p>Jl. PB Sudirman, Desa Wringin Anom<br>Kec. Panarukan, Kab. Situbondo (68351)<br>Provinsi Jawa Timur</p>
                         </div>
                     </div>
                     <div class="contact-detail">
                         <i class="fas fa-phone-alt contact-icon"></i>
-                        <div>
-                            <h4>Phone</h4>
+                        <div class="contact-text">
+                            <h4>Telepon</h4>
                             <p>+62 878 6561 4222</p>
                         </div>
                     </div>
                     <div class="contact-detail">
                         <i class="fas fa-envelope contact-icon"></i>
-                        <div>
+                        <div class="contact-text">
                             <h4>Email</h4>
-                            <p>info@lenterakarya.com</p>
+                            <p>lenterakaryasitubondo@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-detail">
                         <i class="fas fa-clock contact-icon"></i>
-                        <div>
-                            <h4>Business Hours</h4>
-                            <p>Monday - Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM</p>
+                        <div class="contact-text">
+                            <h4>Jam Operasional</h4>
+                            <p>Senin - Jumat: 09.00 - 18.00<br>Sabtu: 10.00 - 16.00</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>Send Us a Message</h3>
+                    <h3>Kirim Pesan</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
+                            <label for="name">Nama Anda</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
+                            <label for="email">Alamat Email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
+                            <label for="phone">Nomor Telepon</label>
                             <input type="tel" id="phone" name="phone">
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
+                            <label for="subject">Subjek</label>
                             <select id="subject" name="subject">
-                                <option value="general">General Inquiry</option>
-                                <option value="order">Product Order</option>
-                                <option value="rental">Rental Inquiry</option>
-                                <option value="promo">Promotional Services</option>
-                                <option value="other">Other</option>
+                                <option value="general">Pertanyaan Umum</option>
+                                <option value="order">Pemesanan Produk</option>
+                                <option value="rental">Pertanyaan Sewa</option>
+                                <option value="promo">Layanan Promosi</option>
+                                <option value="other">Lainnya</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
+                            <label for="message">Pesan</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
                     </form>
                 </div>
             </div>
@@ -1097,13 +1487,13 @@
     
     <!-- Floating Contact Buttons -->
     <div class="contact-bar">
-        <a href="https://wa.me/6287865614222" class="contact-btn whatsapp" target="_blank">
+        <a href="https://wa.me/6287865614222" class="contact-btn whatsapp" target="_blank" aria-label="Hubungi via WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:+6287865614222" class="contact-btn phone">
+        <a href="tel:+6287865614222" class="contact-btn phone" aria-label="Telepon Kami">
             <i class="fas fa-phone"></i>
         </a>
-        <button class="contact-btn order" id="quick-order">
+        <button class="contact-btn order" id="quick-order" aria-label="Pesan Cepat">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
@@ -1111,9 +1501,9 @@
     <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <div class="footer-col">
+            <div class="footer-col footer-about">
                 <h3>Lentera Karya</h3>
-                <p>Providing high-quality handmade products, rental services, and promotional solutions since 2020.</p>
+                <p>Menyediakan produk kerajinan tangan berkualitas tinggi, jasa sewa, dan solusi promosi sejak tahun 2020.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1122,36 +1512,36 @@
                 </div>
             </div>
             <div class="footer-col">
-                <h3>Quick Links</h3>
+                <h3>Tautan Cepat</h3>
                 <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h3>Services</h3>
+                <h3>Layanan</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Handmade Crafts</a></li>
-                    <li><a href="#">Rental Services</a></li>
-                    <li><a href="#">Promotional Items</a></li>
-                    <li><a href="#">Custom Orders</a></li>
-                    <li><a href="#">Event Decor</a></li>
+                    <li><a href="#">Kerajinan Tangan</a></li>
+                    <li><a href="#">Jasa Sewa</a></li>
+                    <li><a href="#">Barang Promosi</a></li>
+                    <li><a href="#">Pesanan Custom</a></li>
+                    <li><a href="#">Dekorasi Acara</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Newsletter</h3>
-                <p>Subscribe to our newsletter for updates and special offers.</p>
+                <p>Berlangganan newsletter kami untuk update dan penawaran spesial.</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                    <input type="email" placeholder="Alamat email Anda" required>
+                    <button type="submit" class="btn btn-primary">Berlangganan</button>
                 </form>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2023 Lentera Karya. All rights reserved.
+            &copy; 2023 Lentera Karya. Semua hak dilindungi.
         </div>
     </footer>
     
@@ -1159,25 +1549,25 @@
     <div class="modal" id="orderModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2>Quick Order</h2>
+            <h2>Pesan Cepat</h2>
             <form id="quickOrderForm">
                 <div class="form-group">
-                    <label for="quick-name">Your Name</label>
+                    <label for="quick-name">Nama Anda</label>
                     <input type="text" id="quick-name" name="quick-name" required>
                 </div>
                 <div class="form-group">
-                    <label for="quick-phone">Phone Number</label>
+                    <label for="quick-phone">Nomor Telepon</label>
                     <input type="tel" id="quick-phone" name="quick-phone" required>
                 </div>
                 <div class="form-group">
-                    <label for="quick-item">Item of Interest</label>
+                    <label for="quick-item">Produk yang Diminati</label>
                     <input type="text" id="quick-item" name="quick-item" required>
                 </div>
                 <div class="form-group">
-                    <label for="quick-message">Additional Details</label>
+                    <label for="quick-message">Detail Tambahan</label>
                     <textarea id="quick-message" name="quick-message"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                <button type="submit" class="btn btn-primary">Kirim Permintaan</button>
             </form>
         </div>
     </div>
@@ -1186,6 +1576,70 @@
     <audio id="buttonSound" src="https://github.com/LenteraKarya/Lentera-Karya/blob/main/assets/audio/audiotombol.mp3?raw=true"></audio>
     
     <script>
+        // Inisialisasi Partikel
+        function initParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 5px and 15px
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 10s and 20s
+                const duration = Math.random() * 10 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Efek Scroll Navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Animasi Scroll untuk Gallery Items
+        function animateOnScroll() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const windowHeight = window.innerHeight;
+            
+            galleryItems.forEach((item, index) => {
+                const itemPosition = item.getBoundingClientRect().top;
+                const scrollPosition = windowHeight - 100;
+                
+                if (itemPosition < scrollPosition) {
+                    item.style.animationDelay = `${index * 0.1}s`;
+                    item.style.animationName = 'fadeInUp';
+                }
+            });
+        }
+        
+        // Jalankan saat halaman dimuat
+        window.addEventListener('load', function() {
+            initParticles();
+            animateOnScroll();
+        });
+        
+        // Jalankan saat scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
         // Toggle description visibility
         document.querySelectorAll('.toggle-description').forEach(button => {
             button.addEventListener('click', function() {
@@ -1193,7 +1647,7 @@
                 description.classList.toggle('active');
                 
                 // Update button text
-                this.textContent = description.classList.contains('active') ? 'Hide' : 'Details';
+                this.textContent = description.classList.contains('active') ? 'Sembunyikan' : 'Detail';
                 
                 // Play button sound
                 playButtonSound();
@@ -1204,7 +1658,7 @@
         document.querySelectorAll('.order-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const itemTitle = this.closest('.gallery-details').querySelector('.gallery-title').textContent;
-                const message = `Hi, I'm interested in ordering: ${itemTitle}. Please provide more details.`;
+                const message = `Halo, saya tertarik dengan produk: ${itemTitle}. Mohon info lebih lanjut.`;
                 const encodedMessage = encodeURIComponent(message);
                 window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
                 
@@ -1241,7 +1695,7 @@
             const item = document.getElementById('quick-item').value;
             const message = document.getElementById('quick-message').value;
             
-            const whatsappMessage = `Hi, I'd like to place a quick order:\n\nName: ${name}\nPhone: ${phone}\nItem: ${item}\nDetails: ${message || 'None'}`;
+            const whatsappMessage = `Halo, saya ingin memesan:\n\nNama: ${name}\nTelepon: ${phone}\nProduk: ${item}\nDetail: ${message || 'Tidak ada'}`;
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
@@ -1275,8 +1729,8 @@
         // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // In a real implementation, you would send this data to your server
-            alert('Thank you for your message! We will contact you soon.');
+            // Dalam implementasi nyata, Anda akan mengirim data ini ke server
+            alert('Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda.');
             this.reset();
             playButtonSound();
         });
@@ -1285,8 +1739,8 @@
         document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = this.querySelector('input').value;
-            // In a real implementation, you would send this to your mailing list service
-            alert(`Thank you for subscribing with ${email}!`);
+            // Dalam implementasi nyata, Anda akan mengirim ini ke layanan mailing list
+            alert(`Terima kasih telah berlangganan dengan ${email}!`);
             this.reset();
             playButtonSound();
         });
@@ -1294,8 +1748,8 @@
         // Play button sound function
         function playButtonSound() {
             const sound = document.getElementById('buttonSound');
-            sound.currentTime = 0; // Rewind to start
-            sound.play().catch(e => console.log("Audio play prevented:", e));
+            sound.currentTime = 0; // Putar ulang dari awal
+            sound.play().catch(e => console.log("Audio tidak dapat diputar:", e));
         }
         
         // Smooth scroll for anchor links
