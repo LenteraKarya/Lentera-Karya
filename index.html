@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lentera Karya Gallery</title>
+    <meta name="description" content="Lentera Karya - Handmade crafts, rental services, and promotional solutions. Quality products and services for your needs.">
+    <title>Lentera Karya | Handmade Crafts & Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2c3e50;
@@ -14,13 +18,15 @@
             --dark: #2c3e50;
             --text: #333;
             --text-light: #7f8c8d;
+            --success: #27ae60;
+            --warning: #f39c12;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
@@ -35,6 +41,25 @@
             padding: 2rem 0;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
         }
         
         .logo {
@@ -64,6 +89,147 @@
             padding: 0 1.5rem;
         }
         
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+        
+        .nav-logo {
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 1.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        /* Services Section */
+        .services {
+            margin: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Gallery Section */
         .gallery-intro {
             text-align: center;
             margin-bottom: 3rem;
@@ -81,6 +247,29 @@
             margin: 0 auto;
         }
         
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: white;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -94,11 +283,32 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
         
         .gallery-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        
+        .gallery-badge.rental {
+            background: var(--secondary);
+        }
+        
+        .gallery-badge.promo {
+            background: var(--success);
         }
         
         .gallery-image {
@@ -117,6 +327,12 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: var(--primary);
+        }
+        
+        .gallery-price {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
         
         .gallery-description {
@@ -149,6 +365,7 @@
         
         .btn-primary:hover {
             background-color: #2980b9;
+            transform: translateY(-2px);
         }
         
         .btn-outline {
@@ -160,6 +377,7 @@
         .btn-outline:hover {
             background-color: var(--secondary);
             color: white;
+            transform: translateY(-2px);
         }
         
         .btn-accent {
@@ -169,6 +387,17 @@
         
         .btn-accent:hover {
             background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #219653;
+            transform: translateY(-2px);
         }
         
         .action-buttons {
@@ -182,11 +411,151 @@
             font-size: 0.8rem;
         }
         
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 4rem;
+            color: rgba(52, 152, 219, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 1rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+            color: var(--primary);
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            margin-bottom: 4rem;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-top: 0.2rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Floating Contact Buttons */
         .contact-bar {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
             display: flex;
+            flex-direction: column;
             gap: 1rem;
             z-index: 100;
         }
@@ -216,37 +585,103 @@
             background-color: var(--accent);
         }
         
+        .phone {
+            background-color: var(--success);
+        }
+        
+        /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
+            padding: 3rem 0 1.5rem;
         }
         
-        .footer-content {
-            max-width: 800px;
+        .footer-container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
         }
         
         .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
         }
         
         .footer-links a {
             color: var(--light);
             text-decoration: none;
             transition: color 0.3s ease;
+            display: inline-block;
         }
         
         .footer-links a:hover {
             color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .newsletter-form {
+            margin-top: 1.5rem;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
         }
         
         .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             opacity: 0.8;
         }
@@ -259,14 +694,82 @@
             margin-bottom: 2rem;
             font-size: 0.9rem;
             color: var(--text-light);
+            border-radius: 0 4px 4px 0;
         }
         
         .admin-notice strong {
             color: var(--primary);
         }
         
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            padding: 2rem;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
@@ -285,61 +788,311 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <i class="fas fa-camera-retro"></i>
-            <span>Lentera Karya</span>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Lentera Karya</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
-        <p class="tagline">Professional Gallery showcasing our finest works and creations</p>
-    </header>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Handmade Crafts & Creative Services</h1>
+            <p>Discover unique handmade products, rental services, and promotional solutions tailored to your needs.</p>
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn btn-primary">Browse Gallery</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
     
     <div class="container">
-        <!-- ADMIN NOTICE - YOU CAN EDIT BELOW THIS LINE -->
-        <div class="admin-notice">
-            <strong>Admin Instructions:</strong> To add new items to the gallery, copy and paste the gallery item block below and update the image link, title, and description. The WhatsApp number is set to 6287865614222.
-        </div>
-        
-        <div class="gallery-intro">
-            <h2>Our Gallery</h2>
-            <p>Explore our collection of premium works. Click on "Details" to learn more about each item.</p>
-        </div>
-        
-        <div class="gallery-grid">
-            <!-- GALLERY ITEM 1 - EDIT THIS SECTION TO ADD NEW ITEMS -->
-            <div class="gallery-item">
-                <img src="https://github.com/LenteraKarya/Lentera-Karya/blob/main/assets/images/gambar1.jpg?raw=true" alt="Gallery Item 1" class="gallery-image">
-                <div class="gallery-details">
-                    <h3 class="gallery-title">Sample Item 1</h3>
-                    <p class="gallery-description">
-                        This is a detailed description of the first gallery item. You can include specifications, 
-                        dimensions, materials used, or any other relevant information here. The description will 
-                        be shown when the user clicks the "Details" button.
-                    </p>
-                    <div class="action-buttons">
-                        <button class="btn btn-outline btn-small toggle-description">Details</button>
-                        <button class="btn btn-primary btn-small order-btn">Order</button>
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands"></i>
                     </div>
+                    <h3 class="service-title">Handmade Crafts</h3>
+                    <p>Unique, high-quality handmade products crafted with passion and attention to detail.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="service-title">Rental Services</h3>
+                    <p>Flexible rental options for decorations, equipment, and other items for your events.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="service-title">Promotional Solutions</h3>
+                    <p>Creative marketing materials and strategies to boost your brand visibility.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section class="gallery" id="gallery">
+            <!-- ADMIN NOTICE - YOU CAN EDIT BELOW THIS LINE -->
+            <div class="admin-notice">
+                <strong>Admin Instructions:</strong> To add new items to the gallery, copy and paste the gallery item block below and update the image link, title, description, and price. The WhatsApp number is set to 6287865614222.
+            </div>
+            
+            <div class="gallery-intro">
+                <h2 class="section-title">Our Gallery</h2>
+                <p>Explore our collection of premium works and services. Click on "Details" to learn more about each item.</p>
+                
+                <div class="category-tabs">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="crafts">Handmade Crafts</button>
+                    <button class="category-btn" data-category="rental">Rental Items</button>
+                    <button class="category-btn" data-category="promo">Promotional</button>
                 </div>
             </div>
             
-            <!-- GALLERY ITEM 2 - COPY THIS BLOCK TO ADD MORE ITEMS -->
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400?text=Your+Image+Here" alt="Gallery Item 2" class="gallery-image">
-                <div class="gallery-details">
-                    <h3 class="gallery-title">Sample Item 2</h3>
-                    <p class="gallery-description">
-                        This is another sample item description. Replace this with your actual product or service 
-                        details. Include all necessary information that potential customers might need to know.
+            <div class="gallery-grid">
+                <!-- GALLERY ITEM 1 - HANDMADE CRAFT -->
+                <div class="gallery-item" data-category="crafts">
+                    <span class="gallery-badge">Handmade</span>
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Handmade Wooden Sculpture" class="gallery-image">
+                    <div class="gallery-details">
+                        <h3 class="gallery-title">Wooden Sculpture</h3>
+                        <p class="gallery-price">Rp 450.000</p>
+                        <p class="gallery-description">
+                            Beautiful hand-carved wooden sculpture made from sustainable teak wood. 
+                            Dimensions: 30cm x 15cm x 10cm. Each piece is unique and signed by the artist. 
+                            Perfect for home decoration or as a special gift.
+                        </p>
+                        <div class="action-buttons">
+                            <button class="btn btn-outline btn-small toggle-description">Details</button>
+                            <button class="btn btn-primary btn-small order-btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GALLERY ITEM 2 - RENTAL ITEM -->
+                <div class="gallery-item" data-category="rental">
+                    <span class="gallery-badge rental">For Rent</span>
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Event Decoration Set" class="gallery-image">
+                    <div class="gallery-details">
+                        <h3 class="gallery-title">Premium Event Decor</h3>
+                        <p class="gallery-price">Rp 1.200.000/day</p>
+                        <p class="gallery-description">
+                            Complete event decoration package including backdrops, centerpieces, 
+                            and lighting. Suitable for weddings, birthdays, and corporate events. 
+                            Includes setup and teardown services. Minimum rental: 2 days.
+                        </p>
+                        <div class="action-buttons">
+                            <button class="btn btn-outline btn-small toggle-description">Details</button>
+                            <button class="btn btn-primary btn-small order-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GALLERY ITEM 3 - PROMOTIONAL ITEM -->
+                <div class="gallery-item" data-category="promo">
+                    <span class="gallery-badge promo">Promo</span>
+                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Custom Printed Merchandise" class="gallery-image">
+                    <div class="gallery-details">
+                        <h3 class="gallery-title">Custom Merchandise</h3>
+                        <p class="gallery-price">From Rp 25.000/pc</p>
+                        <p class="gallery-description">
+                            Custom printed promotional items including t-shirts, mugs, and tote bags. 
+                            Minimum order: 50 pieces. High-quality printing with your logo or design. 
+                            Perfect for corporate gifts, events, or brand promotions.
+                        </p>
+                        <div class="action-buttons">
+                            <button class="btn btn-outline btn-small toggle-description">Details</button>
+                            <button class="btn btn-primary btn-small order-btn">Get Quote</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GALLERY ITEM 4 - HANDMADE CRAFT -->
+                <div class="gallery-item" data-category="crafts">
+                    <span class="gallery-badge">Handmade</span>
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Handwoven Basket" class="gallery-image">
+                    <div class="gallery-details">
+                        <h3 class="gallery-title">Handwoven Basket</h3>
+                        <p class="gallery-price">Rp 180.000</p>
+                        <p class="gallery-description">
+                            Traditional handwoven basket made from natural rattan. 
+                            Dimensions: 40cm diameter x 25cm height. Eco-friendly and durable. 
+                            Perfect for storage or as a decorative piece. Available in various sizes.
+                        </p>
+                        <div class="action-buttons">
+                            <button class="btn btn-outline btn-small toggle-description">Details</button>
+                            <button class="btn btn-primary btn-small order-btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GALLERY ITEM 5 - RENTAL ITEM -->
+                <div class="gallery-item" data-category="rental">
+                    <span class="gallery-badge rental">For Rent</span>
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Photography Equipment" class="gallery-image">
+                    <div class="gallery-details">
+                        <h3 class="gallery-title">Photography Package</h3>
+                        <p class="gallery-price">Rp 750.000/day</p>
+                        <p class="gallery-description">
+                            Professional photography equipment rental including DSLR camera, 
+                            lenses, lighting, and accessories. Includes basic training for beginners. 
+                            Deposit required. Insurance available for additional fee.
+                        </p>
+                        <div class="action-buttons">
+                            <button class="btn btn-outline btn-small toggle-description">Details</button>
+                            <button class="btn btn-primary btn-small order-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GALLERY ITEM 6 - PROMOTIONAL ITEM -->
+                <div class="gallery-item" data-category="promo">
+                    <span class="gallery-badge promo">Promo</span>
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand" class="gallery-image">
+                    <div class="gallery-details">
+                        <h3 class="gallery-title">Banner Stand Package</h3>
+                        <p class="gallery-price">Rp 350.000</p>
+                        <p class="gallery-description">
+                            Complete banner stand package including design, printing, and stand. 
+                            Size: 80cm x 200cm. High-quality vinyl printing. Perfect for trade shows, 
+                            events, or in-store promotions. Setup instructions included.
+                        </p>
+                        <div class="action-buttons">
+                            <button class="btn btn-outline btn-small toggle-description">Details</button>
+                            <button class="btn btn-primary btn-small order-btn">Get Quote</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ADD MORE GALLERY ITEMS BY COPYING THE BLOCK ABOVE -->
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        The handmade wooden sculpture I ordered exceeded my expectations! The craftsmanship is exceptional and it looks beautiful in my living room.
                     </p>
-                    <div class="action-buttons">
-                        <button class="btn btn-outline btn-small toggle-description">Details</button>
-                        <button class="btn btn-primary btn-small order-btn">Order</button>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Art Collector</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        Rented their event decoration package for my daughter's wedding. The team was professional and the setup was stunning. Highly recommended!
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David Wilson" class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>David Wilson</h4>
+                            <p>Wedding Planner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        Ordered custom merchandise for our company event. The quality was excellent and they delivered on time despite our tight deadline.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa Chen" class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>Lisa Chen</h4>
+                            <p>Marketing Director</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- ADD MORE GALLERY ITEMS BY COPYING THE BLOCK ABOVE -->
-        </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Creative Street, Art District<br>Jakarta, Indonesia 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+62 878 6561 4222</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@lenterakarya.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-clock contact-icon"></i>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="general">General Inquiry</option>
+                                <option value="order">Product Order</option>
+                                <option value="rental">Rental Inquiry</option>
+                                <option value="promo">Promotional Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </div>
     
     <!-- Floating Contact Buttons -->
@@ -347,22 +1100,87 @@
         <a href="https://wa.me/6287865614222" class="contact-btn whatsapp" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
+        <a href="tel:+6287865614222" class="contact-btn phone">
+            <i class="fas fa-phone"></i>
+        </a>
         <button class="contact-btn order" id="quick-order">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
     
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#">Home</a>
-                <a href="#">Gallery</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Lentera Karya</h3>
+                <p>Providing high-quality handmade products, rental services, and promotional solutions since 2020.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
             </div>
-            <p class="copyright">© 2023 Lentera Karya. All rights reserved.</p>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Handmade Crafts</a></li>
+                    <li><a href="#">Rental Services</a></li>
+                    <li><a href="#">Promotional Items</a></li>
+                    <li><a href="#">Custom Orders</a></li>
+                    <li><a href="#">Event Decor</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for updates and special offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Lentera Karya. All rights reserved.
         </div>
     </footer>
+    
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Quick Order</h2>
+            <form id="quickOrderForm">
+                <div class="form-group">
+                    <label for="quick-name">Your Name</label>
+                    <input type="text" id="quick-name" name="quick-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="quick-phone">Phone Number</label>
+                    <input type="tel" id="quick-phone" name="quick-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="quick-item">Item of Interest</label>
+                    <input type="text" id="quick-item" name="quick-item" required>
+                </div>
+                <div class="form-group">
+                    <label for="quick-message">Additional Details</label>
+                    <textarea id="quick-message" name="quick-message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+            </form>
+        </div>
+    </div>
     
     <!-- Audio Element for Button Sounds -->
     <audio id="buttonSound" src="https://github.com/LenteraKarya/Lentera-Karya/blob/main/assets/audio/audiotombol.mp3?raw=true"></audio>
@@ -383,14 +1201,94 @@
         });
         
         // Order button functionality
-        document.querySelectorAll('.order-btn, #quick-order').forEach(button => {
+        document.querySelectorAll('.order-btn').forEach(button => {
             button.addEventListener('click', function() {
-                // Redirect to WhatsApp for ordering
-                window.open('https://wa.me/6287865614222?text=Hi,%20I%20would%20like%20to%20order%20an%20item%20from%20your%20gallery.', '_blank');
+                const itemTitle = this.closest('.gallery-details').querySelector('.gallery-title').textContent;
+                const message = `Hi, I'm interested in ordering: ${itemTitle}. Please provide more details.`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
                 
                 // Play button sound
                 playButtonSound();
             });
+        });
+        
+        // Quick order modal
+        const quickOrderBtn = document.getElementById('quick-order');
+        const orderModal = document.getElementById('orderModal');
+        const closeModal = document.querySelector('.close-modal');
+        
+        quickOrderBtn.addEventListener('click', function() {
+            orderModal.style.display = 'flex';
+            playButtonSound();
+        });
+        
+        closeModal.addEventListener('click', function() {
+            orderModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === orderModal) {
+                orderModal.style.display = 'none';
+            }
+        });
+        
+        // Quick order form submission
+        document.getElementById('quickOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('quick-name').value;
+            const phone = document.getElementById('quick-phone').value;
+            const item = document.getElementById('quick-item').value;
+            const message = document.getElementById('quick-message').value;
+            
+            const whatsappMessage = `Hi, I'd like to place a quick order:\n\nName: ${name}\nPhone: ${phone}\nItem: ${item}\nDetails: ${message || 'None'}`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
+            orderModal.style.display = 'none';
+        });
+        
+        // Category filtering
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                const galleryItems = document.querySelectorAll('.gallery-item');
+                
+                galleryItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                playButtonSound();
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real implementation, you would send this data to your server
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+            playButtonSound();
+        });
+        
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            // In a real implementation, you would send this to your mailing list service
+            alert(`Thank you for subscribing with ${email}!`);
+            this.reset();
+            playButtonSound();
         });
         
         // Play button sound function
@@ -403,10 +1301,12 @@
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
