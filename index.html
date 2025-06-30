@@ -69,10 +69,14 @@
         header {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
-            padding: 4rem 0 6rem;
+            padding: 6rem 0 8rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .header-overlay {
@@ -81,8 +85,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-            opacity: 0.2;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             z-index: 1;
         }
         
@@ -101,20 +105,21 @@
         }
         
         .logo {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
         
         .logo i {
             color: var(--secondary);
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             animation: pulse 2s infinite;
+            text-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
         }
         
         @keyframes pulse {
@@ -124,29 +129,38 @@
         }
         
         .tagline {
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             max-width: 800px;
-            margin: 0 auto 2rem;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            margin: 0 auto 3rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            font-weight: 300;
+            line-height: 1.4;
         }
         
         .header-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
         
         .scroll-down {
             position: absolute;
-            bottom: 20px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             color: white;
-            font-size: 2rem;
+            font-size: 2.5rem;
             animation: bounce 2s infinite;
             cursor: pointer;
             z-index: 2;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-down:hover {
+            opacity: 1;
+            transform: translateY(5px) translateX(-50%);
         }
         
         @keyframes bounce {
@@ -623,8 +637,14 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--secondary);
+            background-color: var(--secondary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border: 3px solid rgba(52, 152, 219, 0.2);
         }
         
         .author-info h4 {
@@ -949,22 +969,6 @@
             opacity: 0.8;
         }
         
-        /* Admin Edit Notice */
-        .admin-notice {
-            background-color: #f8f9fa;
-            border-left: 4px solid var(--secondary);
-            padding: 1.5rem;
-            margin-bottom: 3rem;
-            font-size: 1rem;
-            color: var(--text-light);
-            border-radius: 0 8px 8px 0;
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        .admin-notice strong {
-            color: var(--primary);
-        }
-        
         /* Modal */
         .modal {
             display: none;
@@ -1038,11 +1042,15 @@
         /* Responsive */
         @media (max-width: 992px) {
             .logo {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             .logo i {
-                font-size: 3rem;
+                font-size: 3.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.5rem;
             }
             
             .hero h1 {
@@ -1056,19 +1064,20 @@
         
         @media (max-width: 768px) {
             header {
-                padding: 3rem 0 5rem;
+                min-height: auto;
+                padding: 5rem 0 7rem;
             }
             
             .logo {
-                font-size: 2.2rem;
-            }
-            
-            .logo i {
                 font-size: 2.5rem;
             }
             
+            .logo i {
+                font-size: 3rem;
+            }
+            
             .tagline {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
             }
             
             .nav-container {
@@ -1127,7 +1136,7 @@
         
         @media (max-width: 576px) {
             .logo {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .hero h1 {
@@ -1157,14 +1166,14 @@
     <div class="particles" id="particles"></div>
     
     <!-- Header Modern -->
-    <header>
+    <header id="home">
         <div class="header-overlay"></div>
         <div class="header-content">
             <div class="logo">
                 <i class="fas fa-lightbulb"></i>
                 <span>Lentera Karya</span>
             </div>
-            <p class="tagline">Kreasi tangan berkualitas dengan sentuhan seni yang memukau</p>
+            <p class="tagline">Kreasi tangan berkualitas dengan sentuhan seni yang memukau, menghadirkan keindahan dalam setiap detail</p>
             <div class="header-buttons">
                 <a href="#gallery" class="btn btn-primary">Lihat Karya Kami</a>
                 <a href="#contact" class="btn btn-outline">Hubungi Kami</a>
@@ -1223,11 +1232,6 @@
         
         <!-- Gallery Section -->
         <section class="gallery" id="gallery">
-            <!-- ADMIN NOTICE - YOU CAN EDIT BELOW THIS LINE -->
-            <div class="admin-notice">
-                <strong>Petunjuk Admin:</strong> Untuk menambahkan item baru ke galeri, salin dan tempel blok item galeri di bawah ini dan perbarui tautan gambar, judul, deskripsi, dan harga. Nomor WhatsApp sudah diatur ke 6287865614222.
-            </div>
-            
             <div class="gallery-intro">
                 <h2 class="section-title">Galeri Kami</h2>
                 <p>Jelajahi koleksi karya dan layanan premium kami. Klik "Detail" untuk mengetahui lebih lanjut tentang setiap item.</p>
@@ -1379,7 +1383,7 @@
                             Patung kayu yang saya pesan melebihi ekspektasi! Kualitas kerajinan tangan sangat luar biasa dan terlihat cantik di ruang tamu saya.
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="testimonial-avatar">
+                            <div class="testimonial-avatar">S</div>
                             <div class="author-info">
                                 <h4>Sarah Johnson</h4>
                                 <p>Kolektor Seni</p>
@@ -1391,7 +1395,7 @@
                             Menyewa paket dekorasi mereka untuk pernikahan anak saya. Tim sangat profesional dan hasil dekorasinya menakjubkan. Sangat direkomendasikan!
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David Wilson" class="testimonial-avatar">
+                            <div class="testimonial-avatar">D</div>
                             <div class="author-info">
                                 <h4>David Wilson</h4>
                                 <p>Wedding Planner</p>
@@ -1403,7 +1407,7 @@
                             Memesan merchandise custom untuk acara perusahaan kami. Kualitasnya sangat bagus dan mereka mengirim tepat waktu meski deadline kami ketat.
                         </p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa Chen" class="testimonial-avatar">
+                            <div class="testimonial-avatar">L</div>
                             <div class="author-info">
                                 <h4>Lisa Chen</h4>
                                 <p>Direktur Pemasaran</p>
