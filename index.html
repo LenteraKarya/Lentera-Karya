@@ -36,6 +36,41 @@
             overflow-x: hidden;
         }
         
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--secondary);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
         /* Animasi Partikel */
         .particles {
             position: absolute;
@@ -67,7 +102,7 @@
         
         /* Header Modern */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.95));
             color: white;
             padding: 6rem 0 8rem;
             text-align: center;
@@ -86,7 +121,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.95)), 
-                        url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             z-index: 1;
         }
         
@@ -250,7 +285,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
-                        url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -577,7 +612,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover fixed;
+            background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover fixed;
             opacity: 0.05;
             z-index: 0;
         }
@@ -1192,6 +1227,12 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-spinner"></div>
+        <h2 style="color: white;">Lentera Karya</h2>
+    </div>
+    
     <!-- Partikel Animasi -->
     <div class="particles" id="particles"></div>
     
@@ -1609,7 +1650,10 @@
                 <div class="contact-form">
                     <h3>Kirim Pesan</h3>
                     <div id="formStatus" class="form-status" style="display: none;"></div>
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formsubmit.co/lenterakaryasitubondo@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                        <input type="hidden" name="_template" value="table">
                         <div class="form-group">
                             <label for="name">Nama Anda</label>
                             <input type="text" id="name" name="name" required>
@@ -1637,7 +1681,7 @@
                             <label for="message">Pesan</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Kirim Pesan</button>
                     </form>
                 </div>
             </div>
@@ -1709,22 +1753,24 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2>Pesan Cepat</h2>
-            <form id="quickOrderForm">
+            <form id="quickOrderForm" action="https://formsubmit.co/lenterakaryasitubondo@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Pesan Cepat dari Website">
+                <input type="hidden" name="_captcha" value="false">
                 <div class="form-group">
                     <label for="quick-name">Nama Anda</label>
-                    <input type="text" id="quick-name" name="quick-name" required>
+                    <input type="text" id="quick-name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="quick-phone">Nomor Telepon</label>
-                    <input type="tel" id="quick-phone" name="quick-phone" required>
+                    <input type="tel" id="quick-phone" name="phone" required>
                 </div>
                 <div class="form-group">
                     <label for="quick-item">Produk yang Diminati</label>
-                    <input type="text" id="quick-item" name="quick-item" required>
+                    <input type="text" id="quick-item" name="product" required>
                 </div>
                 <div class="form-group">
                     <label for="quick-message">Detail Tambahan</label>
-                    <textarea id="quick-message" name="quick-message"></textarea>
+                    <textarea id="quick-message" name="message"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Kirim Permintaan</button>
             </form>
@@ -1735,6 +1781,13 @@
     <audio id="buttonSound" src="https://github.com/LenteraKarya/Lentera-Karya/blob/main/assets/audio/audiotombol.mp3?raw=true"></audio>
     
     <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loading-screen').classList.add('hidden');
+            }, 1000);
+        });
+        
         // Inisialisasi Partikel
         function initParticles() {
             const particlesContainer = document.getElementById('particles');
@@ -1849,16 +1902,77 @@
         // Quick order form submission
         document.getElementById('quickOrderForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('quick-name').value;
-            const phone = document.getElementById('quick-phone').value;
-            const item = document.getElementById('quick-item').value;
-            const message = document.getElementById('quick-message').value;
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
             
-            const whatsappMessage = `Halo, saya ingin memesan:\n\nNama: ${name}\nTelepon: ${phone}\nProduk: ${item}\nDetail: ${message || 'Tidak ada'}`;
-            const encodedMessage = encodeURIComponent(whatsappMessage);
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
             
-            window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
-            orderModal.style.display = 'none';
+            // Kirim ke FormSubmit.co (email)
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Kirim ke WhatsApp juga
+                    const name = form.querySelector('#quick-name').value;
+                    const phone = form.querySelector('#quick-phone').value;
+                    const product = form.querySelector('#quick-item').value;
+                    const message = form.querySelector('#quick-message').value || 'Tidak ada pesan tambahan';
+                    
+                    const whatsappMessage = `Pesan Cepat dari Website:\n\nNama: ${name}\nTelepon: ${phone}\nProduk: ${product}\nPesan: ${message}`;
+                    const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+                    
+                    window.open(`https://wa.me/6287865614222?text=${encodedWhatsappMessage}`, '_blank');
+                    
+                    // Reset form
+                    form.reset();
+                    orderModal.style.display = 'none';
+                    
+                    // Tampilkan notifikasi sukses
+                    const formStatus = document.getElementById('formStatus');
+                    formStatus.textContent = 'Permintaan Anda telah terkirim. Kami akan segera menghubungi Anda.';
+                    formStatus.className = 'form-status success';
+                    formStatus.style.display = 'block';
+                } else {
+                    throw new Error('Gagal mengirim pesan');
+                }
+            })
+            .catch(error => {
+                // Jika gagal ke email, coba hanya ke WhatsApp
+                const name = form.querySelector('#quick-name').value;
+                const phone = form.querySelector('#quick-phone').value;
+                const product = form.querySelector('#quick-item').value;
+                const message = form.querySelector('#quick-message').value || 'Tidak ada pesan tambahan';
+                
+                const whatsappMessage = `Pesan Cepat dari Website:\n\nNama: ${name}\nTelepon: ${phone}\nProduk: ${product}\nPesan: ${message}`;
+                const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+                
+                window.open(`https://wa.me/6287865614222?text=${encodedWhatsappMessage}`, '_blank');
+                
+                // Reset form
+                form.reset();
+                orderModal.style.display = 'none';
+                
+                // Tampilkan notifikasi sukses
+                const formStatus = document.getElementById('formStatus');
+                formStatus.textContent = 'Permintaan Anda telah dikirim melalui WhatsApp. Kami akan segera menghubungi Anda.';
+                formStatus.className = 'form-status success';
+                formStatus.style.display = 'block';
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            });
+            
+            playButtonSound();
         });
         
         // Category filtering
@@ -1888,8 +2002,12 @@
         // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+            const form = this;
             const formStatus = document.getElementById('formStatus');
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Reset status
             formStatus.style.display = 'none';
             
             // Validasi form
@@ -1906,46 +2024,56 @@
                 return;
             }
             
-            // Kirim ke WhatsApp
-            const whatsappMessage = `*Pesan dari Website Lentera Karya*:\n\nNama: ${name}\nEmail: ${email}\nTelepon: ${phone}\nSubjek: ${document.getElementById('subject').options[document.getElementById('subject').selectedIndex].text}\nPesan: ${message}`;
-            const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
-            
-            // Kirim ke Email (menggunakan FormSubmit.co)
-            const formData = new FormData(this);
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
             
             // Kirim ke FormSubmit.co (email)
-            fetch('https://formsubmit.co/ajax/lenterakaryasitubondo@gmail.com', {
+            fetch(form.action, {
                 method: 'POST',
-                body: formData
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success === 'true') {
+            .then(response => {
+                if (response.ok) {
+                    // Kirim ke WhatsApp juga
+                    const whatsappMessage = `*Pesan dari Website Lentera Karya*:\n\nNama: ${name}\nEmail: ${email}\nTelepon: ${phone}\nSubjek: ${document.getElementById('subject').options[document.getElementById('subject').selectedIndex].text}\nPesan: ${message}`;
+                    const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+                    
+                    window.open(`https://wa.me/6287865614222?text=${encodedWhatsappMessage}`, '_blank');
+                    
                     // Tampilkan pesan sukses
                     formStatus.textContent = 'Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.';
                     formStatus.className = 'form-status success';
                     formStatus.style.display = 'block';
                     
                     // Reset form
-                    this.reset();
-                    
-                    // Buka WhatsApp
-                    window.open(`https://wa.me/6287865614222?text=${encodedWhatsappMessage}`, '_blank');
+                    form.reset();
                 } else {
                     throw new Error('Gagal mengirim ke email');
                 }
             })
             .catch(error => {
                 // Jika gagal ke email, coba hanya ke WhatsApp
+                const whatsappMessage = `*Pesan dari Website Lentera Karya*:\n\nNama: ${name}\nEmail: ${email}\nTelepon: ${phone}\nSubjek: ${document.getElementById('subject').options[document.getElementById('subject').selectedIndex].text}\nPesan: ${message}`;
+                const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+                
+                window.open(`https://wa.me/6287865614222?text=${encodedWhatsappMessage}`, '_blank');
+                
+                // Tampilkan pesan sukses
                 formStatus.textContent = 'Pesan Anda telah dikirim melalui WhatsApp. Kami akan segera menghubungi Anda.';
                 formStatus.className = 'form-status success';
                 formStatus.style.display = 'block';
                 
                 // Reset form
-                this.reset();
-                
-                // Buka WhatsApp
-                window.open(`https://wa.me/6287865614222?text=${encodedWhatsappMessage}`, '_blank');
+                form.reset();
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
             });
             
             playButtonSound();
@@ -1955,6 +2083,12 @@
         document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = this.querySelector('input').value;
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
             
             // Kirim ke FormSubmit.co (email)
             fetch('https://formsubmit.co/ajax/lenterakaryasitubondo@gmail.com', {
@@ -1975,6 +2109,10 @@
             })
             .catch(error => {
                 alert('Terjadi kesalahan. Silakan coba lagi nanti.');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
             });
             
             playButtonSound();
