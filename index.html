@@ -29,6 +29,10 @@
             --success: #4a934a;
             --warning: #ffa630;
             --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,0.15), 0 10px 20px rgba(0,0,0,0.1);
         }
         
         * {
@@ -224,11 +228,61 @@
             font-family: 'Playfair Display', serif;
         }
         
+        /* Search Bar in Header */
+        .header-search {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+        
+        .header-search input {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            padding-right: 4.5rem;
+        }
+        
+        .header-search input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(219, 100, 0, 0.3), var(--shadow-xl);
+        }
+        
+        .header-search button {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .header-search button:hover {
+            background: #c45600;
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+        
         .header-buttons {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
-            margin-top: 3rem;
+            margin-top: 1.5rem;
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.6s forwards;
         }
@@ -326,6 +380,47 @@
             transition: var(--transition);
         }
         
+        /* Nav Search */
+        .nav-search {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 2rem;
+            position: relative;
+            display: none; /* Hidden by default on mobile */
+        }
+        
+        .nav-search input {
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid #e0e0e0;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding-right: 3rem;
+        }
+        
+        .nav-search input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(219, 100, 0, 0.1);
+        }
+        
+        .nav-search button {
+            position: absolute;
+            right: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-search button:hover {
+            color: var(--accent);
+        }
+        
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -370,6 +465,17 @@
             font-size: 1.8rem;
             cursor: pointer;
             z-index: 1001;
+        }
+        
+        /* Search Toggle Button for Mobile */
+        .search-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            margin-right: 1rem;
         }
         
         /* Sections */
@@ -1343,6 +1449,128 @@
             border-radius: 2px;
         }
         
+        /* Search Modal */
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .search-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .search-modal-content {
+            background: transparent;
+            max-width: 800px;
+            width: 90%;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .search-modal-input {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            background: transparent;
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .search-modal-input:focus {
+            outline: none;
+            border-bottom-color: var(--accent);
+        }
+        
+        .search-modal-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .close-search-modal {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+        
+        .close-search-modal:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+        
+        .search-results {
+            margin-top: 2rem;
+            max-height: 60vh;
+            overflow-y: auto;
+            padding-right: 1rem;
+        }
+        
+        .search-result-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+        
+        .search-result-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .search-result-item h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .search-result-item p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+        
+        .search-result-item .category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(219, 100, 0, 0.2);
+            color: var(--accent);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        .search-result-item .price {
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0.5rem;
+            display: block;
+        }
+        
+        .no-results {
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+        }
+        
         /* Image Zoom Modal */
         .image-modal {
             display: none;
@@ -1481,7 +1709,22 @@
                 right: 0;
             }
             
-            .mobile-menu-toggle {
+            .mobile-menu-toggle, .search-toggle {
+                display: block;
+            }
+            
+            .nav-search {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem;
+                background: white;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-search.active {
                 display: block;
             }
             
@@ -1508,6 +1751,11 @@
             
             .tagline {
                 font-size: 1.4rem;
+            }
+            
+            .header-search {
+                max-width: 90%;
+                margin-bottom: 2rem;
             }
             
             .nav-container {
@@ -1663,6 +1911,13 @@
                 <span>Lentera Karya</span>
             </div>
             <p class="tagline">Kreasi tangan berkualitas dengan sentuhan seni yang memukau, menghadirkan keindahan dalam setiap detail</p>
+            
+            <!-- Search Bar in Header -->
+            <div class="header-search">
+                <input type="text" id="headerSearchInput" placeholder="Cari produk atau layanan...">
+                <button id="headerSearchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            
             <div class="header-buttons">
                 <a href="#gallery" class="btn btn-primary">
                     <i class="fas fa-images"></i> Lihat Karya Kami
@@ -1684,9 +1939,21 @@
                 <i class="fas fa-lightbulb"></i>
                 <span>Lentera Karya</span>
             </a>
+            
+            <!-- Nav Search (Hidden on mobile) -->
+            <div class="nav-search" id="navSearch">
+                <input type="text" placeholder="Cari produk atau layanan...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <button class="search-toggle" id="searchToggle">
+                <i class="fas fa-search"></i>
+            </button>
+            
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
             </button>
+            
             <div class="nav-links" id="navLinks">
                 <a href="#home">Beranda</a>
                 <a href="#services">Layanan</a>
@@ -2400,6 +2667,17 @@
         </div>
     </div>
     
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content">
+            <span class="close-search-modal">&times;</span>
+            <input type="text" class="search-modal-input" placeholder="Cari produk atau layanan..." id="searchModalInput">
+            <div class="search-results" id="searchResults">
+                <!-- Results will be populated here by JavaScript -->
+            </div>
+        </div>
+    </div>
+    
     <!-- Image Zoom Modal -->
     <div class="image-modal" id="imageModal">
         <div class="image-modal-content">
@@ -2427,6 +2705,15 @@
             navLinks.classList.toggle('active');
             this.innerHTML = navLinks.classList.contains('active') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            playButtonSound();
+        });
+        
+        // Search Toggle for Mobile
+        const searchToggle = document.getElementById('searchToggle');
+        const navSearch = document.getElementById('navSearch');
+        
+        searchToggle.addEventListener('click', function() {
+            navSearch.classList.toggle('active');
             playButtonSound();
         });
         
@@ -2525,6 +2812,7 @@
             // Animasi header elements
             setTimeout(() => {
                 document.querySelector('.tagline').style.animation = 'fadeInUp 1s ease-out 0.3s forwards';
+                document.querySelector('.header-search').style.animation = 'fadeInUp 1s ease-out 0.5s forwards';
                 document.querySelector('.header-buttons').style.animation = 'fadeInUp 1s ease-out 0.6s forwards';
             }, 300);
         });
@@ -2853,6 +3141,142 @@
             
             playButtonSound();
         });
+        
+        // Search functionality
+        const searchModal = document.getElementById('searchModal');
+        const searchModalInput = document.getElementById('searchModalInput');
+        const searchResults = document.getElementById('searchResults');
+        const closeSearchModal = document.querySelector('.close-search-modal');
+        
+        // Open search modal from header search
+        document.getElementById('headerSearchBtn').addEventListener('click', function() {
+            const query = document.getElementById('headerSearchInput').value.trim();
+            if (query) {
+                searchModalInput.value = query;
+                performSearch(query);
+            }
+            searchModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            playButtonSound();
+        });
+        
+        // Open search modal from nav search
+        document.querySelector('.nav-search button').addEventListener('click', function() {
+            const query = document.querySelector('.nav-search input').value.trim();
+            if (query) {
+                searchModalInput.value = query;
+                performSearch(query);
+            }
+            searchModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            playButtonSound();
+        });
+        
+        // Close search modal
+        closeSearchModal.addEventListener('click', function() {
+            searchModal.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+        
+        // Search when pressing enter in search modal
+        searchModalInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch(this.value.trim());
+            }
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === searchModal) {
+                searchModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Perform search function
+        function performSearch(query) {
+            if (!query) {
+                searchResults.innerHTML = '<div class="no-results">Masukkan kata kunci pencarian</div>';
+                return;
+            }
+            
+            // Simulate search results (in a real app, this would be an API call)
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const services = document.querySelectorAll('.service-card');
+            let resultsFound = false;
+            
+            searchResults.innerHTML = '';
+            
+            // Search in gallery items
+            galleryItems.forEach(item => {
+                const title = item.querySelector('.gallery-title').textContent.toLowerCase();
+                const description = item.querySelector('.gallery-description') ? item.querySelector('.gallery-description').textContent.toLowerCase() : '';
+                const category = item.dataset.category;
+                
+                if (title.includes(query.toLowerCase()) || description.includes(query.toLowerCase())) {
+                    resultsFound = true;
+                    const price = item.querySelector('.gallery-price').textContent;
+                    
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <h3>${item.querySelector('.gallery-title').textContent}</h3>
+                        <p>${description.substring(0, 150)}...</p>
+                        <span class="price">${price}</span>
+                        <span class="category">${category === 'crafts' ? 'Kerajinan Tangan' : 
+                                           category === 'rental' ? 'Sewa' : 
+                                           category === 'promo' ? 'Promosi' : ''}</span>
+                    `;
+                    
+                    resultItem.addEventListener('click', function() {
+                        // Scroll to the item
+                        item.scrollIntoView({ behavior: 'smooth' });
+                        // Close search modal
+                        searchModal.classList.remove('show');
+                        document.body.style.overflow = '';
+                        // Expand the item details if collapsed
+                        const toggleBtn = item.querySelector('.toggle-description');
+                        if (toggleBtn && toggleBtn.textContent === 'Detail') {
+                            toggleBtn.click();
+                        }
+                    });
+                    
+                    searchResults.appendChild(resultItem);
+                }
+            });
+            
+            // Search in services
+            services.forEach(service => {
+                const title = service.querySelector('.service-title').textContent.toLowerCase();
+                const description = service.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(query.toLowerCase()) || description.includes(query.toLowerCase())) {
+                    resultsFound = true;
+                    
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <h3>${service.querySelector('.service-title').textContent}</h3>
+                        <p>${description.substring(0, 150)}...</p>
+                        <span class="category">Layanan</span>
+                    `;
+                    
+                    resultItem.addEventListener('click', function() {
+                        // Scroll to services section
+                        document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+                        // Close search modal
+                        searchModal.classList.remove('show');
+                        document.body.style.overflow = '';
+                    });
+                    
+                    searchResults.appendChild(resultItem);
+                }
+            });
+            
+            if (!resultsFound) {
+                searchResults.innerHTML = '<div class="no-results">Tidak ditemukan hasil untuk "' + query + '"</div>';
+            }
+        }
         
         // Play button sound function
         function playButtonSound() {
