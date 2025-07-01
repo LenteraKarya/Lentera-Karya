@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <meta name="description" content="Lentera Karya - Kerajinan tangan, jasa sewa, dan solusi promosi berkualitas di Situbondo. Produk dan layanan terbaik untuk kebutuhan Anda.">
     <title>Lentera Karya | Kerajinan Tangan & Jasa Profesional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -428,7 +428,7 @@
             line-height: 1.8;
         }
         
-        /* Improved Gallery Section */
+        /* Gallery Section */
         .gallery-intro {
             text-align: center;
             margin-bottom: 5rem;
@@ -526,67 +526,138 @@
             background: var(--success);
         }
         
-        /* Improved Gallery Image Container */
         .gallery-image-container {
             position: relative;
             overflow: hidden;
-            height: 0;
-            padding-bottom: 75%; /* 4:3 Aspect Ratio */
-            background-color: #f5f5f5;
+            height: 300px;
+            aspect-ratio: 16/9;
         }
         
         .gallery-image {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: transform 0.8s ease;
         }
         
         .gallery-item:hover .gallery-image {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
         
         .gallery-details {
-            padding: 2rem;
-            background: white;
+            padding: 2.5rem;
         }
         
         .gallery-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
             color: var(--dark);
-            transition: color 0.3s ease;
             font-family: 'Playfair Display', serif;
-        }
-        
-        .gallery-item:hover .gallery-title {
-            color: var(--accent);
         }
         
         .gallery-price {
             color: var(--accent);
             font-weight: 700;
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
             letter-spacing: 0.5px;
+        }
+        
+        /* Gallery Detail Expanded View */
+        .gallery-detail-expanded {
+            display: none;
+            padding: 0 2rem 2rem;
+            margin-top: -1.5rem;
+        }
+        
+        .gallery-detail-expanded.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .gallery-carousel {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .gallery-main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .gallery-thumbnails {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) #f1f1f1;
+        }
+        
+        .gallery-thumbnails::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .gallery-thumbnails::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .gallery-thumbnails::-webkit-scrollbar-thumb {
+            background-color: var(--accent);
+            border-radius: 10px;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+            aspect-ratio: 1/1;
+        }
+        
+        .thumbnail:hover, .thumbnail.active {
+            border-color: var(--accent);
+            transform: scale(1.05);
         }
         
         .gallery-description {
             color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.7;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, margin-bottom 0.3s ease;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
         
-        .gallery-description.active {
-            max-height: 300px;
-            margin-bottom: 1.5rem;
+        .gallery-specs {
+            margin-top: 1.5rem;
+            border-top: 1px solid #eee;
+            padding-top: 1.5rem;
+        }
+        
+        .spec-item {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .spec-label {
+            font-weight: 600;
+            color: var(--dark);
+            min-width: 120px;
+        }
+        
+        .spec-value {
+            color: var(--text-light);
         }
         
         /* Buttons */
@@ -1243,6 +1314,56 @@
             border-radius: 2px;
         }
         
+        /* Image Zoom Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .image-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .image-modal-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .close-image-modal {
+            position: absolute;
+            top: -40px;
+            right: -10px;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .close-image-modal:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+        
         /* Audio Element for Button Sounds */
         audio {
             display: none;
@@ -1264,6 +1385,10 @@
             
             .section-title {
                 font-size: 2.2rem;
+            }
+            
+            .gallery-main-image {
+                height: 350px;
             }
         }
         
@@ -1292,9 +1417,8 @@
                 padding: 3rem;
             }
             
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                gap: 2rem;
+            .gallery-main-image {
+                height: 300px;
             }
         }
         
@@ -1334,8 +1458,20 @@
                 font-size: 1.8rem;
             }
             
-            .gallery-image-container {
-                padding-bottom: 100%; /* 1:1 Aspect Ratio for mobile */
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .gallery-main-image {
+                height: 250px;
+            }
+            
+            .gallery-details {
+                padding: 2rem;
+            }
+            
+            .gallery-detail-expanded {
+                padding: 0 1.5rem 1.5rem;
             }
             
             .contact-bar {
@@ -1385,6 +1521,23 @@
                 grid-template-columns: 1fr;
             }
             
+            .gallery-main-image {
+                height: 200px;
+            }
+            
+            .gallery-details {
+                padding: 1.5rem;
+            }
+            
+            .gallery-detail-expanded {
+                padding: 0 1rem 1rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
             .contact-info, .contact-form {
                 padding: 2.5rem 2rem;
             }
@@ -1402,6 +1555,29 @@
             
             .modal-content {
                 padding: 2.5rem 2rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .gallery-main-image {
+                height: 180px;
+            }
+            
+            .thumbnail {
+                width: 60px;
+                height: 60px;
             }
         }
     </style>
@@ -1485,11 +1661,11 @@
             </div>
         </section>
         
-        <!-- Improved Gallery Section -->
+        <!-- Gallery Section -->
         <section class="gallery" id="gallery">
             <h2 class="section-title">Galeri Kami</h2>
             <div class="gallery-intro">
-                <p>Jelajahi koleksi karya dan layanan premium kami. Klik "Detail" untuk mengetahui lebih lanjut tentang setiap item.</p>
+                <p>Jelajahi koleksi karya dan layanan premium kami. Klik "Detail" untuk melihat lebih banyak gambar dan informasi.</p>
                 
                 <div class="category-tabs">
                     <button class="category-btn active" data-category="all">Semua</button>
@@ -1509,11 +1685,43 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Patung Kayu Ukir</h3>
                         <p class="gallery-price">Rp 450.000</p>
-                        <p class="gallery-description">
-                            Patung kayu ukir tangan yang indah dibuat dari kayu jati yang berkelanjutan. 
-                            Dimensi: 30cm x 15cm x 10cm. Setiap karya unik dan ditandatangani oleh pengrajin. 
-                            Sempurna untuk dekorasi rumah atau hadiah spesial.
-                        </p>
+                        
+                        <div class="gallery-detail-expanded">
+                            <div class="gallery-carousel">
+                                <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patung Kayu Ukir - Tampilan Depan" class="gallery-main-image" id="main-image-1">
+                                <div class="gallery-thumbnails">
+                                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patung Kayu Ukir - Tampilan Depan" class="thumbnail active" onclick="changeMainImage('main-image-1', this)">
+                                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patung Kayu Ukir - Tampilan Samping" class="thumbnail" onclick="changeMainImage('main-image-1', this)">
+                                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patung Kayu Ukir - Detail Ukiran" class="thumbnail" onclick="changeMainImage('main-image-1', this)">
+                                </div>
+                            </div>
+                            
+                            <p class="gallery-description">
+                                Patung kayu ukir tangan yang indah dibuat dari kayu jati yang berkelanjutan. 
+                                Dimensi: 30cm x 15cm x 10cm. Setiap karya unik dan ditandatangani oleh pengrajin. 
+                                Sempurna untuk dekorasi rumah atau hadiah spesial.
+                            </p>
+                            
+                            <div class="gallery-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Material:</span>
+                                    <span class="spec-value">Kayu Jati Premium</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Ukuran:</span>
+                                    <span class="spec-value">30cm x 15cm x 10cm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Berat:</span>
+                                    <span class="spec-value">1.2 kg</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Waktu Pengerjaan:</span>
+                                    <span class="spec-value">2-3 minggu</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="action-buttons">
                             <button class="btn btn-outline btn-small toggle-description">Detail</button>
                             <button class="btn btn-primary btn-small order-btn">Pesan Sekarang</button>
@@ -1530,11 +1738,43 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Dekorasi Acara Premium</h3>
                         <p class="gallery-price">Rp 1.200.000/hari</p>
-                        <p class="gallery-description">
-                            Paket lengkap dekorasi acara termasuk backdrop, centerpiece, 
-                            dan pencahayaan. Cocok untuk pernikahan, ulang tahun, dan acara perusahaan. 
-                            Termasuk jasa pemasangan dan pembongkaran. Sewa minimal: 2 hari.
-                        </p>
+                        
+                        <div class="gallery-detail-expanded">
+                            <div class="gallery-carousel">
+                                <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dekorasi Acara - Tampilan Utama" class="gallery-main-image" id="main-image-2">
+                                <div class="gallery-thumbnails">
+                                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dekorasi Acara - Tampilan Utama" class="thumbnail active" onclick="changeMainImage('main-image-2', this)">
+                                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dekorasi Acara - Tampilan Samping" class="thumbnail" onclick="changeMainImage('main-image-2', this)">
+                                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dekorasi Acara - Detail Meja" class="thumbnail" onclick="changeMainImage('main-image-2', this)">
+                                </div>
+                            </div>
+                            
+                            <p class="gallery-description">
+                                Paket lengkap dekorasi acara termasuk backdrop, centerpiece, 
+                                dan pencahayaan. Cocok untuk pernikahan, ulang tahun, dan acara perusahaan. 
+                                Termasuk jasa pemasangan dan pembongkaran. Sewa minimal: 2 hari.
+                            </p>
+                            
+                            <div class="gallery-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Inklusif:</span>
+                                    <span class="spec-value">Backdrop, centerpiece, lighting</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Kapasitas:</span>
+                                    <span class="spec-value">Untuk 50-100 tamu</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Sewa Minimal:</span>
+                                    <span class="spec-value">2 hari</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Setup Time:</span>
+                                    <span class="spec-value">3-4 jam</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="action-buttons">
                             <button class="btn btn-outline btn-small toggle-description">Detail</button>
                             <button class="btn btn-primary btn-small order-btn">Tanya</button>
@@ -1551,11 +1791,43 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Merchandise Custom</h3>
                         <p class="gallery-price">Mulai Rp 25.000/pcs</p>
-                        <p class="gallery-description">
-                            Barang promosi custom termasuk kaos, mug, dan tote bag. 
-                            Pesanan minimal: 50 pcs. Cetakan berkualitas tinggi dengan logo atau desain Anda. 
-                            Sempurna untuk hadiah perusahaan, acara, atau promosi merek.
-                        </p>
+                        
+                        <div class="gallery-detail-expanded">
+                            <div class="gallery-carousel">
+                                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Merchandise - Kaos" class="gallery-main-image" id="main-image-3">
+                                <div class="gallery-thumbnails">
+                                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Merchandise - Kaos" class="thumbnail active" onclick="changeMainImage('main-image-3', this)">
+                                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Merchandise - Mug" class="thumbnail" onclick="changeMainImage('main-image-3', this)">
+                                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Merchandise - Tote Bag" class="thumbnail" onclick="changeMainImage('main-image-3', this)">
+                                </div>
+                            </div>
+                            
+                            <p class="gallery-description">
+                                Barang promosi custom termasuk kaos, mug, dan tote bag. 
+                                Pesanan minimal: 50 pcs. Cetakan berkualitas tinggi dengan logo atau desain Anda. 
+                                Sempurna untuk hadiah perusahaan, acara, atau promosi merek.
+                            </p>
+                            
+                            <div class="gallery-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Jenis Produk:</span>
+                                    <span class="spec-value">Kaos, Mug, Tote Bag, dll</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Pesanan Minimal:</span>
+                                    <span class="spec-value">50 pcs</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Teknik Cetak:</span>
+                                    <span class="spec-value">Sablon, DTG, Sublimasi</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Waktu Produksi:</span>
+                                    <span class="spec-value">7-14 hari kerja</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="action-buttons">
                             <button class="btn btn-outline btn-small toggle-description">Detail</button>
                             <button class="btn btn-primary btn-small order-btn">Dapatkan Penawaran</button>
@@ -1572,11 +1844,43 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Keranjang Anyaman</h3>
                         <p class="gallery-price">Rp 180.000</p>
-                        <p class="gallery-description">
-                            Keranjang anyaman tradisional dibuat dari rotan alami. 
-                            Dimensi: diameter 40cm x tinggi 25cm. Ramah lingkungan dan tahan lama. 
-                            Sempurna untuk penyimpanan atau sebagai hiasan. Tersedia dalam berbagai ukuran.
-                        </p>
+                        
+                        <div class="gallery-detail-expanded">
+                            <div class="gallery-carousel">
+                                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Keranjang Anyaman - Tampilan Utama" class="gallery-main-image" id="main-image-4">
+                                <div class="gallery-thumbnails">
+                                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Keranjang Anyaman - Tampilan Utama" class="thumbnail active" onclick="changeMainImage('main-image-4', this)">
+                                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Keranjang Anyaman - Tampilan Atas" class="thumbnail" onclick="changeMainImage('main-image-4', this)">
+                                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Keranjang Anyaman - Detail Anyaman" class="thumbnail" onclick="changeMainImage('main-image-4', this)">
+                                </div>
+                            </div>
+                            
+                            <p class="gallery-description">
+                                Keranjang anyaman tradisional dibuat dari rotan alami. 
+                                Dimensi: diameter 40cm x tinggi 25cm. Ramah lingkungan dan tahan lama. 
+                                Sempurna untuk penyimpanan atau sebagai hiasan. Tersedia dalam berbagai ukuran.
+                            </p>
+                            
+                            <div class="gallery-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Material:</span>
+                                    <span class="spec-value">Rotan Alami</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Ukuran:</span>
+                                    <span class="spec-value">Diameter 40cm x Tinggi 25cm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Warna:</span>
+                                    <span class="spec-value">Natural, Coklat, Hitam</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Perawatan:</span>
+                                    <span class="spec-value">Hindarkan dari air berlebihan</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="action-buttons">
                             <button class="btn btn-outline btn-small toggle-description">Detail</button>
                             <button class="btn btn-primary btn-small order-btn">Pesan Sekarang</button>
@@ -1593,11 +1897,43 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Paket Fotografi</h3>
                         <p class="gallery-price">Rp 750.000/hari</p>
-                        <p class="gallery-description">
-                            Sewa peralatan fotografi profesional termasuk kamera DSLR, 
-                            lensa, pencahayaan, dan aksesoris. Termasuk pelatihan dasar untuk pemula. 
-                            Deposit diperlukan. Asuransi tersedia dengan biaya tambahan.
-                        </p>
+                        
+                        <div class="gallery-detail-expanded">
+                            <div class="gallery-carousel">
+                                <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paket Fotografi - Kamera" class="gallery-main-image" id="main-image-5">
+                                <div class="gallery-thumbnails">
+                                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paket Fotografi - Kamera" class="thumbnail active" onclick="changeMainImage('main-image-5', this)">
+                                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paket Fotografi - Lensa" class="thumbnail" onclick="changeMainImage('main-image-5', this)">
+                                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paket Fotografi - Lighting" class="thumbnail" onclick="changeMainImage('main-image-5', this)">
+                                </div>
+                            </div>
+                            
+                            <p class="gallery-description">
+                                Sewa peralatan fotografi profesional termasuk kamera DSLR, 
+                                lensa, pencahayaan, dan aksesoris. Termasuk pelatihan dasar untuk pemula. 
+                                Deposit diperlukan. Asuransi tersedia dengan biaya tambahan.
+                            </p>
+                            
+                            <div class="gallery-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Inklusif:</span>
+                                    <span class="spec-value">Kamera, lensa, lighting, tripod</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Merek:</span>
+                                    <span class="spec-value">Canon, Nikon, Sony</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Deposit:</span>
+                                    <span class="spec-value">Rp 2.000.000</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Asuransi:</span>
+                                    <span class="spec-value">Tersedia (opsional)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="action-buttons">
                             <button class="btn btn-outline btn-small toggle-description">Detail</button>
                             <button class="btn btn-primary btn-small order-btn">Tanya</button>
@@ -1614,11 +1950,43 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Paket Banner Stand</h3>
                         <p class="gallery-price">Rp 350.000</p>
-                        <p class="gallery-description">
-                            Paket lengkap banner stand termasuk desain, cetak, dan stand. 
-                            Ukuran: 80cm x 200cm. Cetakan vinyl berkualitas tinggi. Sempurna untuk pameran, 
-                            acara, atau promosi di toko. Panduan pemasangan termasuk.
-                        </p>
+                        
+                        <div class="gallery-detail-expanded">
+                            <div class="gallery-carousel">
+                                <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand - Tampilan Utama" class="gallery-main-image" id="main-image-6">
+                                <div class="gallery-thumbnails">
+                                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand - Tampilan Utama" class="thumbnail active" onclick="changeMainImage('main-image-6', this)">
+                                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand - Detail Cetakan" class="thumbnail" onclick="changeMainImage('main-image-6', this)">
+                                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand - Sistem Lipat" class="thumbnail" onclick="changeMainImage('main-image-6', this)">
+                                </div>
+                            </div>
+                            
+                            <p class="gallery-description">
+                                Paket lengkap banner stand termasuk desain, cetak, dan stand. 
+                                Ukuran: 80cm x 200cm. Cetakan vinyl berkualitas tinggi. Sempurna untuk pameran, 
+                                acara, atau promosi di toko. Panduan pemasangan termasuk.
+                            </p>
+                            
+                            <div class="gallery-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Ukuran:</span>
+                                    <span class="spec-value">80cm x 200cm</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Material:</span>
+                                    <span class="spec-value">Vinyl Premium</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Waktu Produksi:</span>
+                                    <span class="spec-value">3-5 hari kerja</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Garansi:</span>
+                                    <span class="spec-value">1 tahun</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="action-buttons">
                             <button class="btn btn-outline btn-small toggle-description">Detail</button>
                             <button class="btn btn-primary btn-small order-btn">Dapatkan Penawaran</button>
@@ -1949,7 +2317,7 @@
                     <input type="text" id="quick-name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="quick-phone">Nomor Telepon</label>
+                    <label for="quick-phone">Nomro Telepon</label>
                     <input type="tel" id="quick-phone" name="phone" required>
                 </div>
                 <div class="form-group">
@@ -1964,6 +2332,14 @@
                     <i class="fas fa-paper-plane"></i> Kirim Permintaan
                 </button>
             </form>
+        </div>
+    </div>
+    
+    <!-- Image Zoom Modal -->
+    <div class="image-modal" id="imageModal">
+        <div class="image-modal-content">
+            <span class="close-image-modal">&times;</span>
+            <img id="zoomedImage" src="" alt="Zoomed Image">
         </div>
     </div>
     
@@ -2051,32 +2427,58 @@
         // Jalankan saat scroll
         window.addEventListener('scroll', animateOnScroll);
         
-        // Toggle description visibility with improved animation
+        // Toggle description visibility
         document.querySelectorAll('.toggle-description').forEach(button => {
             button.addEventListener('click', function() {
-                const description = this.closest('.gallery-details').querySelector('.gallery-description');
-                const item = this.closest('.gallery-item');
+                const expandedContent = this.closest('.gallery-details').querySelector('.gallery-detail-expanded');
+                expandedContent.classList.toggle('active');
                 
-                if (description.classList.contains('active')) {
-                    description.style.maxHeight = '0';
-                    description.classList.remove('active');
-                    this.textContent = 'Detail';
-                } else {
-                    // Calculate needed height
-                    description.style.display = 'block';
-                    const height = description.scrollHeight + 'px';
-                    description.style.maxHeight = height;
-                    description.classList.add('active');
-                    this.textContent = 'Sembunyikan';
-                    
-                    // Scroll to show full item if needed
-                    setTimeout(() => {
-                        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    }, 300);
+                // Update button text
+                this.textContent = expandedContent.classList.contains('active') ? 'Sembunyikan' : 'Detail';
+                
+                // Scroll to expanded content if opened
+                if (expandedContent.classList.contains('active')) {
+                    expandedContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
+                
+                // Play button sound
+                playButtonSound();
+            });
+        });
+        
+        // Change main image in gallery carousel
+        function changeMainImage(mainImageId, thumbnail) {
+            const mainImage = document.getElementById(mainImageId);
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+            
+            // Update active thumbnail
+            const thumbnails = thumbnail.parentElement.querySelectorAll('.thumbnail');
+            thumbnails.forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+            
+            playButtonSound();
+        }
+        
+        // Zoom image functionality
+        document.querySelectorAll('.gallery-main-image').forEach(img => {
+            img.addEventListener('click', function() {
+                const zoomedImage = document.getElementById('zoomedImage');
+                zoomedImage.src = this.src;
+                zoomedImage.alt = this.alt;
+                
+                const imageModal = document.getElementById('imageModal');
+                imageModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
                 
                 playButtonSound();
             });
+        });
+        
+        // Close image modal
+        document.querySelector('.close-image-modal').addEventListener('click', function() {
+            document.getElementById('imageModal').classList.remove('show');
+            document.body.style.overflow = '';
         });
         
         // Order button functionality
@@ -2087,6 +2489,7 @@
                 const encodedMessage = encodeURIComponent(message);
                 window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
                 
+                // Play button sound
                 playButtonSound();
             });
         });
@@ -2110,6 +2513,10 @@
         window.addEventListener('click', function(e) {
             if (e.target === orderModal) {
                 orderModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+            if (e.target === document.getElementById('imageModal')) {
+                document.getElementById('imageModal').classList.remove('show');
                 document.body.style.overflow = '';
             }
         });
