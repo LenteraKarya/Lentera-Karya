@@ -353,17 +353,6 @@
             width: 100%;
         }
         
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 1.8rem;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
         /* Sections */
         section {
             padding: 6rem 0;
@@ -439,7 +428,7 @@
             line-height: 1.8;
         }
         
-        /* Gallery Section */
+        /* Improved Gallery Section */
         .gallery-intro {
             text-align: center;
             margin-bottom: 5rem;
@@ -537,83 +526,67 @@
             background: var(--success);
         }
         
+        /* Improved Gallery Image Container */
         .gallery-image-container {
             position: relative;
             overflow: hidden;
-            height: 300px;
+            height: 0;
+            padding-bottom: 75%; /* 4:3 Aspect Ratio */
+            background-color: #f5f5f5;
         }
         
         .gallery-image {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.8s ease;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         
         .gallery-item:hover .gallery-image {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
         
         .gallery-details {
-            padding: 2.5rem;
+            padding: 2rem;
+            background: white;
         }
         
         .gallery-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
             color: var(--dark);
+            transition: color 0.3s ease;
             font-family: 'Playfair Display', serif;
+        }
+        
+        .gallery-item:hover .gallery-title {
+            color: var(--accent);
         }
         
         .gallery-price {
             color: var(--accent);
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: 0.5px;
         }
         
         .gallery-description {
             color: var(--text-light);
-            font-size: 1.05rem;
-            margin-bottom: 2.5rem;
-            display: none;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, margin-bottom 0.3s ease;
         }
         
-        /* New Gallery Image Grid */
-        .gallery-image-grid {
-            display: none;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .gallery-image-grid.active {
-            display: grid;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .gallery-image-grid img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        
-        .gallery-image-grid img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .gallery-description.active, 
-        .gallery-image-grid.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
+        .gallery-description.active {
+            max-height: 300px;
+            margin-bottom: 1.5rem;
         }
         
         /* Buttons */
@@ -1270,55 +1243,6 @@
             border-radius: 2px;
         }
         
-        /* Image Modal */
-        .image-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(8px);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .image-modal.show {
-            opacity: 1;
-            display: flex;
-        }
-        
-        .image-modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-        
-        .image-modal-content img {
-            max-width: 100%;
-            max-height: 90vh;
-            border-radius: 8px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
-        }
-        
-        .close-image-modal {
-            position: absolute;
-            top: -40px;
-            right: -10px;
-            font-size: 2.5rem;
-            cursor: pointer;
-            color: white;
-            transition: var(--transition);
-        }
-        
-        .close-image-modal:hover {
-            color: var(--accent);
-        }
-        
         /* Audio Element for Button Sounds */
         audio {
             display: none;
@@ -1368,38 +1292,9 @@
                 padding: 3rem;
             }
             
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 6rem 2rem 2rem;
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-                transition: var(--transition);
-                z-index: 1000;
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .nav-links a {
-                padding: 1rem 0;
-                font-size: 1.1rem;
-                width: 100%;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-container {
-                padding: 1rem;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2rem;
             }
         }
         
@@ -1423,12 +1318,24 @@
                 font-size: 1.4rem;
             }
             
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
             .section-title {
                 font-size: 1.8rem;
             }
             
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            .gallery-image-container {
+                padding-bottom: 100%; /* 1:1 Aspect Ratio for mobile */
             }
             
             .contact-bar {
@@ -1449,10 +1356,6 @@
             
             .modal-content {
                 padding: 3rem;
-            }
-            
-            .gallery-image-grid {
-                grid-template-columns: 1fr;
             }
         }
         
@@ -1500,14 +1403,6 @@
             .modal-content {
                 padding: 2.5rem 2rem;
             }
-            
-            .action-buttons {
-                flex-direction: column;
-            }
-            
-            .gallery-details {
-                padding: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -1551,10 +1446,7 @@
                 <i class="fas fa-lightbulb"></i>
                 <span>Lentera Karya</span>
             </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links" id="navLinks">
+            <div class="nav-links">
                 <a href="#home">Beranda</a>
                 <a href="#services">Layanan</a>
                 <a href="#gallery">Galeri</a>
@@ -1593,11 +1485,11 @@
             </div>
         </section>
         
-        <!-- Gallery Section -->
+        <!-- Improved Gallery Section -->
         <section class="gallery" id="gallery">
             <h2 class="section-title">Galeri Kami</h2>
             <div class="gallery-intro">
-                <p>Jelajahi koleksi karya dan layanan premium kami. Klik "Detail" untuk melihat lebih banyak gambar dan informasi tentang setiap item.</p>
+                <p>Jelajahi koleksi karya dan layanan premium kami. Klik "Detail" untuk mengetahui lebih lanjut tentang setiap item.</p>
                 
                 <div class="category-tabs">
                     <button class="category-btn active" data-category="all">Semua</button>
@@ -1617,15 +1509,6 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Patung Kayu Ukir</h3>
                         <p class="gallery-price">Rp 450.000</p>
-                        
-                        <!-- Gallery Image Grid -->
-                        <div class="gallery-image-grid">
-                            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patung Kayu Ukir 1">
-                            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patung Kayu Ukir 2">
-                            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patung Kayu Ukir 3">
-                            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patung Kayu Ukir 4">
-                        </div>
-                        
                         <p class="gallery-description">
                             Patung kayu ukir tangan yang indah dibuat dari kayu jati yang berkelanjutan. 
                             Dimensi: 30cm x 15cm x 10cm. Setiap karya unik dan ditandatangani oleh pengrajin. 
@@ -1647,15 +1530,6 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Dekorasi Acara Premium</h3>
                         <p class="gallery-price">Rp 1.200.000/hari</p>
-                        
-                        <!-- Gallery Image Grid -->
-                        <div class="gallery-image-grid">
-                            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dekorasi Acara 1">
-                            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dekorasi Acara 2">
-                            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dekorasi Acara 3">
-                            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dekorasi Acara 4">
-                        </div>
-                        
                         <p class="gallery-description">
                             Paket lengkap dekorasi acara termasuk backdrop, centerpiece, 
                             dan pencahayaan. Cocok untuk pernikahan, ulang tahun, dan acara perusahaan. 
@@ -1677,15 +1551,6 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Merchandise Custom</h3>
                         <p class="gallery-price">Mulai Rp 25.000/pcs</p>
-                        
-                        <!-- Gallery Image Grid -->
-                        <div class="gallery-image-grid">
-                            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Merchandise 1">
-                            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Merchandise 2">
-                            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Merchandise 3">
-                            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Merchandise 4">
-                        </div>
-                        
                         <p class="gallery-description">
                             Barang promosi custom termasuk kaos, mug, dan tote bag. 
                             Pesanan minimal: 50 pcs. Cetakan berkualitas tinggi dengan logo atau desain Anda. 
@@ -1707,15 +1572,6 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Keranjang Anyaman</h3>
                         <p class="gallery-price">Rp 180.000</p>
-                        
-                        <!-- Gallery Image Grid -->
-                        <div class="gallery-image-grid">
-                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Keranjang Anyaman 1">
-                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Keranjang Anyaman 2">
-                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Keranjang Anyaman 3">
-                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Keranjang Anyaman 4">
-                        </div>
-                        
                         <p class="gallery-description">
                             Keranjang anyaman tradisional dibuat dari rotan alami. 
                             Dimensi: diameter 40cm x tinggi 25cm. Ramah lingkungan dan tahan lama. 
@@ -1737,15 +1593,6 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Paket Fotografi</h3>
                         <p class="gallery-price">Rp 750.000/hari</p>
-                        
-                        <!-- Gallery Image Grid -->
-                        <div class="gallery-image-grid">
-                            <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paket Fotografi 1">
-                            <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paket Fotografi 2">
-                            <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paket Fotografi 3">
-                            <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paket Fotografi 4">
-                        </div>
-                        
                         <p class="gallery-description">
                             Sewa peralatan fotografi profesional termasuk kamera DSLR, 
                             lensa, pencahayaan, dan aksesoris. Termasuk pelatihan dasar untuk pemula. 
@@ -1767,15 +1614,6 @@
                     <div class="gallery-details">
                         <h3 class="gallery-title">Paket Banner Stand</h3>
                         <p class="gallery-price">Rp 350.000</p>
-                        
-                        <!-- Gallery Image Grid -->
-                        <div class="gallery-image-grid">
-                            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand 1">
-                            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand 2">
-                            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand 3">
-                            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banner Stand 4">
-                        </div>
-                        
                         <p class="gallery-description">
                             Paket lengkap banner stand termasuk desain, cetak, dan stand. 
                             Ukuran: 80cm x 200cm. Cetakan vinyl berkualitas tinggi. Sempurna untuk pameran, 
@@ -2129,14 +1967,6 @@
         </div>
     </div>
     
-    <!-- Image Modal -->
-    <div class="image-modal" id="imageModal">
-        <div class="image-modal-content">
-            <span class="close-image-modal">&times;</span>
-            <img id="modalImage" src="" alt="">
-        </div>
-    </div>
-    
     <!-- Audio Element for Button Sounds -->
     <audio id="buttonSound" src="https://github.com/LenteraKarya/Lentera-Karya/blob/main/assets/audio/audiotombol.mp3?raw=true"></audio>
     
@@ -2190,24 +2020,6 @@
             }
         });
         
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            this.innerHTML = navLinks.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
         // Animasi Scroll untuk Gallery Items
         function animateOnScroll() {
             const galleryItems = document.querySelectorAll('.gallery-item');
@@ -2239,49 +2051,32 @@
         // Jalankan saat scroll
         window.addEventListener('scroll', animateOnScroll);
         
-        // Toggle description and image grid visibility
+        // Toggle description visibility with improved animation
         document.querySelectorAll('.toggle-description').forEach(button => {
             button.addEventListener('click', function() {
-                const details = this.closest('.gallery-details');
-                const description = details.querySelector('.gallery-description');
-                const imageGrid = details.querySelector('.gallery-image-grid');
+                const description = this.closest('.gallery-details').querySelector('.gallery-description');
+                const item = this.closest('.gallery-item');
                 
-                description.classList.toggle('active');
-                imageGrid.classList.toggle('active');
+                if (description.classList.contains('active')) {
+                    description.style.maxHeight = '0';
+                    description.classList.remove('active');
+                    this.textContent = 'Detail';
+                } else {
+                    // Calculate needed height
+                    description.style.display = 'block';
+                    const height = description.scrollHeight + 'px';
+                    description.style.maxHeight = height;
+                    description.classList.add('active');
+                    this.textContent = 'Sembunyikan';
+                    
+                    // Scroll to show full item if needed
+                    setTimeout(() => {
+                        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 300);
+                }
                 
-                // Update button text
-                this.textContent = description.classList.contains('active') ? 'Sembunyikan' : 'Detail';
-                
-                // Play button sound
                 playButtonSound();
             });
-        });
-        
-        // Image Modal functionality
-        const imageModal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-        const closeImageModal = document.querySelector('.close-image-modal');
-        
-        // Open image modal when clicking on gallery grid images
-        document.querySelectorAll('.gallery-image-grid img').forEach(img => {
-            img.addEventListener('click', function() {
-                modalImage.src = this.src;
-                modalImage.alt = this.alt;
-                imageModal.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-        
-        closeImageModal.addEventListener('click', function() {
-            imageModal.classList.remove('show');
-            document.body.style.overflow = '';
-        });
-        
-        window.addEventListener('click', function(e) {
-            if (e.target === imageModal) {
-                imageModal.classList.remove('show');
-                document.body.style.overflow = '';
-            }
         });
         
         // Order button functionality
@@ -2292,7 +2087,6 @@
                 const encodedMessage = encodeURIComponent(message);
                 window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
                 
-                // Play button sound
                 playButtonSound();
             });
         });
