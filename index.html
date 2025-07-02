@@ -1213,9 +1213,9 @@
             background: linear-gradient(135deg, var(--success), #3e823e);
         }
         
-        /* Footer - Premium Redesign */
+        /* Footer - Redesigned Premium Version */
         footer {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            background-color: var(--primary);
             color: white;
             padding: 8rem 0 0;
             position: relative;
@@ -1240,7 +1240,7 @@
             margin: 0 auto;
             padding: 0 1.5rem;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 4rem;
             position: relative;
             z-index: 1;
@@ -1274,7 +1274,7 @@
             grid-column: 1 / -1;
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 4rem;
+            margin: 0 auto;
         }
         
         .footer-about p {
@@ -1297,7 +1297,6 @@
         .footer-logo img {
             height: 60px;
             width: auto;
-            filter: brightness(0) invert(1);
         }
         
         .footer-social {
@@ -1323,20 +1322,16 @@
         .footer-social a:hover {
             background: var(--accent);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(219, 100, 0, 0.3);
         }
         
         .footer-links {
             list-style: none;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
         }
         
         .footer-links li {
             margin-bottom: 1.2rem;
             position: relative;
-            padding-left: 25px;
+            padding-left: 20px;
         }
         
         .footer-links li::before {
@@ -1346,13 +1341,6 @@
             color: var(--accent);
             font-size: 1rem;
             transition: var(--transition);
-            opacity: 0;
-            transform: translateX(-10px);
-        }
-        
-        .footer-links li:hover::before {
-            opacity: 1;
-            transform: translateX(0);
         }
         
         .footer-links a {
@@ -1369,6 +1357,10 @@
             transform: translateX(5px);
         }
         
+        .footer-links li:hover::before {
+            transform: translateX(5px);
+        }
+        
         .footer-contact-info {
             margin-top: 1.5rem;
         }
@@ -1376,31 +1368,19 @@
         .footer-contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
+            gap: 1rem;
             margin-bottom: 1.5rem;
-            padding: 1rem;
-            border-radius: 8px;
-            transition: var(--transition);
-            background: rgba(255, 255, 255, 0.05);
-        }
-        
-        .footer-contact-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
         }
         
         .footer-contact-icon {
             color: var(--accent);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-top: 0.2rem;
-            min-width: 30px;
-            text-align: center;
         }
         
         .footer-contact-text {
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
-            flex: 1;
         }
         
         .footer-contact-text a {
@@ -1837,16 +1817,6 @@
             
             .nav-container {
                 padding: 1rem;
-            }
-            
-            /* Footer adjustments for tablet */
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .footer-links {
-                grid-template-columns: 1fr;
             }
         }
         
@@ -2625,35 +2595,29 @@
             </div>
             
             <div class="footer-col">
-                <h3>Navigasi</h3>
+                <h3>Tautan Cepat</h3>
                 <ul class="footer-links">
                     <li><a href="#home">Beranda</a></li>
                     <li><a href="#products">Produk & Layanan</a></li>
                     <li><a href="#contact">Kontak</a></li>
                     <li><a href="#">Tentang Kami</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Kebijakan Privasi</a></li>
-                    <li><a href="#">Syarat & Ketentuan</a></li>
-                    <li><a href="#">FAQ</a></li>
                 </ul>
             </div>
             
             <div class="footer-col">
-                <h3>Layanan Kami</h3>
+                <h3>Layanan</h3>
                 <ul class="footer-links">
                     <li><a href="#">Kerajinan Tangan</a></li>
                     <li><a href="#">Jasa Sewa</a></li>
                     <li><a href="#">Barang Promosi</a></li>
                     <li><a href="#">Pesanan Custom</a></li>
                     <li><a href="#">Dekorasi Acara</a></li>
-                    <li><a href="#">Fotografi</a></li>
-                    <li><a href="#">Desain Grafis</a></li>
-                    <li><a href="#">Konsultasi Bisnis</a></li>
                 </ul>
             </div>
             
             <div class="footer-col">
-                <h3>Hubungi Kami</h3>
+                <h3>Kontak Kami</h3>
                 <div class="footer-contact-info">
                     <div class="footer-contact-item">
                         <i class="fas fa-map-marker-alt footer-contact-icon"></i>
@@ -2673,18 +2637,11 @@
                             <a href="mailto:lenterakaryasitubondo@gmail.com">lenterakaryasitubondo@gmail.com</a>
                         </div>
                     </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-clock footer-contact-icon"></i>
-                        <div class="footer-contact-text">
-                            Senin-Jumat: 09.00-18.00<br>
-                            Sabtu: 10.00-16.00
-                        </div>
-                    </div>
                 </div>
                 
                 <div class="newsletter-form">
-                    <h3>Berlangganan Newsletter</h3>
-                    <p>Dapatkan update terbaru dan penawaran spesial langsung ke email Anda.</p>
+                    <h3>Newsletter</h3>
+                    <p>Berlangganan newsletter kami untuk update dan penawaran spesial.</p>
                     <input type="email" placeholder="Alamat email Anda" required>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> Berlangganan
@@ -2710,7 +2667,7 @@
                     <input type="text" id="quick-name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="quick-phone">Nomor Telepon</label>
+                    <label for="quick-phone">Nomro Telepon</label>
                     <input type="tel" id="quick-phone" name="phone" required>
                 </div>
                 <div class="form-group">
@@ -2759,16 +2716,7 @@
                 // Auto-play background music with reduced volume
                 const bgMusic = document.getElementById('bgMusic');
                 bgMusic.volume = 0.3; // Reduced volume
-                
-                // Try to play music and handle autoplay restrictions
-                const playPromise = bgMusic.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.catch(error => {
-                        // Auto-play was prevented, show a mute button or handle it silently
-                        console.log("Autoplay prevented:", error);
-                    });
-                }
+                bgMusic.play().catch(e => console.log("Autoplay prevented:", e));
             }, 1200);
         });
         
