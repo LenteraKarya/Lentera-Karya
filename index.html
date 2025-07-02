@@ -710,6 +710,21 @@
             background: var(--success);
         }
         
+        .gallery-badge.seller {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 1;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.5px;
+        }
+        
         .gallery-image-container {
             position: relative;
             overflow: hidden;
@@ -741,12 +756,57 @@
             font-family: 'Playfair Display', serif;
         }
         
+        .gallery-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .gallery-code {
+            background: rgba(66, 153, 225, 0.1);
+            color: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .gallery-seller {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .gallery-seller i {
+            color: var(--accent);
+        }
+        
         .gallery-price {
             color: var(--accent);
             font-weight: 700;
             margin-bottom: 1.5rem;
             font-size: 1.2rem;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .gallery-price .original-price {
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-weight: normal;
+        }
+        
+        .gallery-price .discount {
+            background: var(--success);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
         }
         
         /* Gallery Detail Expanded View */
@@ -2230,13 +2290,22 @@
             <div class="gallery-grid">
                 <!-- GALLERY ITEM 1 - HANDMADE CRAFT -->
                 <div class="gallery-item" data-category="crafts">
+                    <span class="gallery-badge seller">Gerai: UkirKita</span>
                     <span class="gallery-badge">Handmade</span>
                     <div class="gallery-image-container">
                         <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Patung Kayu Handmade" class="gallery-image lazy" loading="lazy">
                     </div>
                     <div class="gallery-details">
                         <h3 class="gallery-title">Patung Kayu Ukir</h3>
-                        <p class="gallery-price">Rp 450.000</p>
+                        <div class="gallery-meta">
+                            <span class="gallery-code">Kode: UKR-2025-001</span>
+                            <span class="gallery-seller"><i class="fas fa-store"></i> UkirKita</span>
+                        </div>
+                        <p class="gallery-price">
+                            Rp 450.000
+                            <span class="original-price">Rp 550.000</span>
+                            <span class="discount">18%</span>
+                        </p>
                         
                         <div class="gallery-detail-expanded">
                             <div class="gallery-carousel">
@@ -2256,6 +2325,14 @@
                             
                             <div class="gallery-specs">
                                 <div class="spec-item">
+                                    <span class="spec-label">Kode Produk:</span>
+                                    <span class="spec-value">UKR-2025-001</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Gerai:</span>
+                                    <span class="spec-value">UkirKita</span>
+                                </div>
+                                <div class="spec-item">
                                     <span class="spec-label">Material:</span>
                                     <span class="spec-value">Kayu Jati Premium</span>
                                 </div>
@@ -2271,6 +2348,14 @@
                                     <span class="spec-label">Waktu Pengerjaan:</span>
                                     <span class="spec-value">2-3 minggu</span>
                                 </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Kondisi:</span>
+                                    <span class="spec-value">Baru</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Stok:</span>
+                                    <span class="spec-value">5 unit</span>
+                                </div>
                             </div>
                         </div>
                         
@@ -2283,12 +2368,17 @@
                 
                 <!-- GALLERY ITEM 2 - RENTAL ITEM -->
                 <div class="gallery-item" data-category="rental">
+                    <span class="gallery-badge seller">Gerai: DekorAja</span>
                     <span class="gallery-badge rental">Sewa</span>
                     <div class="gallery-image-container">
                         <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Paket Dekorasi Acara" class="gallery-image lazy" loading="lazy">
                     </div>
                     <div class="gallery-details">
                         <h3 class="gallery-title">Dekorasi Acara Premium</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-code">Kode: DKR-2025-002</span>
+                            <span class="gallery-seller"><i class="fas fa-store"></i> DekorAja</span>
+                        </div>
                         <p class="gallery-price">Rp 1.200.000/hari</p>
                         
                         <div class="gallery-detail-expanded">
@@ -2309,6 +2399,14 @@
                             
                             <div class="gallery-specs">
                                 <div class="spec-item">
+                                    <span class="spec-label">Kode Paket:</span>
+                                    <span class="spec-value">DKR-2025-002</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Gerai:</span>
+                                    <span class="spec-value">DekorAja</span>
+                                </div>
+                                <div class="spec-item">
                                     <span class="spec-label">Inklusif:</span>
                                     <span class="spec-value">Backdrop, centerpiece, lighting</span>
                                 </div>
@@ -2324,6 +2422,10 @@
                                     <span class="spec-label">Setup Time:</span>
                                     <span class="spec-value">3-4 jam</span>
                                 </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Deposit:</span>
+                                    <span class="spec-value">Rp 500.000 (dikembalikan)</span>
+                                </div>
                             </div>
                         </div>
                         
@@ -2336,13 +2438,21 @@
                 
                 <!-- GALLERY ITEM 3 - PROMOTIONAL ITEM -->
                 <div class="gallery-item" data-category="promo">
+                    <span class="gallery-badge seller">Gerai: PromoKita</span>
                     <span class="gallery-badge promo">Promo</span>
                     <div class="gallery-image-container">
                         <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Merchandise Custom" class="gallery-image lazy" loading="lazy">
                     </div>
                     <div class="gallery-details">
                         <h3 class="gallery-title">Merchandise Custom</h3>
-                        <p class="gallery-price">Mulai Rp 25.000/pcs</p>
+                        <div class="gallery-meta">
+                            <span class="gallery-code">Kode: MCH-2025-003</span>
+                            <span class="gallery-seller"><i class="fas fa-store"></i> PromoKita</span>
+                        </div>
+                        <p class="gallery-price">
+                            Mulai Rp 25.000/pcs
+                            <span class="discount">Bulk Discount</span>
+                        </p>
                         
                         <div class="gallery-detail-expanded">
                             <div class="gallery-carousel">
@@ -2362,6 +2472,14 @@
                             
                             <div class="gallery-specs">
                                 <div class="spec-item">
+                                    <span class="spec-label">Kode Layanan:</span>
+                                    <span class="spec-value">MCH-2025-003</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Gerai:</span>
+                                    <span class="spec-value">PromoKita</span>
+                                </div>
+                                <div class="spec-item">
                                     <span class="spec-label">Jenis Produk:</span>
                                     <span class="spec-value">Kaos, Mug, Tote Bag, dll</span>
                                 </div>
@@ -2377,6 +2495,10 @@
                                     <span class="spec-label">Waktu Produksi:</span>
                                     <span class="spec-value">7-14 hari kerja</span>
                                 </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Diskon Kuantitas:</span>
+                                    <span class="spec-value">10% (100+ pcs), 15% (200+ pcs)</span>
+                                </div>
                             </div>
                         </div>
                         
@@ -2389,12 +2511,17 @@
                 
                 <!-- GALLERY ITEM 4 - HANDMADE CRAFT -->
                 <div class="gallery-item" data-category="crafts">
+                    <span class="gallery-badge seller">Gerai: AnyamKita</span>
                     <span class="gallery-badge">Handmade</span>
                     <div class="gallery-image-container">
                         <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Keranjang Anyaman" class="gallery-image lazy" loading="lazy">
                     </div>
                     <div class="gallery-details">
                         <h3 class="gallery-title">Keranjang Anyaman</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-code">Kode: ANY-2025-004</span>
+                            <span class="gallery-seller"><i class="fas fa-store"></i> AnyamKita</span>
+                        </div>
                         <p class="gallery-price">Rp 180.000</p>
                         
                         <div class="gallery-detail-expanded">
@@ -2415,6 +2542,14 @@
                             
                             <div class="gallery-specs">
                                 <div class="spec-item">
+                                    <span class="spec-label">Kode Produk:</span>
+                                    <span class="spec-value">ANY-2025-004</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Gerai:</span>
+                                    <span class="spec-value">AnyamKita</span>
+                                </div>
+                                <div class="spec-item">
                                     <span class="spec-label">Material:</span>
                                     <span class="spec-value">Rotan Alami</span>
                                 </div>
@@ -2430,6 +2565,14 @@
                                     <span class="spec-label">Perawatan:</span>
                                     <span class="spec-value">Hindarkan dari air berlebihan</span>
                                 </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Stok:</span>
+                                    <span class="spec-value">12 unit</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Pengrajin:</span>
+                                    <span class="spec-value">Komunitas Anyam Situbondo</span>
+                                </div>
                             </div>
                         </div>
                         
@@ -2442,12 +2585,17 @@
                 
                 <!-- GALLERY ITEM 5 - RENTAL ITEM -->
                 <div class="gallery-item" data-category="rental">
+                    <span class="gallery-badge seller">Gerai: FotoKita</span>
                     <span class="gallery-badge rental">Sewa</span>
                     <div class="gallery-image-container">
                         <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Paket Fotografi" class="gallery-image lazy" loading="lazy">
                     </div>
                     <div class="gallery-details">
                         <h3 class="gallery-title">Paket Fotografi</h3>
+                        <div class="gallery-meta">
+                            <span class="gallery-code">Kode: FTO-2025-005</span>
+                            <span class="gallery-seller"><i class="fas fa-store"></i> FotoKita</span>
+                        </div>
                         <p class="gallery-price">Rp 750.000/hari</p>
                         
                         <div class="gallery-detail-expanded">
@@ -2468,6 +2616,14 @@
                             
                             <div class="gallery-specs">
                                 <div class="spec-item">
+                                    <span class="spec-label">Kode Paket:</span>
+                                    <span class="spec-value">FTO-2025-005</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Gerai:</span>
+                                    <span class="spec-value">FotoKita</span>
+                                </div>
+                                <div class="spec-item">
                                     <span class="spec-label">Inklusif:</span>
                                     <span class="spec-value">Kamera, lensa, lighting, tripod</span>
                                 </div>
@@ -2483,6 +2639,10 @@
                                     <span class="spec-label">Asuransi:</span>
                                     <span class="spec-value">Tersedia (opsional)</span>
                                 </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Durasi Sewa:</span>
+                                    <span class="spec-value">Minimal 1 hari</span>
+                                </div>
                             </div>
                         </div>
                         
@@ -2495,13 +2655,22 @@
                 
                 <!-- GALLERY ITEM 6 - PROMOTIONAL ITEM -->
                 <div class="gallery-item" data-category="promo">
+                    <span class="gallery-badge seller">Gerai: PromoKita</span>
                     <span class="gallery-badge promo">Promo</span>
                     <div class="gallery-image-container">
                         <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Banner Stand" class="gallery-image lazy" loading="lazy">
                     </div>
                     <div class="gallery-details">
                         <h3 class="gallery-title">Paket Banner Stand</h3>
-                        <p class="gallery-price">Rp 350.000</p>
+                        <div class="gallery-meta">
+                            <span class="gallery-code">Kode: BNR-2025-006</span>
+                            <span class="gallery-seller"><i class="fas fa-store"></i> PromoKita</span>
+                        </div>
+                        <p class="gallery-price">
+                            Rp 350.000
+                            <span class="original-price">Rp 450.000</span>
+                            <span class="discount">22%</span>
+                        </p>
                         
                         <div class="gallery-detail-expanded">
                             <div class="gallery-carousel">
@@ -2521,6 +2690,14 @@
                             
                             <div class="gallery-specs">
                                 <div class="spec-item">
+                                    <span class="spec-label">Kode Produk:</span>
+                                    <span class="spec-value">BNR-2025-006</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Gerai:</span>
+                                    <span class="spec-value">PromoKita</span>
+                                </div>
+                                <div class="spec-item">
                                     <span class="spec-label">Ukuran:</span>
                                     <span class="spec-value">80cm x 200cm</span>
                                 </div>
@@ -2535,6 +2712,10 @@
                                 <div class="spec-item">
                                     <span class="spec-label">Garansi:</span>
                                     <span class="spec-value">1 tahun</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Termasuk:</span>
+                                    <span class="spec-value">Stand portable, tas pembawa</span>
                                 </div>
                             </div>
                         </div>
@@ -2586,8 +2767,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                   
                     
                     <!-- Testimonial 12 -->
                     <div class="testimonial-card">
@@ -3031,7 +3210,8 @@
         document.querySelectorAll('.order-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const itemTitle = this.closest('.gallery-details').querySelector('.gallery-title').textContent;
-                const message = `Halo, saya tertarik dengan produk: ${itemTitle}. Mohon info lebih lanjut.`;
+                const itemCode = this.closest('.gallery-details').querySelector('.gallery-code').textContent;
+                const message = `Halo, saya tertarik dengan produk: ${itemTitle} (${itemCode}). Mohon info lebih lanjut.`;
                 const encodedMessage = encodeURIComponent(message);
                 window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
                 
@@ -3365,8 +3545,13 @@
                 const title = item.querySelector('.gallery-title').textContent.toLowerCase();
                 const description = item.querySelector('.gallery-description') ? item.querySelector('.gallery-description').textContent.toLowerCase() : '';
                 const category = item.dataset.category;
+                const code = item.querySelector('.gallery-code').textContent.toLowerCase();
+                const seller = item.querySelector('.gallery-seller').textContent.toLowerCase();
                 
-                if (title.includes(query.toLowerCase()) || description.includes(query.toLowerCase())) {
+                if (title.includes(query.toLowerCase()) || 
+                    description.includes(query.toLowerCase()) || 
+                    code.includes(query.toLowerCase()) ||
+                    seller.includes(query.toLowerCase())) {
                     resultsFound = true;
                     const price = item.querySelector('.gallery-price').textContent;
                     
