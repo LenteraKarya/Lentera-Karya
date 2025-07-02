@@ -1213,14 +1213,13 @@
             background: linear-gradient(135deg, var(--success), #3e823e);
         }
         
-        /* Footer - Redesigned Premium Version */
+        /* Footer */
         footer {
             background-color: var(--primary);
             color: white;
-            padding: 8rem 0 0;
+            padding: 6rem 0 3rem;
             position: relative;
             overflow: hidden;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         footer::before {
@@ -1240,14 +1239,10 @@
             margin: 0 auto;
             padding: 0 1.5rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 4rem;
             position: relative;
             z-index: 1;
-        }
-        
-        .footer-col {
-            margin-bottom: 3rem;
         }
         
         .footer-col h3 {
@@ -1256,7 +1251,6 @@
             position: relative;
             padding-bottom: 1.5rem;
             font-family: 'Playfair Display', serif;
-            color: white;
         }
         
         .footer-col h3::after {
@@ -1265,63 +1259,16 @@
             left: 0;
             bottom: 0;
             width: 70px;
-            height: 3px;
+            height: 4px;
             background: var(--accent);
             border-radius: 2px;
-        }
-        
-        .footer-about {
-            grid-column: 1 / -1;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
         }
         
         .footer-about p {
             margin-bottom: 2rem;
             line-height: 1.8;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .footer-logo img {
-            height: 60px;
-            width: auto;
-        }
-        
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-        
-        .footer-social a:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
         }
         
         .footer-links {
@@ -1330,17 +1277,6 @@
         
         .footer-links li {
             margin-bottom: 1.2rem;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .footer-links li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-size: 1rem;
-            transition: var(--transition);
         }
         
         .footer-links a {
@@ -1354,43 +1290,7 @@
         
         .footer-links a:hover {
             color: var(--accent);
-            transform: translateX(5px);
-        }
-        
-        .footer-links li:hover::before {
-            transform: translateX(5px);
-        }
-        
-        .footer-contact-info {
-            margin-top: 1.5rem;
-        }
-        
-        .footer-contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-contact-icon {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-top: 0.2rem;
-        }
-        
-        .footer-contact-text {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-        }
-        
-        .footer-contact-text a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-contact-text a:hover {
-            color: var(--accent);
+            transform: translateX(10px);
         }
         
         .newsletter-form {
@@ -1422,24 +1322,11 @@
         .newsletter-form button {
             width: 100%;
             font-size: 1.05rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 1.2rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .newsletter-form button:hover {
-            background: #c45600;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(219, 100, 0, 0.4);
         }
         
         .copyright {
             text-align: center;
-            padding: 2.5rem 0;
+            padding-top: 4rem;
             margin-top: 4rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.95rem;
@@ -1713,6 +1600,34 @@
             display: none;
         }
         
+        /* Background Music Control */
+        .music-control {
+            position: fixed;
+            bottom: 3rem;
+            left: 3rem;
+            z-index: 100;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .music-control:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .music-control i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        
         /* Lazy Loading */
         .lazy {
             opacity: 0;
@@ -1818,6 +1733,11 @@
             .nav-container {
                 padding: 1rem;
             }
+            
+            .music-control {
+                bottom: 2rem;
+                left: 2rem;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1885,10 +1805,6 @@
             .footer-container {
                 grid-template-columns: 1fr;
                 gap: 3rem;
-            }
-            
-            .footer-about {
-                grid-column: auto;
             }
             
             .modal-content {
@@ -1961,6 +1877,17 @@
             .modal-content {
                 padding: 2.5rem 2rem;
             }
+            
+            .music-control {
+                bottom: 1.5rem;
+                left: 1.5rem;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .music-control i {
+                font-size: 1.3rem;
+            }
         }
         
         @media (max-width: 400px) {
@@ -1998,10 +1925,15 @@
         <h2 style="color: white; font-family: 'Playfair Display', serif; margin-top: 1.5rem;">Jualan Kita</h2>
     </div>
     
-    <!-- Background Music (hidden, auto-play) -->
-    <audio id="bgMusic" loop autoplay>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
         <source src="https://github.com/LenteraKarya/jualan-kita/blob/main/assets/audio/Musik%20website.mp3?raw=true" type="audio/mpeg">
     </audio>
+    
+    <!-- Music Control -->
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-music"></i>
+    </div>
     
     <!-- Partikel Animasi -->
     <div class="particles" id="particles"></div>
@@ -2023,14 +1955,14 @@
             </div>
             
             <div class="header-buttons">
-                <a href="#products" class="btn btn-primary">
+                <a href="#gallery" class="btn btn-primary">
                     <i class="fas fa-images"></i> Lihat Karya Kami
                 </a>
                 <a href="#contact" class="btn btn-outline">
                     <i class="fas fa-envelope"></i> Hubungi Kami
                 </a>
             </div>
-            <a href="#products" class="scroll-down">
+            <a href="#services" class="scroll-down">
                 <i class="fas fa-chevron-down"></i>
             </a>
         </div>
@@ -2060,18 +1992,18 @@
             
             <div class="nav-links" id="navLinks">
                 <a href="#home">Beranda</a>
-                <a href="#products">Produk & Layanan</a>
+                <a href="#services">Layanan</a>
+                <a href="#gallery">Galeri</a>
+                <a href="#testimonials">Testimoni</a>
                 <a href="#contact">Kontak</a>
             </div>
         </div>
     </nav>
     
     <div class="container">
-        <!-- Combined Products & Services Section -->
-        <section class="products" id="products">
-            <h2 class="section-title">Produk & Layanan Kami</h2>
-            
-            <!-- Services Section -->
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <h2 class="section-title">Layanan Kami</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
@@ -2095,8 +2027,11 @@
                     <p>Material pemasaran kreatif dan strategi untuk meningkatkan visibilitas merek Anda.</p>
                 </div>
             </div>
-            
-            <!-- Gallery Section -->
+        </section>
+        
+        <!-- Gallery Section -->
+        <section class="gallery" id="gallery">
+            <h2 class="section-title">Galeri Kami</h2>
             <div class="gallery-intro">
                 <p>Jelajahi koleksi karya dan layanan premium kami. Klik "Detail" untuk melihat lebih banyak gambar dan informasi.</p>
                 
@@ -2427,57 +2362,169 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Testimonials Section -->
-            <div class="testimonials">
-                <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
-                <div class="testimonial-content">
-                    <div class="testimonial-grid">
-                        <!-- Testimonial 1 -->
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                Produk kerajinan tangan dari Jualan Kita sangat berkualitas tinggi. Saya membeli patung kayu ukir untuk hadiah ulang tahun istri dan dia sangat menyukainya!
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar male">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div class="author-info">
-                                    <h4>Budi Hariyanto</h4>
-                                    <p>Pengusaha - Situbondo</p>
-                                </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
+            <div class="testimonial-content">
+                <div class="testimonial-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Produk kerajinan tangan dari Jualan Kita sangat berkualitas tinggi. Saya membeli patung kayu ukir untuk hadiah ulang tahun istri dan dia sangat menyukainya!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar male">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Budi Hariyanto</h4>
+                                <p>Pengusaha - Situbondo</p>
                             </div>
                         </div>
-                        
-                        <!-- Testimonial 2 -->
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                Saya menyewa dekorasi untuk pernikahan adik saya. Hasilnya sangat memuaskan, tamu-tamu banyak yang bertanya tentang dekorasinya. Terima kasih Jualan Kita!
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar female">
-                                    <i class="fas fa-user-graduate"></i>
-                                </div>
-                                <div class="author-info">
-                                    <h4>Chusnul Khotimah</h4>
-                                    <p>PNS - Jember</p>
-                                </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Saya menyewa dekorasi untuk pernikahan adik saya. Hasilnya sangat memuaskan, tamu-tamu banyak yang bertanya tentang dekorasinya. Terima kasih Jualan Kita!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar female">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Chusnul Khotimah</h4>
+                                <p>PNS - Jember</p>
                             </div>
                         </div>
-                        
-                        <!-- Testimonial 3 -->
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                Barang promosi yang saya pesan untuk perusahaan sangat bagus kualitasnya. Desainnya sesuai permintaan dan dikirim tepat waktu. Sangat recommended!
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar male">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <div class="author-info">
-                                    <h4>Hendra Wijaya</h4>
-                                    <p>Direktur Marketing - Bondowoso</p>
-                                </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Barang promosi yang saya pesan untuk perusahaan sangat bagus kualitasnya. Desainnya sesuai permintaan dan dikirim tepat waktu. Sangat recommended!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar male">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Hendra Wijaya</h4>
+                                <p>Direktur Marketing - Bondowoso</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Keranjang anyaman yang saya beli sangat kuat dan cantik. Sekarang saya punya 3 buah untuk tempat buah dan sayuran di dapur. Terima kasih!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar female">
+                                <i class="fas fa-user-edit"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Siti Rahayu</h4>
+                                <p>Ibu Rumah Tangga - Malang</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 5 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Sebagai wedding planner, saya sering bekerja sama dengan Jualan Kita untuk dekorasi acara. Hasilnya selalu memuaskan dan harganya bersaing.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar female">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Vina Permata</h4>
+                                <p>Wedding Planner - Sidoarjo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 6 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Banner stand yang saya pesan untuk pameran sangat kokoh dan desainnya menarik. Banyak pengunjung yang berhenti di booth kami karena tertarik dengan banner-nya.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar male">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Rufal</h4>
+                                <p>UMKM - Gresik</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 7 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Saya memesan mug custom untuk hadiah karyawan. Hasil cetaknya tajam dan tidak mudah luntur. Karyawan saya sangat senang menerimanya.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar female">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Linda Amelia</h4>
+                                <p>HR Manager - Tuban</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 8 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Sebagai kolektor seni, saya sangat menghargai karya-karya Jualan Kita. Detail pengerjaannya sangat halus dan menunjukkan keahlian yang tinggi.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar male">
+                                <i class="fas fa-user-astronaut"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Muhammad Dafi</h4>
+                                <p>Kolektor Seni - Besuki</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 9 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Saya menyewa peralatan fotografi untuk project dokumentasi desa. Peralatannya lengkap dan dalam kondisi sangat baik. Pelayanannya juga ramah.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar female">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Maya Sari</h4>
+                                <p>Fotografer - Banyuwangi</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 10 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Tote bag custom yang saya pesan untuk event komunitas sangat bagus. Bahan tebal dan jahitannya rapi. Pesanan 100 pcs selesai tepat waktu.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar male">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Yudi Lesmana</h4>
+                                <p>Ketua Komunitas - Madura</p>
                             </div>
                         </div>
                     </div>
@@ -2580,31 +2627,19 @@
     <footer>
         <div class="footer-container">
             <div class="footer-col footer-about">
-                <div class="footer-logo">
-                    <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/images/logo-jualan-kita.png" alt="Jualan Kita Logo">
-                    <span>Jualan Kita</span>
-                </div>
-                <p>Platform jual beli online terpercaya untuk semua kebutuhan Anda. Menyediakan kerajinan tangan, jasa sewa, dan solusi promosi berkualitas sejak tahun 2025.</p>
-                
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+                <h3>Jualan Kita</h3>
+                <p>Menyediakan produk kerajinan tangan berkualitas tinggi, jasa sewa, dan solusi promosi sejak tahun 2025.</p>
             </div>
-            
             <div class="footer-col">
                 <h3>Tautan Cepat</h3>
                 <ul class="footer-links">
                     <li><a href="#home">Beranda</a></li>
-                    <li><a href="#products">Produk & Layanan</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
                     <li><a href="#contact">Kontak</a></li>
-                    <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Blog</a></li>
                 </ul>
             </div>
-            
             <div class="footer-col">
                 <h3>Layanan</h3>
                 <ul class="footer-links">
@@ -2615,42 +2650,19 @@
                     <li><a href="#">Dekorasi Acara</a></li>
                 </ul>
             </div>
-            
             <div class="footer-col">
-                <h3>Kontak Kami</h3>
-                <div class="footer-contact-info">
-                    <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt footer-contact-icon"></i>
-                        <div class="footer-contact-text">
-                            Jl. PB Sudirman, Desa Wringin Anom, Kec. Panarukan, Kab. Situbondo (68351)
-                        </div>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-phone-alt footer-contact-icon"></i>
-                        <div class="footer-contact-text">
-                            <a href="tel:+6287865614222">+62 878 6561 4222</a>
-                        </div>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope footer-contact-icon"></i>
-                        <div class="footer-contact-text">
-                            <a href="mailto:lenterakaryasitubondo@gmail.com">lenterakaryasitubondo@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="newsletter-form">
-                    <h3>Newsletter</h3>
-                    <p>Berlangganan newsletter kami untuk update dan penawaran spesial.</p>
+                <h3>Newsletter</h3>
+                <p>Berlangganan newsletter kami untuk update dan penawaran spesial.</p>
+                <form class="newsletter-form">
                     <input type="email" placeholder="Alamat email Anda" required>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> Berlangganan
                     </button>
-                </div>
+                </form>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2025 Jualan Kita. Semua hak dilindungi. | Dibuat dengan <i class="fas fa-heart" style="color: #db6400;"></i> di Situbondo
+            &copy; 2025 Jualan Kita. Semua hak dilindungi.
         </div>
     </footer>
     
@@ -2712,12 +2724,46 @@
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.querySelector('.loading-screen').classList.add('hidden');
-                
-                // Auto-play background music with reduced volume
-                const bgMusic = document.getElementById('bgMusic');
-                bgMusic.volume = 0.3; // Reduced volume
-                bgMusic.play().catch(e => console.log("Autoplay prevented:", e));
             }, 1200);
+        });
+        
+        // Background Music Control
+        const bgMusic = document.getElementById('bgMusic');
+        const musicControl = document.getElementById('musicControl');
+        let isMusicPlaying = false;
+        
+        // Try to play music (will be muted until user interacts)
+        function tryPlayMusic() {
+            bgMusic.volume = 0.3;
+            const playPromise = bgMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    isMusicPlaying = true;
+                    musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+                })
+                .catch(error => {
+                    isMusicPlaying = false;
+                    musicControl.innerHTML = '<i class="fas fa-music"></i>';
+                });
+            }
+        }
+        
+        // Initial music attempt (will fail due to autoplay policies)
+        tryPlayMusic();
+        
+        // Music control toggle
+        musicControl.addEventListener('click', function() {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                isMusicPlaying = false;
+                this.innerHTML = '<i class="fas fa-music"></i>';
+            } else {
+                bgMusic.play();
+                isMusicPlaying = true;
+                this.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            playButtonSound();
         });
         
         // Mobile Menu Toggle
@@ -3286,7 +3332,7 @@
                     
                     resultItem.addEventListener('click', function() {
                         // Scroll to services section
-                        document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+                        document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
                         // Close search modal
                         searchModal.classList.remove('show');
                         document.body.style.overflow = '';
