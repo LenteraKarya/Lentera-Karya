@@ -1310,37 +1310,28 @@
             color: white;
         }
         
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-        
-        .footer-social a:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
-        
+        /* Updated Footer Links */
         .footer-links {
             list-style: none;
         }
         
         .footer-links li {
             margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-links li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            transition: var(--transition);
         }
         
         .footer-links a {
@@ -1353,24 +1344,47 @@
             position: relative;
         }
         
-        .footer-links a::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent);
-            transition: var(--transition);
-        }
-        
         .footer-links a:hover {
             color: white;
             transform: translateX(10px);
         }
         
-        .footer-links a:hover::before {
-            width: 20px;
+        .footer-links li:hover::before {
+            transform: translateY(-50%) scale(1.3);
+            background-color: white;
+        }
+        
+        /* Payment Methods Section */
+        .payment-methods {
+            margin-top: 2rem;
+        }
+        
+        .payment-methods h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+        }
+        
+        .payment-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .payment-icon {
+            height: 30px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(20%) brightness(1.2);
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+        
+        .payment-icon:hover {
+            filter: grayscale(0%) brightness(1.5);
+            transform: translateY(-3px);
         }
         
         .newsletter-form {
@@ -1411,6 +1425,32 @@
             color: rgba(255, 255, 255, 0.6);
             position: relative;
             z-index: 1;
+        }
+        
+        .copyright a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .copyright a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .copyright a:hover {
+            color: white;
+        }
+        
+        .copyright a:hover::after {
+            width: 100%;
         }
         
         /* Modal */
@@ -2689,13 +2729,6 @@
                     <span>Jualan Kita</span>
                 </div>
                 <p>Menyediakan produk kerajinan tangan berkualitas tinggi, jasa sewa, dan solusi promosi sejak tahun 2025. Komitmen kami adalah memberikan pengalaman berbelanja online yang menyenangkan dan memuaskan.</p>
-                
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
             </div>
             
             <div class="footer-col">
@@ -2732,20 +2765,20 @@
                     </button>
                 </form>
                 
-                <h3 style="margin-top: 2.5rem;">Pembayaran</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
-                    <img src="https://via.placeholder.com/40x25?text=BCA" alt="BCA" style="border-radius: 4px;">
-                    <img src="https://via.placeholder.com/40x25?text=Mandiri" alt="Mandiri" style="border-radius: 4px;">
-                    <img src="https://via.placeholder.com/40x25?text=BRI" alt="BRI" style="border-radius: 4px;">
-                    <img src="https://via.placeholder.com/40x25?text=BNI" alt="BNI" style="border-radius: 4px;">
-                    <img src="https://via.placeholder.com/40x25?text=Gopay" alt="Gopay" style="border-radius: 4px;">
-                    <img src="https://via.placeholder.com/40x25?text=OVO" alt="OVO" style="border-radius: 4px;">
+                <div class="payment-methods">
+                    <h4>Metode Pembayaran</h4>
+                    <div class="payment-icons">
+                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/Logo_BRI.png" alt="Bank BRI" class="payment-icon">
+                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/Logo%20Bank%20Jatim.png" alt="Bank Jatim" class="payment-icon">
+                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/Logo-QRIS.png" alt="QRIS" class="payment-icon">
+                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/payment%20dana%20gopay.png" alt="Dana/Gopay" class="payment-icon">
+                    </div>
                 </div>
             </div>
         </div>
         
         <div class="copyright">
-            &copy; 2025 Jualan Kita. Semua hak dilindungi. | <a href="#" style="color: rgba(255,255,255,0.6);">Kebijakan Privasi</a> | <a href="#" style="color: rgba(255,255,255,0.6);">Syarat & Ketentuan</a>
+            &copy; 2025 Jualan Kita. Semua hak dilindungi. | <a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a>
         </div>
     </footer>
     
