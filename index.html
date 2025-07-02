@@ -934,7 +934,7 @@
             font-size: 0.95rem;
         }
         
-        /* Testimonials */
+        /* PREMIUM TESTIMONIALS SECTION */
         .testimonials {
             background-color: var(--light);
             padding: 8rem 0;
@@ -974,6 +974,7 @@
             position: relative;
             transition: var(--transition);
             border: 1px solid rgba(0, 0, 0, 0.03);
+            overflow: hidden;
         }
         
         .testimonial-card:hover {
@@ -983,6 +984,17 @@
         }
         
         .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.03), rgba(66, 153, 225, 0.03));
+            z-index: 0;
+        }
+        
+        .testimonial-card::after {
             content: '"';
             position: absolute;
             top: 20px;
@@ -1005,10 +1017,19 @@
             color: var(--text);
         }
         
+        .rating {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+        
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
         
         .testimonial-avatar {
@@ -1016,22 +1037,35 @@
             height: 70px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--accent);
-            background-color: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            color: var(--primary);
+            color: white;
             flex-shrink: 0;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
         
-        .testimonial-avatar.male {
-            background-color: #e3f2fd;
+        .testimonial-avatar::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, 
+                          rgba(255, 255, 255, 0.1), 
+                          rgba(255, 255, 255, 0.05));
+            transform: rotate(45deg);
+            z-index: 1;
         }
         
-        .testimonial-avatar.female {
-            background-color: #fce4ec;
+        .testimonial-avatar i {
+            position: relative;
+            z-index: 2;
         }
         
         .author-info h4 {
@@ -2533,10 +2567,10 @@
                         <p class="testimonial-text">
                             "Jasa layanan promosi daganganku di platfom lentera karya (jual kita) ini membuat saya terbantukan. Sehingga pelanggan mudah mengakses dan mendapatkan informasi dan transaksi"
                         </p>
-                         <div class="rating">★★★★☆</div>
+                        <div class="rating">★★★★☆</div>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar male">
-                                <i class="fas fa-user-tie"></i>
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-store"></i>
                             </div>
                             <div class="author-info">
                                 <h4>Budi Hariyanto</h4>
@@ -2550,10 +2584,10 @@
                         <p class="testimonial-text">
                             "Saya menyewa dekorasi untuk pernikahan adik saya. Hasilnya sangat memuaskan, tamu-tamu banyak yang bertanya tentang dekorasinya. Terima kasih Jualan Kita"
                         </p>
-                         <div class="rating">★★★★★</div>
+                        <div class="rating">★★★★★</div>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar female">
-                                <i class="fas fa-user-graduate"></i>
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-heart"></i>
                             </div>
                             <div class="author-info">
                                 <h4>Cinta1996</h4>
@@ -2562,16 +2596,15 @@
                         </div>
                     </div>
                     
-                   
-                    <!-- Testimonial 12 -->
+                    <!-- Testimonial 3 -->
                     <div class="testimonial-card">
                         <p class="testimonial-text">
                             "Berkat Lentera Karya (Jual Kita), promosi kue mocci dan kue basah lainnya saya jadi lebih mudah dijangkau pelanggan. Mereka bisa melihat foto, deskripsi jelas, dan langsung memesan tanpa ribet. Proses transaksinya pun cepat dan aman"
                         </p>
                         <div class="rating">★★★★★</div>
                         <div class="testimonial-author">
-                        <div class="testimonial-avatar female">
-                                <i class="fas fa-user-graduate"></i>
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-cookie-bite"></i>
                             </div>
                             <div class="author-info">
                                 <h4>Ulink</h4>
@@ -2722,10 +2755,7 @@
                 <div class="payment-methods">
                     <h4>Metode Pembayaran</h4>
                     <div class="payment-icons">
-                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/Logo_BRI.png" alt="Bank BRI" class="payment-icon">
-                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/Logo%20Bank%20Jatim.png" alt="Bank Jatim" class="payment-icon">
-                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/Logo-QRIS.png" alt="QRIS" class="payment-icon">
-                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/payment%20dana%20gopay.png" alt="Dana/Gopay" class="payment-icon">
+                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/semua-logo-bank-min.png" alt="Metode Pembayaran" class="payment-icon">
                     </div>
                 </div>
             </div>
