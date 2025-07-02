@@ -989,22 +989,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(230, 126, 34, 0.03), rgba(66, 153, 225, 0.03));
-            z-index: 0;
-        }
-        
-        .testimonial-card::after {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 6rem;
-            color: rgba(230, 126, 34, 0.05);
-            font-family: serif;
-            line-height: 1;
-            z-index: 0;
-            font-weight: 700;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
         }
         
         .testimonial-text {
@@ -1015,12 +1001,26 @@
             line-height: 1.8;
             font-size: 1.05rem;
             color: var(--text);
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 4rem;
+            color: rgba(230, 126, 34, 0.1);
+            font-family: serif;
+            line-height: 1;
+            z-index: -1;
         }
         
         .rating {
             color: var(--gold);
-            margin-bottom: 1.5rem;
             font-size: 1.2rem;
+            margin-bottom: 1.5rem;
             letter-spacing: 2px;
         }
         
@@ -1028,23 +1028,21 @@
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
         
         .testimonial-avatar {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
+            background-color: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
+            font-size: 2.5rem;
+            color: var(--primary);
             flex-shrink: 0;
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
         }
@@ -1052,19 +1050,15 @@
         .testimonial-avatar::before {
             content: '';
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(135deg, 
-                          rgba(255, 255, 255, 0.1), 
-                          rgba(255, 255, 255, 0.05));
-            transform: rotate(45deg);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
             z-index: 1;
         }
         
         .testimonial-avatar i {
-            position: relative;
             z-index: 2;
         }
         
@@ -1468,7 +1462,7 @@
         }
         
         .payment-icon {
-            height: 30px;
+            height: 40px;
             width: auto;
             object-fit: contain;
             filter: grayscale(20%) brightness(1.2);
@@ -2567,7 +2561,7 @@
                         <p class="testimonial-text">
                             "Jasa layanan promosi daganganku di platfom lentera karya (jual kita) ini membuat saya terbantukan. Sehingga pelanggan mudah mengakses dan mendapatkan informasi dan transaksi"
                         </p>
-                        <div class="rating">★★★★☆</div>
+                        <div class="rating">★★★★★</div>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
                                 <i class="fas fa-store"></i>
@@ -2599,12 +2593,165 @@
                     <!-- Testimonial 3 -->
                     <div class="testimonial-card">
                         <p class="testimonial-text">
+                            "Barang promosi yang saya pesan untuk kebutuhan pribadi sangat bagus kualitasnya. Desainnya sesuai permintaan dan dikirim tepat waktu. Sangat recommended"
+                        </p>
+                        <div class="rating">★★★★★</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Hendra Wijaya</h4>
+                                <p>Pengusaha Muda - Bondowoso</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Figura 3d digital yang saya beli sangat unik dan cantik. Sekarang saya punya 3 jenis untuk pajangan diruang tamu dan kamar"
+                        </p>
+                        <div class="rating">★★★★★</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Siti Rahayu</h4>
+                                <p>Ibu Rumah Tangga - Sidoarjo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 5 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Sebagai wedding planner, saya sering bekerja sama dengan Jualan Kita untuk dekorasi acara. Hasilnya selalu memuaskan dan harganya bersaing"
+                        </p>
+                        <div class="rating">★★★★★</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-ring"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Vina Permata</h4>
+                                <p>Wedding Planner - Sidoarjo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 6 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Sebagai produsen ikan kering premium, saya sangat puas dengan jangkauan pemasaran Lentera Karya. Ikan tongkol dan teri kering kami yang diproses secara tradisional sekarang bisa dinikmati oleh pecinta kuliner sejati di seluruh Indonesia. Pembeli sering kembali karena kualitas yang konsisten! dan yang paling penting - pembeli sangat menghargai keaslian rasa ikan kering tradisional buatan saya. Terima kasih Lentera Karya!"
+                        </p>
+                        <div class="rating">★★★★★</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Rufal</h4>
+                                <p>UMKM - Kilensari</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 7 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Saya memesan parcel custom untuk hadiah karyawan. Hasil cetaknya tajam dan tidak mudah luntur. Karyawan saya sangat senang menerimanya"
+                        </p>
+                        <div class="rating">★★★★★</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Linda Amelia</h4>
+                                <p>HR Manager - Malang</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 8 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Sebagai kolektor seni, saya sangat menghargai karya-karya Jualan Kita. Detail pengerjaannya sangat halus dan menunjukkan keahlian yang tinggi"
+                        </p>
+                        <div class="rating">★★★★★</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Muhammad Dafi</h4>
+                                <p>Kolektor Seni - Besuki</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 9 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Saya menyewa peralatan fotografi untuk project dokumentasi desa. Peralatannya lengkap dan dalam kondisi sangat baik. Pelayanannya juga ramah"
+                        </p>
+                        <div class="rating">★★★★★</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Maya Sari</h4>
+                                <p>Pelajar - Jangkar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Testimonial 10 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Saya oder dan memesan buku edukasi custom hasilnya sangat bagus, dan anak didik saya suka"
+                        </p>
+                        <div class="rating">★★★★★</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Restyana</h4>
+                                <p>Guru - Mlandingan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Testimonial 11 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Saya menyewa jasa fotografi untuk project dokumentasi pernikahan saudara. Hasilnya sangat bagus & Pelayanannya juga ramah"
+                        </p>
+                        <div class="rating">★★★★★</div>
+                       <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-camera-retro"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Rindy</h4>
+                                <p>Karyawati - Asembagus</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 12 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
                             "Berkat Lentera Karya (Jual Kita), promosi kue mocci dan kue basah lainnya saya jadi lebih mudah dijangkau pelanggan. Mereka bisa melihat foto, deskripsi jelas, dan langsung memesan tanpa ribet. Proses transaksinya pun cepat dan aman"
                         </p>
                         <div class="rating">★★★★★</div>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
-                                <i class="fas fa-cookie-bite"></i>
+                                <i class="fas fa-birthday-cake"></i>
                             </div>
                             <div class="author-info">
                                 <h4>Ulink</h4>
@@ -2755,7 +2902,7 @@
                 <div class="payment-methods">
                     <h4>Metode Pembayaran</h4>
                     <div class="payment-icons">
-                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/semua-logo-bank-min.png" alt="Metode Pembayaran" class="payment-icon">
+                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/images/semua-logo-bank-min.png" alt="Payment Methods" class="payment-icon">
                     </div>
                 </div>
             </div>
