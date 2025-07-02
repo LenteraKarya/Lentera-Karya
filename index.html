@@ -594,9 +594,10 @@
             box-shadow: 0 5px 15px rgba(219, 100, 0, 0.2);
         }
         
+        /* UPDATED GALLERY GRID - 2 COLUMNS INSTEAD OF 3 */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
             gap: 3rem;
             margin-top: 2rem;
         }
@@ -653,7 +654,7 @@
         .gallery-image-container {
             position: relative;
             overflow: hidden;
-            height: 300px;
+            height: 350px; /* Increased height for more premium look */
             aspect-ratio: 16/9;
         }
         
@@ -712,7 +713,7 @@
         
         .gallery-main-image {
             width: 100%;
-            height: 400px;
+            height: 500px; /* Increased height for better viewing */
             object-fit: contain;
             background-color: #f9f9f9;
             border-radius: 12px;
@@ -750,8 +751,8 @@
         }
         
         .thumbnail {
-            width: 80px;
-            height: 80px;
+            width: 100px; /* Slightly larger thumbnails */
+            height: 100px;
             object-fit: cover;
             border-radius: 8px;
             cursor: pointer;
@@ -1213,11 +1214,11 @@
             background: linear-gradient(135deg, var(--success), #3e823e);
         }
         
-        /* Footer */
+        /* UPDATED FOOTER - MORE PROFESSIONAL AND PREMIUM */
         footer {
             background-color: var(--primary);
             color: white;
-            padding: 6rem 0 3rem;
+            padding: 6rem 0 0;
             position: relative;
             overflow: hidden;
         }
@@ -1237,20 +1238,26 @@
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 1.5rem 4rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
             position: relative;
             z-index: 1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-col {
+            padding: 0 1rem;
         }
         
         .footer-col h3 {
-            font-size: 1.8rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
-            padding-bottom: 1.5rem;
+            padding-bottom: 1rem;
             font-family: 'Playfair Display', serif;
+            color: white;
         }
         
         .footer-col h3::after {
@@ -1258,10 +1265,22 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 70px;
-            height: 4px;
+            width: 50px;
+            height: 3px;
             background: var(--accent);
             border-radius: 2px;
+        }
+        
+        .footer-about {
+            grid-column: 1 / -1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-about h3::after {
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         .footer-about p {
@@ -1269,6 +1288,51 @@
             line-height: 1.8;
             font-size: 1.05rem;
             color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .footer-logo span {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: white;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
         }
         
         .footer-links {
@@ -1284,28 +1348,44 @@
             text-decoration: none;
             transition: var(--transition);
             display: inline-block;
-            padding: 0.3rem 0;
+            padding: 0.5rem 0;
             font-size: 1.05rem;
+            position: relative;
+        }
+        
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
         }
         
         .footer-links a:hover {
-            color: var(--accent);
+            color: white;
             transform: translateX(10px);
         }
         
+        .footer-links a:hover::before {
+            width: 20px;
+        }
+        
         .newsletter-form {
-            margin-top: 2.5rem;
+            margin-top: 1.5rem;
         }
         
         .newsletter-form input {
             width: 100%;
-            padding: 1.2rem;
+            padding: 1rem;
             border: none;
             border-radius: 8px;
             margin-bottom: 1.5rem;
             background-color: rgba(255, 255, 255, 0.1);
             color: white;
-            font-size: 1.05rem;
+            font-size: 1rem;
             transition: var(--transition);
         }
         
@@ -1321,14 +1401,12 @@
         
         .newsletter-form button {
             width: 100%;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 4rem;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
             font-size: 0.95rem;
             color: rgba(255, 255, 255, 0.6);
             position: relative;
@@ -1600,34 +1678,6 @@
             display: none;
         }
         
-        /* Background Music Control */
-        .music-control {
-            position: fixed;
-            bottom: 3rem;
-            left: 3rem;
-            z-index: 100;
-            background: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .music-control:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .music-control i {
-            font-size: 1.5rem;
-            color: var(--accent);
-        }
-        
         /* Lazy Loading */
         .lazy {
             opacity: 0;
@@ -1657,7 +1707,11 @@
             }
             
             .gallery-main-image {
-                height: 350px;
+                height: 400px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
             }
         }
         
@@ -1687,7 +1741,19 @@
             }
             
             .gallery-main-image {
-                height: 300px;
+                height: 350px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            }
+            
+            .gallery-details {
+                padding: 2rem;
+            }
+            
+            .gallery-detail-expanded {
+                padding: 0 1.5rem 1.5rem;
             }
             
             .nav-links {
@@ -1734,9 +1800,9 @@
                 padding: 1rem;
             }
             
-            .music-control {
+            .contact-bar {
                 bottom: 2rem;
-                left: 2rem;
+                right: 2rem;
             }
         }
         
@@ -1776,24 +1842,24 @@
             }
             
             .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             }
             
             .gallery-main-image {
-                height: 250px;
+                height: 300px;
             }
             
             .gallery-details {
-                padding: 2rem;
+                padding: 1.5rem;
             }
             
             .gallery-detail-expanded {
-                padding: 0 1.5rem 1.5rem;
+                padding: 0 1rem 1rem;
             }
             
             .contact-bar {
-                bottom: 2rem;
-                right: 2rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
             }
             
             .contact-btn {
@@ -1803,8 +1869,11 @@
             }
             
             .footer-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-about {
+                grid-column: 1 / -1;
             }
             
             .modal-content {
@@ -1843,7 +1912,7 @@
             }
             
             .gallery-main-image {
-                height: 200px;
+                height: 250px;
             }
             
             .gallery-details {
@@ -1864,8 +1933,8 @@
             }
             
             .contact-bar {
-                bottom: 1.5rem;
-                right: 1.5rem;
+                bottom: 1rem;
+                right: 1rem;
             }
             
             .contact-btn {
@@ -1874,19 +1943,12 @@
                 font-size: 1.6rem;
             }
             
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
             .modal-content {
                 padding: 2.5rem 2rem;
-            }
-            
-            .music-control {
-                bottom: 1.5rem;
-                left: 1.5rem;
-                width: 45px;
-                height: 45px;
-            }
-            
-            .music-control i {
-                font-size: 1.3rem;
             }
         }
         
@@ -1908,12 +1970,12 @@
             }
             
             .gallery-main-image {
-                height: 180px;
+                height: 200px;
             }
             
             .thumbnail {
-                width: 60px;
-                height: 60px;
+                width: 70px;
+                height: 70px;
             }
         }
     </style>
@@ -1925,15 +1987,10 @@
         <h2 style="color: white; font-family: 'Playfair Display', serif; margin-top: 1.5rem;">Jualan Kita</h2>
     </div>
     
-    <!-- Background Music -->
-    <audio id="bgMusic" loop>
+    <!-- Background Music - Autoplay and Loop -->
+    <audio id="bgMusic" loop autoplay>
         <source src="https://github.com/LenteraKarya/jualan-kita/blob/main/assets/audio/Musik%20website.mp3?raw=true" type="audio/mpeg">
     </audio>
-    
-    <!-- Music Control -->
-    <div class="music-control" id="musicControl">
-        <i class="fas fa-music"></i>
-    </div>
     
     <!-- Partikel Animasi -->
     <div class="particles" id="particles"></div>
@@ -2623,13 +2680,24 @@
         </button>
     </div>
     
-    <!-- Footer -->
+    <!-- UPDATED FOOTER - MORE PROFESSIONAL AND PREMIUM -->
     <footer>
         <div class="footer-container">
             <div class="footer-col footer-about">
-                <h3>Jualan Kita</h3>
-                <p>Menyediakan produk kerajinan tangan berkualitas tinggi, jasa sewa, dan solusi promosi sejak tahun 2025.</p>
+                <div class="footer-logo">
+                    <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/images/logo-jualan-kita.png" alt="Jualan Kita Logo">
+                    <span>Jualan Kita</span>
+                </div>
+                <p>Menyediakan produk kerajinan tangan berkualitas tinggi, jasa sewa, dan solusi promosi sejak tahun 2025. Komitmen kami adalah memberikan pengalaman berbelanja online yang menyenangkan dan memuaskan.</p>
+                
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
+            
             <div class="footer-col">
                 <h3>Tautan Cepat</h3>
                 <ul class="footer-links">
@@ -2638,8 +2706,10 @@
                     <li><a href="#gallery">Galeri</a></li>
                     <li><a href="#testimonials">Testimoni</a></li>
                     <li><a href="#contact">Kontak</a></li>
+                    <li><a href="#">Blog</a></li>
                 </ul>
             </div>
+            
             <div class="footer-col">
                 <h3>Layanan</h3>
                 <ul class="footer-links">
@@ -2648,21 +2718,34 @@
                     <li><a href="#">Barang Promosi</a></li>
                     <li><a href="#">Pesanan Custom</a></li>
                     <li><a href="#">Dekorasi Acara</a></li>
+                    <li><a href="#">Konsultasi Bisnis</a></li>
                 </ul>
             </div>
+            
             <div class="footer-col">
                 <h3>Newsletter</h3>
-                <p>Berlangganan newsletter kami untuk update dan penawaran spesial.</p>
+                <p>Berlangganan newsletter kami untuk mendapatkan update produk terbaru dan penawaran spesial.</p>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Alamat email Anda" required>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> Berlangganan
                     </button>
                 </form>
+                
+                <h3 style="margin-top: 2.5rem;">Pembayaran</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+                    <img src="https://via.placeholder.com/40x25?text=BCA" alt="BCA" style="border-radius: 4px;">
+                    <img src="https://via.placeholder.com/40x25?text=Mandiri" alt="Mandiri" style="border-radius: 4px;">
+                    <img src="https://via.placeholder.com/40x25?text=BRI" alt="BRI" style="border-radius: 4px;">
+                    <img src="https://via.placeholder.com/40x25?text=BNI" alt="BNI" style="border-radius: 4px;">
+                    <img src="https://via.placeholder.com/40x25?text=Gopay" alt="Gopay" style="border-radius: 4px;">
+                    <img src="https://via.placeholder.com/40x25?text=OVO" alt="OVO" style="border-radius: 4px;">
+                </div>
             </div>
         </div>
+        
         <div class="copyright">
-            &copy; 2025 Jualan Kita. Semua hak dilindungi.
+            &copy; 2025 Jualan Kita. Semua hak dilindungi. | <a href="#" style="color: rgba(255,255,255,0.6);">Kebijakan Privasi</a> | <a href="#" style="color: rgba(255,255,255,0.6);">Syarat & Ketentuan</a>
         </div>
     </footer>
     
@@ -2725,11 +2808,13 @@
             setTimeout(function() {
                 document.querySelector('.loading-screen').classList.add('hidden');
             }, 1200);
+            
+            // Try to play background music automatically
+            tryPlayMusic();
         });
         
         // Background Music Control
         const bgMusic = document.getElementById('bgMusic');
-        const musicControl = document.getElementById('musicControl');
         let isMusicPlaying = false;
         
         // Try to play music (will be muted until user interacts)
@@ -2740,31 +2825,20 @@
             if (playPromise !== undefined) {
                 playPromise.then(_ => {
                     isMusicPlaying = true;
-                    musicControl.innerHTML = '<i class="fas fa-pause"></i>';
                 })
                 .catch(error => {
                     isMusicPlaying = false;
-                    musicControl.innerHTML = '<i class="fas fa-music"></i>';
+                    // Music will play after user interaction
+                    document.addEventListener('click', function() {
+                        if (!isMusicPlaying) {
+                            bgMusic.play().then(_ => {
+                                isMusicPlaying = true;
+                            });
+                        }
+                    }, { once: true });
                 });
             }
         }
-        
-        // Initial music attempt (will fail due to autoplay policies)
-        tryPlayMusic();
-        
-        // Music control toggle
-        musicControl.addEventListener('click', function() {
-            if (isMusicPlaying) {
-                bgMusic.pause();
-                isMusicPlaying = false;
-                this.innerHTML = '<i class="fas fa-music"></i>';
-            } else {
-                bgMusic.play();
-                isMusicPlaying = true;
-                this.innerHTML = '<i class="fas fa-pause"></i>';
-            }
-            playButtonSound();
-        });
         
         // Mobile Menu Toggle
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
