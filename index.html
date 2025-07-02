@@ -1445,36 +1445,33 @@
         /* Payment Methods Section */
         .payment-methods {
             margin-top: 2rem;
+            text-align: center;
         }
         
         .payment-methods h4 {
             font-size: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: rgba(255, 255, 255, 0.8);
             font-weight: 400;
         }
         
         .payment-icons {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
         }
         
         .payment-icon {
-            height: 40px;
-            width: auto;
-            object-fit: contain;
-            filter: grayscale(20%) brightness(1.2);
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: var(--transition);
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 5px;
         }
         
         .payment-icon:hover {
-            filter: grayscale(0%) brightness(1.5);
-            transform: translateY(-3px);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         .newsletter-form {
