@@ -1040,16 +1040,16 @@
             font-size: 0.95rem;
         }
         
-        /* PREMIUM TESTIMONIALS SECTION */
-        .testimonials {
+        /* PREMIUM TESTIMONIAL BUTTON SECTION */
+        .testimonial-button-section {
+            padding: 6rem 0;
+            text-align: center;
             background-color: var(--light);
-            padding: 8rem 0;
-            margin: 0;
             position: relative;
             overflow: hidden;
         }
         
-        .testimonials::before {
+        .testimonial-button-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -1061,123 +1061,40 @@
             z-index: 0;
         }
         
-        .testimonial-content {
+        .testimonial-button-section .container {
             position: relative;
             z-index: 1;
         }
         
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-        }
-        
-        .testimonial-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+        .testimonial-button-section .btn-primary {
             position: relative;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.03);
             overflow: hidden;
+            transition: all 0.5s ease;
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
         }
         
-        .testimonial-card:hover {
+        .testimonial-button-section .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-            border-color: rgba(230, 126, 34, 0.1);
+            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.4);
         }
         
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent), var(--gold));
-        }
-        
-        .testimonial-text {
-            margin-bottom: 2.5rem;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            color: var(--text);
-            padding-left: 2rem;
-            position: relative;
-        }
-        
-        .testimonial-text::before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            top: -10px;
-            font-size: 4rem;
-            color: rgba(230, 126, 34, 0.1);
-            font-family: serif;
-            line-height: 1;
-            z-index: -1;
-        }
-        
-        .rating {
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-        
-        .testimonial-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--primary);
-            flex-shrink: 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .testimonial-avatar::before {
+        .testimonial-button-section .btn-primary::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-            z-index: 1;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(0);
+            transition: all 0.5s ease;
+            border-radius: 50px;
         }
         
-        .testimonial-avatar i {
-            z-index: 2;
-        }
-        
-        .author-info h4 {
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-            font-size: 1.2rem;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .author-info p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+        .testimonial-button-section .btn-primary:hover::after {
+            transform: scale(1);
         }
         
         /* Contact Section */
@@ -2813,63 +2730,16 @@
             </div>
         </section>
         
-        <!-- Testimonials Section -->
-        <section class="testimonials" id="testimonials">
-            <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
-            <div class="testimonial-content">
-                <div class="testimonial-grid">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">
-                            "Jasa layanan promosi daganganku di platfom lentera karya (jual kita) ini membuat saya terbantukan. Sehingga pelanggan mudah mengakses dan mendapatkan informasi dan transaksi"
-                        </p>
-                        <div class="rating">★★★★★</div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-store"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>Budi Hariyanto</h4>
-                                <p>UMKM - Situbondo</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                   
-                     <!-- Testimonial 11 -->
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">
-                            "Saya menyewa jasa fotografi untuk project dokumentasi pernikahan saudara. Hasilnya sangat bagus & Pelayanannya juga ramah"
-                        </p>
-                        <div class="rating">★★★★★</div>
-                       <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-camera-retro"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>Rindy</h4>
-                                <p>Karyawati - Asembagus</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 12 -->
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">
-                            "Berkat Lentera Karya (Jual Kita), promosi kue mocci dan kue basah lainnya saya jadi lebih mudah dijangkau pelanggan. Mereka bisa melihat foto, deskripsi jelas, dan langsung memesan tanpa ribet. Proses transaksinya pun cepat dan aman"
-                        </p>
-                        <div class="rating">★★★★★</div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-birthday-cake"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>Ulink</h4>
-                                <p>Pengusaha Muda - Situbondo</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Testimonial Button Section -->
+        <section class="testimonial-button-section" id="testimonials">
+            <div class="container">
+                <h2 class="section-title">Apa Kata Mereka?</h2>
+                <p style="max-width: 800px; margin: 0 auto 3rem; color: var(--text-light); font-size: 1.15rem; line-height: 1.8;">
+                    Dengarkan pengalaman langsung dari pelanggan kami yang telah menggunakan layanan Jualan Kita.
+                </p>
+                <a href="https://lenterakarya.github.io/testimoni/" target="_blank" class="btn btn-primary" style="padding: 1.2rem 3rem; font-size: 1.1rem;">
+                    <i class="fas fa-comments"></i> Lihat Semua Testimoni
+                </a>
             </div>
         </section>
         
