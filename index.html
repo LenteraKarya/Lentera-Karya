@@ -511,7 +511,6 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
-            cursor: pointer;
         }
         
         .dropdown-toggle i {
@@ -2087,7 +2086,6 @@
             
             .dropdown-toggle {
                 padding: 0.5rem 0;
-                cursor: pointer;
             }
             
             .dropdown-content {
@@ -2196,15 +2194,6 @@
             
             .modal-content {
                 padding: 3rem;
-            }
-            
-            /* Contact Form Mobile Fix */
-            .contact-form {
-                padding: 2rem;
-            }
-            
-            .contact-info {
-                padding: 2rem;
             }
             
             /* Homestay Section Mobile */
@@ -2433,7 +2422,7 @@
                 
                 <!-- Improved Transaction Menu with Dropdown -->
                 <div class="dropdown">
-                    <div class="dropdown-toggle">Transaksi <i class="fas fa-chevron-down"></i></div>
+                    <a href="#" class="dropdown-toggle">Transaksi <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
                         <a href="https://lenterakarya.github.io/LKS-payment-versi-gratis/" target="_blank">Aplikasi Kasir Gratis</a>
                         <a href="https://lenterakarya.github.io/transaksi/" target="_blank">Aplikasi Kasir Pro</a>
@@ -2445,7 +2434,7 @@
                 
                 <!-- Improved UMKM Zone Menu with Dropdown -->
                 <div class="dropdown">
-                    <div class="dropdown-toggle">Zona UMKM <i class="fas fa-chevron-down"></i></div>
+                    <a href="#" class="dropdown-toggle">Zona UMKM <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
                         <a href="https://lenterakarya.github.io/umkm-online/" target="_blank">Komunitas Usaha 1</a>
                         <a href="https://lenterakarya.github.io/umkm-online/" target="_blank">Komunitas Usaha 2</a>
@@ -2456,18 +2445,7 @@
                     </div>
                 </div>
                 
-                <!-- Layanan Menu with Dropdown -->
-                <div class="dropdown">
-                    <div class="dropdown-toggle">Layanan <i class="fas fa-chevron-down"></i></div>
-                    <div class="dropdown-content">
-                        <a href="https://lenterakarya.github.io/catatan-bisnis/" target="_blank">Aplikasi Catatan UMKM</a>
-                        <a href="https://lenterakarya.github.io/NOS/" target="_blank">Layanan Ojek Online</a>
-                        <a href="https://lenterakarya.github.io/LKS-payment-versi-gratis/" target="_blank">Aplikasi Pembayaran Kasir</a>
-                        <a href="https://lenterakarya.github.io/list-umkm/" target="_blank">Zona Daftar UMKM</a>
-                        <a href="https://lenterakarya.github.io/homestay/" target="_blank">Zona Penginapan & Wisata</a>
-                    </div>
-                </div>
-                
+                <a href="#services">Layanan</a>
                 <a href="#gallery">Galeri</a>
                 <a href="https://lenterakarya.github.io/testimoni/" target="_blank">Apa Kata Mereka?</a>
                 <a href="#contact">Kontak</a>
@@ -3124,11 +3102,11 @@
             <div class="footer-col">
                 <h3>Layanan</h3>
                 <ul class="footer-links">
-                    <li><a href="https://lenterakarya.github.io/catatan-bisnis/" target="_blank">Aplikasi Catatan UMKM</a></li>
-                    <li><a href="https://lenterakarya.github.io/NOS/" target="_blank">Layanan Ojek Online</a></li>
-                    <li><a href="https://lenterakarya.github.io/LKS-payment-versi-gratis/" target="_blank">Aplikasi Pembayaran Kasir</a></li>
-                    <li><a href="https://lenterakarya.github.io/list-umkm/" target="_blank">Zona Daftar UMKM</a></li>
-                    <li><a href="https://lenterakarya.github.io/homestay/" target="_blank">Zona Penginapan & Wisata</a></li>
+                    <li><a href="https://lenterakarya.github.io/NOS/" target="_blank">Ojek Online</a></li>
+                    <li><a href="#">Jasa Sewa</a></li>
+                    <li><a href="#">Barang Promosi</a></li>
+                    <li><a href="#">Pesanan Custom</a></li>
+                    <li><a href="#">Dekorasi Acara</a></li>
                     <li><a href="https://lenterakarya.github.io/bisnis/" target="_blank">Konsultasi Layanan Platform Jualan Kita</a></li>
                 </ul>
             </div>
@@ -3279,27 +3257,25 @@
         // Improved Dropdown menu functionality for mobile
         document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
             toggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                const dropdown = this.parentElement;
-                
-                // Close all other dropdowns first
-                document.querySelectorAll('.dropdown').forEach(d => {
-                    if (d !== dropdown) {
-                        d.classList.remove('active');
-                        const icon = d.querySelector('.dropdown-toggle i');
-                        if (icon) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    const dropdown = this.parentElement;
+                    
+                    // Close all other dropdowns first
+                    document.querySelectorAll('.dropdown').forEach(d => {
+                        if (d !== dropdown) {
+                            d.classList.remove('active');
+                            const icon = d.querySelector('.dropdown-toggle i');
                             icon.classList.remove('fa-chevron-up');
                             icon.classList.add('fa-chevron-down');
                         }
-                    }
-                });
-                
-                // Toggle current dropdown
-                dropdown.classList.toggle('active');
-                
-                // Rotate chevron icon
-                const icon = this.querySelector('i');
-                if (icon) {
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                    
+                    // Rotate chevron icon
+                    const icon = this.querySelector('i');
                     if (dropdown.classList.contains('active')) {
                         icon.classList.remove('fa-chevron-down');
                         icon.classList.add('fa-chevron-up');
@@ -3313,15 +3289,15 @@
         
         // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.dropdown') && !e.target.closest('.mobile-menu-toggle')) {
-                document.querySelectorAll('.dropdown').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                    const icon = dropdown.querySelector('.dropdown-toggle i');
-                    if (icon) {
+            if (window.innerWidth <= 992) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                        const icon = dropdown.querySelector('.dropdown-toggle i');
                         icon.classList.remove('fa-chevron-up');
                         icon.classList.add('fa-chevron-down');
-                    }
-                });
+                    });
+                }
             }
         });
         
