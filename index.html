@@ -511,6 +511,7 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
+            cursor: pointer;
         }
         
         .dropdown-toggle i {
@@ -1015,7 +1016,7 @@
         }
         
         .btn-primary:hover {
-            backgroundColor: #d9731f;
+            background-color: #d9731f;
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4);
         }
@@ -1039,7 +1040,7 @@
         }
         
         .btn-accent:hover {
-            backgroundColor: #d9731f;
+            background-color: #d9731f;
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4);
         }
@@ -1050,7 +1051,7 @@
         }
         
         .btn-success:hover {
-            backgroundColor: #2f855a;
+            background-color: #2f855a;
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(56, 161, 105, 0.3);
         }
@@ -2028,6 +2029,7 @@
                 padding: 0 1.5rem 1.5rem;
             }
             
+            /* Improved Mobile Navigation */
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -2038,11 +2040,13 @@
                 background: white;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                gap: 2rem;
+                justify-content: flex-start;
+                gap: 1.5rem;
                 transition: var(--transition);
                 box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
                 z-index: 1000;
+                padding-top: 80px;
+                overflow-y: auto;
             }
             
             .nav-links.active {
@@ -2082,10 +2086,13 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                width: 100%;
             }
             
             .dropdown-toggle {
                 padding: 0.5rem 0;
+                width: 100%;
+                justify-content: center;
             }
             
             .dropdown-content {
@@ -2093,16 +2100,17 @@
                 display: none;
                 box-shadow: none;
                 padding: 0;
-                margin-top: 0.5rem;
+                margin-top: 0;
                 background: rgba(0,0,0,0.02);
                 border-radius: 8px;
-                width: 100%;
+                width: 90%;
                 text-align: center;
                 opacity: 1;
                 transform: none;
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease;
+                margin: 0.5rem 0;
             }
             
             .dropdown.active .dropdown-content {
@@ -2114,11 +2122,17 @@
                 padding: 0.8rem 1rem;
                 border-left: none;
                 text-align: center;
+                width: 100%;
             }
             
             .dropdown-content a:hover {
                 transform: none;
                 background: rgba(230, 126, 34, 0.05);
+            }
+            
+            /* Rotate chevron for mobile */
+            .dropdown.active .dropdown-toggle i {
+                transform: rotate(180deg);
             }
         }
         
@@ -2457,7 +2471,9 @@
                     </div>
                 </div>
                 
-                <a href="#gallery">Galeri</a>
+                <!-- Changed "Galeri" to "Tentang Kami" with link -->
+                <a href="https://lenterakarya.github.io/tentang-LKS/" target="_blank">Tentang Kami</a>
+                
                 <a href="https://lenterakarya.github.io/testimoni/" target="_blank">Apa Kata Mereka?</a>
                 <a href="#contact">Kontak</a>
             </div>
