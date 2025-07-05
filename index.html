@@ -1015,7 +1015,7 @@
         }
         
         .btn-primary:hover {
-            background-color: #d9731f;
+            backgroundColor: #d9731f;
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4);
         }
@@ -1039,7 +1039,7 @@
         }
         
         .btn-accent:hover {
-            background-color: #d9731f;
+            backgroundColor: #d9731f;
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4);
         }
@@ -1050,7 +1050,7 @@
         }
         
         .btn-success:hover {
-            background-color: #2f855a;
+            backgroundColor: #2f855a;
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(56, 161, 105, 0.3);
         }
@@ -1115,8 +1115,8 @@
             background: linear-gradient(135deg, var(--dark), var(--primary));
         }
         
-        /* Premium Homestay Section */
-        .homestay-section {
+        /* Premium Ojek Online Section */
+        .ojek-section {
             background: linear-gradient(135deg, rgba(42, 67, 101, 0.05), rgba(26, 54, 93, 0.08));
             padding: 6rem 0;
             text-align: center;
@@ -1126,7 +1126,7 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
-        .homestay-content {
+        .ojek-content {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 2rem;
@@ -1134,7 +1134,7 @@
             z-index: 1;
         }
         
-        .homestay-title {
+        .ojek-title {
             font-size: 2.2rem;
             margin-bottom: 2rem;
             color: var(--dark);
@@ -1144,7 +1144,7 @@
             line-height: 1.4;
         }
         
-        .homestay-title::after {
+        .ojek-title::after {
             content: '';
             position: absolute;
             bottom: -15px;
@@ -1156,7 +1156,7 @@
             border-radius: 2px;
         }
         
-        .homestay-text {
+        .ojek-text {
             color: var(--text);
             font-size: 1.15rem;
             line-height: 1.8;
@@ -1165,19 +1165,19 @@
             padding: 0 1rem;
         }
         
-        .homestay-text.highlight {
+        .ojek-text.highlight {
             font-size: 1.2rem;
             color: var(--dark);
             font-weight: 500;
             margin: 2rem 0;
         }
         
-        .homestay-text.emoji {
+        .ojek-text.emoji {
             font-size: 1.3rem;
             margin: 1.5rem 0;
         }
         
-        .homestay-button {
+        .ojek-button {
             display: inline-block;
             padding: 1.2rem 2.5rem;
             background: linear-gradient(135deg, var(--success), #2f855a);
@@ -1192,13 +1192,13 @@
             margin-top: 1.5rem;
         }
         
-        .homestay-button:hover {
+        .ojek-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(56, 161, 105, 0.3);
             background: linear-gradient(135deg, #2f855a, var(--success));
         }
         
-        .homestay-decoration {
+        .ojek-decoration {
             position: absolute;
             width: 150px;
             height: 150px;
@@ -1206,13 +1206,13 @@
             z-index: 0;
         }
         
-        .homestay-decoration.top-left {
+        .ojek-decoration.top-left {
             top: 50px;
             left: 50px;
             background: url('https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/images/logo-jualan-kita.png') center/contain no-repeat;
         }
         
-        .homestay-decoration.bottom-right {
+        .ojek-decoration.bottom-right {
             bottom: 50px;
             right: 50px;
             background: url('https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/images/logo-jualan-kita.png') center/contain no-repeat;
@@ -2196,35 +2196,35 @@
                 padding: 3rem;
             }
             
-            /* Homestay Section Mobile */
-            .homestay-title {
+            /* Ojek Section Mobile */
+            .ojek-title {
                 font-size: 1.8rem;
             }
             
-            .homestay-text {
+            .ojek-text {
                 font-size: 1.05rem;
                 padding: 0;
             }
             
-            .homestay-text.highlight {
+            .ojek-text.highlight {
                 font-size: 1.1rem;
             }
             
-            .homestay-text.emoji {
+            .ojek-text.emoji {
                 font-size: 1.2rem;
             }
             
-            .homestay-decoration {
+            .ojek-decoration {
                 width: 100px;
                 height: 100px;
             }
             
-            .homestay-decoration.top-left {
+            .ojek-decoration.top-left {
                 top: 30px;
                 left: 30px;
             }
             
-            .homestay-decoration.bottom-right {
+            .ojek-decoration.bottom-right {
                 bottom: 30px;
                 right: 30px;
             }
@@ -2327,24 +2327,24 @@
                 height: 70px;
             }
             
-            /* Homestay Section Small Mobile */
-            .homestay-title {
+            /* Ojek Section Small Mobile */
+            .ojek-title {
                 font-size: 1.6rem;
             }
             
-            .homestay-text {
+            .ojek-text {
                 font-size: 1rem;
             }
             
-            .homestay-text.highlight {
+            .ojek-text.highlight {
                 font-size: 1rem;
             }
             
-            .homestay-text.emoji {
+            .ojek-text.emoji {
                 font-size: 1.1rem;
             }
             
-            .homestay-decoration {
+            .ojek-decoration {
                 display: none;
             }
         }
@@ -2445,7 +2445,18 @@
                     </div>
                 </div>
                 
-                <a href="#services">Layanan</a>
+                <!-- Updated Services Menu with Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Layanan <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="https://lenterakarya.github.io/catatan-bisnis/" target="_blank">Aplikasi Catatan UMKM</a>
+                        <a href="https://lenterakarya.github.io/NOS/" target="_blank">Layanan Ojek Online</a>
+                        <a href="https://lenterakarya.github.io/LKS-payment-versi-gratis/" target="_blank">Aplikasi Pembayaran Kasir</a>
+                        <a href="https://lenterakarya.github.io/list-umkm/" target="_blank">Zona Daftar UMKM</a>
+                        <a href="https://lenterakarya.github.io/homestay/" target="_blank">Zona Penginapan & Wisata</a>
+                    </div>
+                </div>
+                
                 <a href="#gallery">Galeri</a>
                 <a href="https://lenterakarya.github.io/testimoni/" target="_blank">Apa Kata Mereka?</a>
                 <a href="#contact">Kontak</a>
@@ -2939,48 +2950,48 @@
             </div>
         </section>
         
-        <!-- Premium Homestay Section -->
-        <section class="homestay-section">
-            <div class="homestay-decoration top-left"></div>
-            <div class="homestay-decoration bottom-right"></div>
+        <!-- Premium Ojek Online Section -->
+        <section class="ojek-section">
+            <div class="ojek-decoration top-left"></div>
+            <div class="ojek-decoration bottom-right"></div>
             
-            <div class="homestay-content">
-                <h2 class="homestay-title">🏡 Butuh Tempat Menginap yang Nyaman dan Berkesan?</h2>
+            <div class="ojek-content">
+                <h2 class="ojek-title">🏍 Butuh Transportasi yang Cepat dan Terpercaya?</h2>
                 
-                <p class="homestay-text">
-                    Sedang mencari lokasi yang pas untuk melepas penat, bulan madu, atau menggelar acara pribadi bersama orang terdekat?
+                <p class="ojek-text">
+                    Sedang mencari layanan transportasi yang fleksibel, aman, dan terjangkau untuk perjalanan harian atau pengiriman barang?
                 </p>
                 
-                <p class="homestay-text highlight">
-                    Rancang Momen Istimewa Anda di Tempat yang Tak Biasa
+                <p class="ojek-text highlight">
+                    Nikmati Kemudahan Transportasi dengan Layanan Ojek Online Kami
                 </p>
                 
-                <p class="homestay-text">
-                    Lepaskan diri dari rutinitas. Temukan suasana menginap yang menghadirkan ketenangan, kenyamanan, dan kemewahan dalam satu pengalaman.
+                <p class="ojek-text">
+                    Dengan driver profesional dan kendaraan terawat, kami siap mengantarkan Anda ke tujuan dengan nyaman dan tepat waktu.
                 </p>
                 
-                <p class="homestay-text emoji">
-                    🌿 Lokasi tenang, desain elegan, dan pelayanan yang hangat akan menyambut Anda.
+                <p class="ojek-text emoji">
+                    🚀 Pesan sekarang dan rasakan kemudahannya!
                 </p>
                 
-                <p class="homestay-text">
-                    Untuk Anda yang tengah merencanakan liburan privat, perjalanan romantis, atau acara eksklusif bersama orang terdekat—kami merekomendasikan homestay pilihan dengan sentuhan premium.
+                <p class="ojek-text">
+                    Untuk Anda yang membutuhkan transportasi cepat, pengiriman dokumen, atau antar-jemput, layanan ojek online kami siap membantu.
                 </p>
                 
-                <p class="homestay-text emoji">
-                    🎯 Klik tombol di bawah ini untuk mengunjungi halaman detail
+                <p class="ojek-text emoji">
+                    🎯 Klik tombol di bawah ini untuk mengakses layanan
                 </p>
                 
-                <p class="homestay-text">
-                    Nikmati keistimewaan layanan yang dirancang untuk Anda yang menghargai kenyamanan.
+                <p class="ojek-text">
+                    Nikmati tarif transparan dan sistem pemesanan yang mudah melalui aplikasi kami.
                 </p>
                 
-                <p class="homestay-text emoji">
-                    👉 Karena setiap momen berharga pantas dirayakan dengan tempat yang luar biasa.
+                <p class="ojek-text emoji">
+                    👉 Karena perjalanan Anda penting bagi kami.
                 </p>
                 
-                <a href="https://lenterakarya.github.io/homestay/" class="homestay-button" target="_blank">
-                    <i class="fas fa-home"></i> Lihat Homestay Premium Kami
+                <a href="https://lenterakarya.github.io/NOS/" class="ojek-button" target="_blank">
+                    <i class="fas fa-motorcycle"></i> Pesan Ojek Online Sekarang
                 </a>
             </div>
         </section>
@@ -3102,11 +3113,11 @@
             <div class="footer-col">
                 <h3>Layanan</h3>
                 <ul class="footer-links">
-                    <li><a href="https://lenterakarya.github.io/NOS/" target="_blank">Ojek Online</a></li>
-                    <li><a href="#">Jasa Sewa</a></li>
-                    <li><a href="#">Barang Promosi</a></li>
-                    <li><a href="#">Pesanan Custom</a></li>
-                    <li><a href="#">Dekorasi Acara</a></li>
+                    <li><a href="https://lenterakarya.github.io/catatan-bisnis/" target="_blank">Aplikasi Catatan UMKM</a></li>
+                    <li><a href="https://lenterakarya.github.io/NOS/" target="_blank">Layanan Ojek Online</a></li>
+                    <li><a href="https://lenterakarya.github.io/LKS-payment-versi-gratis/" target="_blank">Aplikasi Pembayaran Kasir</a></li>
+                    <li><a href="https://lenterakarya.github.io/list-umkm/" target="_blank">Zona Daftar UMKM</a></li>
+                    <li><a href="https://lenterakarya.github.io/homestay/" target="_blank">Zona Penginapan & Wisata</a></li>
                     <li><a href="https://lenterakarya.github.io/bisnis/" target="_blank">Konsultasi Layanan Platform Jualan Kita</a></li>
                 </ul>
             </div>
