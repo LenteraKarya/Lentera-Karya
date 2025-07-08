@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
-    <meta name="description" content="Jualan Kita - Platform jual beli online terpercaya untuk semua kebutuhan Anda. Jasa sewa dan solusi promosi berkualitas.">
-    <meta name="keywords" content="jual beli online, jasa sewa, promosi, situbondo, dekorasi, handmade, souvenir">
+    <meta name="description" content="Jualan Kita - Platform jual beli online terpercaya untuk semua kebutuhan Anda. Ojek Online, jasa sewa, dan solusi promosi berkualitas.">
+    <meta name="keywords" content="jual beli online, ojek online, jasa sewa, promosi, situbondo, dekorasi, handmade, souvenir">
     <meta name="author" content="Jualan Kita">
     <meta property="og:title" content="Jualan Kita | Platform Jual Beli Online Terpercaya">
     <meta property="og:description" content="Semua Bisa Jualan & Semua Bisa Pesan - Platform lengkap untuk kebutuhan jual beli online Anda">
@@ -966,6 +966,243 @@
             line-height: 1.8;
         }
         
+        /* NEW: Product Price List */
+        .price-list {
+            margin: 1.5rem 0;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .price-list-header {
+            background-color: rgba(230, 126, 34, 0.1);
+            padding: 0.8rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            color: var(--dark);
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-list-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-list-item:last-child {
+            border-bottom: none;
+        }
+        
+        .price-list-item:hover {
+            background-color: rgba(230, 126, 34, 0.05);
+        }
+        
+        .price-list-item .item-name {
+            color: var(--text);
+        }
+        
+        .price-list-item .item-price {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* NEW: Additional Notes */
+        .additional-notes {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: rgba(66, 153, 225, 0.05);
+            border-left: 3px solid var(--secondary);
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .additional-notes h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .additional-notes p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* NEW: Order Quantity Section */
+        .order-quantity {
+            margin: 1.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(230, 126, 34, 0.1);
+            color: var(--accent);
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-btn:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .quantity-input {
+            width: 70px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .quantity-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+        
+        .unit-selector {
+            position: relative;
+        }
+        
+        .unit-selector select {
+            height: 40px;
+            padding: 0 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            appearance: none;
+            padding-right: 2rem;
+            background-color: white;
+        }
+        
+        .unit-selector::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+        
+        .unit-selector select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+        
+        .total-price {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .total-price span {
+            color: var(--accent);
+        }
+        
+        /* NEW: Pre-order Section */
+        .pre-order-section {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background-color: rgba(56, 161, 105, 0.05);
+            border-radius: 8px;
+            border: 1px dashed var(--success);
+            display: none;
+        }
+        
+        .pre-order-section.active {
+            display: block;
+        }
+        
+        .pre-order-section h4 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pre-order-section h4 i {
+            color: var(--success);
+        }
+        
+        .pre-order-input {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .pre-order-input input {
+            flex: 1;
+            height: 40px;
+            padding: 0 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .pre-order-input input:focus {
+            outline: none;
+            border-color: var(--success);
+            box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.1);
+        }
+        
+        .pre-order-btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .pre-order-btn:hover {
+            background-color: #2f855a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(56, 161, 105, 0.2);
+        }
+        
+        .pre-order-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
         .gallery-specs {
             margin-top: 1.5rem;
             border-top: 1px solid #eee;
@@ -1056,37 +1293,169 @@
             box-shadow: 0 8px 25px rgba(56, 161, 105, 0.3);
         }
         
-        /* New Detail Button Style */
-        .btn-detail {
-            background-color: var(--primary);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-right: 1rem;
-        }
-        
-        .btn-detail:hover {
-            background-color: var(--dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(42, 67, 101, 0.2);
-        }
-        
         .action-buttons {
             display: flex;
             gap: 1.2rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
         
         .btn-small {
             padding: 0.8rem 1.5rem;
             font-size: 0.95rem;
+        }
+        
+        /* Testimonial Button Section */
+        .testimonial-button-section {
+            background-color: var(--light);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-button-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/images/logo-jualan-kita.png') center/cover fixed;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .testimonial-button-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+        }
+        
+        /* Premium Ojek Online Section */
+        .ojek-section {
+            background: linear-gradient(135deg, rgba(42, 67, 101, 0.05), rgba(26, 54, 93, 0.08));
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .ojek-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .ojek-title {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+            line-height: 1.4;
+        }
+        
+        .ojek-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .ojek-text {
+            color: var(--text);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding: 0 1rem;
+        }
+        
+        .ojek-text.highlight {
+            font-size: 1.2rem;
+            color: var(--dark);
+            font-weight: 500;
+            margin: 2rem 0;
+        }
+        
+        .ojek-text.emoji {
+            font-size: 1.3rem;
+            margin: 1.5rem 0;
+        }
+        
+        .ojek-button {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, var(--success), #2f855a);
+            color: white;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(56, 161, 105, 0.2);
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            margin-top: 1.5rem;
+        }
+        
+        .ojek-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(56, 161, 105, 0.3);
+            background: linear-gradient(135deg, #2f855a, var(--success));
+        }
+        
+        .ojek-decoration {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .ojek-decoration.top-left {
+            top: 50px;
+            left: 50px;
+            background: url('https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/images/logo-jualan-kita.png') center/contain no-repeat;
+        }
+        
+        .ojek-decoration.bottom-right {
+            bottom: 50px;
+            right: 50px;
+            background: url('https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/images/logo-jualan-kita.png') center/contain no-repeat;
+            transform: rotate(180deg);
         }
         
         /* Contact Section */
@@ -2089,6 +2458,39 @@
             .modal-content {
                 padding: 3rem;
             }
+            
+            /* Ojek Section Mobile */
+            .ojek-title {
+                font-size: 1.8rem;
+            }
+            
+            .ojek-text {
+                font-size: 1.05rem;
+                padding: 0;
+            }
+            
+            .ojek-text.highlight {
+                font-size: 1.1rem;
+            }
+            
+            .ojek-text.emoji {
+                font-size: 1.2rem;
+            }
+            
+            .ojek-decoration {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .ojek-decoration.top-left {
+                top: 30px;
+                left: 30px;
+            }
+            
+            .ojek-decoration.bottom-right {
+                bottom: 30px;
+                right: 30px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -2188,6 +2590,27 @@
                 width: 70px;
                 height: 70px;
             }
+            
+            /* Ojek Section Small Mobile */
+            .ojek-title {
+                font-size: 1.6rem;
+            }
+            
+            .ojek-text {
+                font-size: 1rem;
+            }
+            
+            .ojek-text.highlight {
+                font-size: 1rem;
+            }
+            
+            .ojek-text.emoji {
+                font-size: 1.1rem;
+            }
+            
+            .ojek-decoration {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -2260,8 +2683,22 @@
             
             <div class="nav-links" id="navLinks">
                 <a href="#home">Beranda</a>
-                <a href="#services">Layanan</a>
+                
+                <!-- Updated Ojek Online Menu -->
+                <a href="https://lenterakarya.github.io/NOS/" target="_blank">Layanan Ojek Online</a>
+                
+                <!-- Updated Services Menu with Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Layanan <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="https://lenterakarya.github.io/NOS/" target="_blank">Layanan Ojek Online</a>
+                    </div>
+                </div>
+                
+                <!-- Changed "Galeri" to "Tentang Kami" with link -->
                 <a href="https://lenterakarya.github.io/tentang-LKS/" target="_blank">Tentang Kami</a>
+                
+                <a href="https://lenterakarya.github.io/testimoni/" target="_blank">Apa Kata Mereka?</a>
                 <a href="#contact">Kontak</a>
             </div>
         </div>
@@ -2272,6 +2709,13 @@
         <section class="services" id="services">
             <h2 class="section-title">Layanan Kami</h2>
             <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <h3 class="service-title">Ojek Online</h3>
+                    <p>Layanan transportasi cepat dan aman dengan driver profesional. Nikmati perjalanan nyaman dengan tarif terjangkau dan sistem pemesanan yang mudah.</p>
+                </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-calendar-alt"></i>
@@ -2297,6 +2741,7 @@
                 
                 <div class="category-tabs">
                     <button class="category-btn active" data-category="all">Semua</button>
+                    <button class="category-btn" data-category="ojek">Ojek Online</button>
                     <button class="category-btn" data-category="rental">Sewa</button>
                     <button class="category-btn" data-category="promo">Promosi</button>
                 </div>
@@ -2317,18 +2762,21 @@
                             <span class="gallery-seller"><i class="fas fa-store"></i> Ardiwillis Farm</span>
                         </div>
                         <p class="gallery-price">
-                            Rp 8.000
+                            Mulai dari Rp 8.000
                             <span class="original-price">Rp 10.000</span>
                             <span class="discount">20%</span>
                         </p>
                         
                         <div class="action-buttons">
-                            <button class="btn-detail" data-target="details-AWF-2025-001">
+                            <button class="btn btn-primary btn-detail" data-target="details-AWF-2025-001">
                                 <i class="fas fa-chevron-down"></i> Detail Produk
                             </button>
-                            <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)" class="btn btn-primary" target="_blank">
+                            <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)" class="btn btn-success" target="_blank">
                                 <i class="fab fa-whatsapp"></i> Pesan Sekarang
                             </a>
+                            <button class="btn btn-outline btn-preorder" data-target="preorder-AWF-2025-001">
+                                <i class="fas fa-money-bill-wave"></i> Pre Order
+                            </button>
                         </div>
                         
                         <div id="details-AWF-2025-001" class="gallery-detail-expanded">
@@ -2351,38 +2799,172 @@
                                     kesehatan dan kebersihan tinggi. (Note: Harga tersebut bukan harga tetap, & bisa berubah)
                                 </p>
                                 
-                                <div class="gallery-specs">
-                                    <div class="spec-item">
-                                        <span class="spec-label">Jenis Produk</span>
-                                        <span class="spec-value">Telur tetas, DOC, Ayam karkas, Ayam bakar</span>
+                                <!-- NEW: Price List Section -->
+                                <div class="price-list">
+                                    <div class="price-list-header">
+                                        <span>Item Produk</span>
+                                        <span>Harga</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <span class="spec-label">Kualitas</span>
-                                        <span class="spec-value">Premium, Higienis</span>
+                                    <div class="price-list-item">
+                                        <span class="item-name">DOC Ayam (per ekor)</span>
+                                        <span class="item-price">Rp 8.000</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <span class="spec-label">Ketersediaan</span>
-                                        <span class="spec-value">Stok selalu tersedia</span>
+                                    <div class="price-list-item">
+                                        <span class="item-name">Telur Tetas (per butir)</span>
+                                        <span class="item-price">Rp 3.500</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <span class="spec-label">Pengiriman</span>
-                                        <span class="spec-value">Gratis ongkir area Situbondo</span>
+                                    <div class="price-list-item">
+                                        <span class="item-name">Ayam Karkas (per kg)</span>
+                                        <span class="item-price">Rp 35.000</span>
+                                    </div>
+                                    <div class="price-list-item">
+                                        <span class="item-name">Ayam Bakar (per ekor)</span>
+                                        <span class="item-price">Rp 45.000</span>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="action-buttons">
-                                <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)%20dan%20ingin%20bertanya%20lebih%20lanjut." class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Chat via WhatsApp
-                                </a>
-                                <a href="tel:+6285258544543" class="btn btn-outline">
-                                    <i class="fas fa-phone-alt"></i> Telepon Sekarang
-                                </a>
+                                
+                                <!-- NEW: Additional Notes Section -->
+                                <div class="additional-notes">
+                                    <h4>Catatan Tambahan:</h4>
+                                    <p>Harga dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya. Untuk informasi lebih lanjut, silakan hubungi kami.</p>
+                                </div>
+                                
+                                <!-- NEW: Order Quantity Section -->
+                                <div class="order-quantity">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                        <input type="number" class="quantity-input" value="1" min="1">
+                                        <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    
+                                    <div class="unit-selector">
+                                        <select class="unit-select">
+                                            <option value="unit">Unit</option>
+                                            <option value="buah">Buah</option>
+                                            <option value="ekor">Ekor</option>
+                                            <option value="dus">Dus</option>
+                                            <option value="kg">Kg</option>
+                                            <option value="lembar">Lembar</option>
+                                            <option value="liter">Liter</option>
+                                            <option value="pack">Pack</option>
+                                            <option value="karung">Karung</option>
+                                            <option value="botol">Botol</option>
+                                            <option value="box">Box</option>
+                                            <option value="set">Set</option>
+                                            <option value="meter">Meter</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="total-price">
+                                        Total: <span id="total-price">Rp 8.000</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- NEW: Pre-order Section -->
+                                <div class="pre-order-section" id="preorder-AWF-2025-001">
+                                    <h4><i class="fas fa-money-bill-wave"></i> Pre Order (DP)</h4>
+                                    <div class="pre-order-input">
+                                        <input type="number" class="pre-order-amount" placeholder="Masukkan jumlah DP (Rp)">
+                                        <button class="pre-order-btn" disabled>
+                                            <i class="fas fa-check"></i> Konfirmasi
+                                        </button>
+                                    </div>
+                                    <p>Dengan mengisi DP, Anda menyetujui untuk melakukan pembayaran uang muka sebesar jumlah yang dimasukkan.</p>
+                                </div>
+                                
+                                <div class="gallery-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-label">Kategori:</div>
+                                        <div class="spec-value">Peternakan</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-label">Lokasi:</div>
+                                        <div class="spec-value">Situbondo, Jawa Timur</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-label">Ketersediaan:</div>
+                                        <div class="spec-value">Tersedia</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-label">Pengiriman:</div>
+                                        <div class="spec-value">Gratis ongkir wilayah Situbondo (minimal order Rp 100.000)</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="action-buttons">
+                                    <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)%20dan%20ingin%20bertanya%20lebih%20lanjut." class="btn btn-success" target="_blank">
+                                        <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                                    </a>
+                                    <a href="tel:+6285258544543" class="btn btn-primary">
+                                        <i class="fas fa-phone-alt"></i> Telepon Sekarang
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>                         
-             </section>
+                </div>
+                
+                <!-- Add more gallery items here following the same structure -->
+                
+            </div>
+        </section>
+        
+        <!-- Testimonial Button Section -->
+        <section class="testimonial-button-section">
+            <div class="testimonial-button-content">
+                <h2 class="section-title">Apa Kata Mereka?</h2>
+                <p>Lihat apa yang dikatakan pelanggan kami tentang pengalaman mereka dengan Jualan Kita.</p>
+                <a href="https://lenterakarya.github.io/testimoni/" class="testimonial-button" target="_blank">
+                    <i class="fas fa-comment"></i> Baca Testimoni
+                </a>
+            </div>
+        </section>
+        
+        <!-- Premium Ojek Online Section -->
+        <section class="ojek-section">
+            <div class="ojek-decoration top-left"></div>
+            <div class="ojek-decoration bottom-right"></div>
+            
+            <div class="ojek-content">
+                <h2 class="ojek-title">🏍 Butuh Transportasi yang Cepat dan Terpercaya?</h2>
+                
+                <p class="ojek-text">
+                    Sedang mencari layanan transportasi yang fleksibel, aman, dan terjangkau untuk perjalanan harian atau pengiriman barang?
+                </p>
+                
+                <p class="ojek-text highlight">
+                    Nikmati Kemudahan Transportasi dengan Layanan Ojek Online Kami
+                </p>
+                
+                <p class="ojek-text">
+                    Dengan driver profesional dan kendaraan terawat, kami siap mengantarkan Anda ke tujuan dengan nyaman dan tepat waktu.
+                </p>
+                
+                <p class="ojek-text emoji">
+                    🚀 Pesan sekarang dan rasakan kemudahannya!
+                </p>
+                
+                <p class="ojek-text">
+                    Untuk Anda yang membutuhkan transportasi cepat, pengiriman dokumen, atau antar-jemput, layanan ojek online kami siap membantu.
+                </p>
+                
+                <p class="ojek-text emoji">
+                    � Klik tombol di bawah ini untuk mengakses layanan
+                </p>
+                
+                <p class="ojek-text">
+                    Nikmati tarif transparan dan sistem pemesanan yang mudah melalui aplikasi kami.
+                </p>
+                
+                <p class="ojek-text emoji">
+                    👉 Karena perjalanan Anda penting bagi kami.
+                </p>
+                
+                <a href="https://lenterakarya.github.io/NOS/" class="ojek-button" target="_blank">
+                    <i class="fas fa-motorcycle"></i> Pesan Ojek Online Sekarang
+                </a>
+            </div>
+        </section>
         
         <!-- Contact Section -->
         <section class="contact" id="contact">
@@ -2492,6 +3074,7 @@
                     <li><a href="#home">Beranda</a></li>
                     <li><a href="#services">Layanan</a></li>
                     <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="https://lenterakarya.github.io/testimoni/" target="_blank">Testimoni</a></li>
                     <li><a href="https://lenterakarya.github.io/tentang-LKS/" target="_blank">Tentang Kami</a></li>
                     <li><a href="https://pergunu.github.io/ujian-online/" target="_blank">Website Pendidikan By Lentera Karya</a></li>
                 </ul>
@@ -2500,8 +3083,7 @@
             <div class="footer-col">
                 <h3>Layanan</h3>
                 <ul class="footer-links">
-                    <li><a href="#services">Jasa Sewa</a></li>
-                    <li><a href="#services">Solusi Promosi</a></li>
+                    <li><a href="https://lenterakarya.github.io/NOS/" target="_blank">Layanan Ojek Online</a></li>
                 </ul>
             </div>
             
@@ -2648,6 +3230,53 @@
             });
         });
         
+        // Improved Dropdown menu functionality for mobile
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    const dropdown = this.parentElement;
+                    
+                    // Close all other dropdowns first
+                    document.querySelectorAll('.dropdown').forEach(d => {
+                        if (d !== dropdown) {
+                            d.classList.remove('active');
+                            const icon = d.querySelector('.dropdown-toggle i');
+                            icon.classList.remove('fa-chevron-up');
+                            icon.classList.add('fa-chevron-down');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                    
+                    // Rotate chevron icon
+                    const icon = this.querySelector('i');
+                    if (dropdown.classList.contains('active')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+        });
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                        const icon = dropdown.querySelector('.dropdown-toggle i');
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    });
+                }
+            }
+        });
+        
         // Inisialisasi Partikel
         function initParticles() {
             const particlesContainer = document.getElementById('particles');
@@ -2743,27 +3372,41 @@
         // Jalankan saat scroll
         window.addEventListener('scroll', animateOnScroll);
         
-        // Detail button functionality
+        // Toggle description visibility
         document.querySelectorAll('.btn-detail').forEach(button => {
             button.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
                 const expandedContent = document.getElementById(targetId);
-                
-                // Toggle the active class
                 expandedContent.classList.toggle('active');
                 
-                // Change the icon based on state
-                const icon = this.querySelector('i');
+                // Update button text and icon
                 if (expandedContent.classList.contains('active')) {
-                    icon.classList.remove('fa-chevron-down');
-                    icon.classList.add('fa-chevron-up');
-                    this.textContent = ' Sembunyikan Detail';
+                    this.innerHTML = '<i class="fas fa-chevron-up"></i> Sembunyikan';
                 } else {
-                    icon.classList.remove('fa-chevron-up');
-                    icon.classList.add('fa-chevron-down');
-                    this.textContent = ' Detail Produk';
+                    this.innerHTML = '<i class="fas fa-chevron-down"></i> Detail Produk';
                 }
                 
+                // Scroll to expanded content if opened
+                if (expandedContent.classList.contains('active')) {
+                    expandedContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+                
+                // Play button sound
+                playButtonSound();
+            });
+        });
+        
+        // Toggle pre-order section
+        document.querySelectorAll('.btn-preorder').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const preOrderSection = document.getElementById(targetId);
+                preOrderSection.classList.toggle('active');
+                
+                // Scroll to pre-order section
+                preOrderSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                // Play button sound
                 playButtonSound();
             });
         });
@@ -2801,6 +3444,106 @@
         document.querySelector('.close-image-modal').addEventListener('click', function() {
             document.getElementById('imageModal').classList.remove('show');
             document.body.style.overflow = '';
+        });
+        
+        // Order button functionality
+        document.querySelectorAll('.order-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const itemTitle = this.closest('.gallery-details').querySelector('.gallery-title').textContent;
+                const itemCode = this.closest('.gallery-details').querySelector('.gallery-code').textContent;
+                const message = `Halo, saya tertarik dengan produk: ${itemTitle} (${itemCode}). Mohon info lebih lanjut.`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
+                
+                // Play button sound
+                playButtonSound();
+            });
+        });
+        
+        // Quantity control buttons
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.quantity-input');
+                let value = parseInt(input.value);
+                
+                if (this.classList.contains('minus')) {
+                    if (value > 1) {
+                        input.value = value - 1;
+                    }
+                } else {
+                    input.value = value + 1;
+                }
+                
+                // Update total price
+                updateTotalPrice(this.closest('.gallery-item'));
+                
+                playButtonSound();
+            });
+        });
+        
+        // Quantity input change
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('change', function() {
+                if (this.value < 1) {
+                    this.value = 1;
+                }
+                
+                // Update total price
+                updateTotalPrice(this.closest('.gallery-item'));
+            });
+        });
+        
+        // Update total price function
+        function updateTotalPrice(galleryItem) {
+            const quantity = parseInt(galleryItem.querySelector('.quantity-input').value);
+            const basePrice = 8000; // This should be dynamic based on selected product
+            const totalPrice = quantity * basePrice;
+            
+            galleryItem.querySelector('#total-price').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+        }
+        
+        // Pre-order amount validation
+        document.querySelectorAll('.pre-order-amount').forEach(input => {
+            input.addEventListener('input', function() {
+                const preOrderBtn = this.closest('.pre-order-input').querySelector('.pre-order-btn');
+                if (this.value && parseInt(this.value) > 0) {
+                    preOrderBtn.disabled = false;
+                } else {
+                    preOrderBtn.disabled = true;
+                }
+            });
+        });
+        
+        // Pre-order button click
+        document.querySelectorAll('.pre-order-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const preOrderSection = this.closest('.pre-order-section');
+                const galleryItem = preOrderSection.closest('.gallery-item');
+                const amount = preOrderSection.querySelector('.pre-order-amount').value;
+                const productName = galleryItem.querySelector('.gallery-title').textContent;
+                const productCode = galleryItem.querySelector('.gallery-code').textContent;
+                const quantity = galleryItem.querySelector('.quantity-input').value;
+                const unit = galleryItem.querySelector('.unit-select').value;
+                const sellerName = galleryItem.querySelector('.gallery-seller').textContent.trim();
+                const whatsappNumber = galleryItem.querySelector('.btn-whatsapp').getAttribute('href').split('?')[0].split('/').pop();
+                
+                const message = `Halo ${sellerName}, saya ingin melakukan Pre Order (DP) untuk produk berikut:\n\nProduk: ${productName}\nKode: ${productCode}\nJumlah: ${quantity} ${unit}\nDP: Rp ${parseInt(amount).toLocaleString('id-ID')}\n\nMohon konfirmasi ketersediaan dan detail pembayaran. Terima kasih.`;
+                const encodedMessage = encodeURIComponent(message);
+                
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+                
+                // Show success message
+                alert(`Pre Order (DP) sebesar Rp ${parseInt(amount).toLocaleString('id-ID')} telah dikirim ke penjual. Silakan lanjutkan pembayaran sesuai instruksi yang diberikan.`);
+                
+                // Reset form
+                preOrderSection.querySelector('.pre-order-amount').value = '';
+                this.disabled = true;
+                preOrderSection.classList.remove('active');
+                
+                playButtonSound();
+            });
         });
         
         // Quick order modal
@@ -3156,8 +3899,8 @@
                         searchModal.classList.remove('show');
                         document.body.style.overflow = '';
                         // Expand the item details if collapsed
-                        const toggleBtn = item.querySelector('.btn-detail');
-                        if (toggleBtn && toggleBtn.textContent.includes('Detail')) {
+                        const toggleBtn = item.querySelector('.toggle-description');
+                        if (toggleBtn && toggleBtn.textContent === 'Detail') {
                             toggleBtn.click();
                         }
                     });
