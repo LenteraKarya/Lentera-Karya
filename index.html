@@ -966,243 +966,6 @@
             line-height: 1.8;
         }
         
-        /* NEW: Product Price List */
-        .price-list {
-            margin: 1.5rem 0;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .price-list-header {
-            background-color: rgba(230, 126, 34, 0.1);
-            padding: 0.8rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            font-weight: 600;
-            color: var(--dark);
-            border-bottom: 1px solid #eee;
-        }
-        
-        .price-list-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.8rem 1rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .price-list-item:last-child {
-            border-bottom: none;
-        }
-        
-        .price-list-item:hover {
-            background-color: rgba(230, 126, 34, 0.05);
-        }
-        
-        .price-list-item .item-name {
-            color: var(--text);
-        }
-        
-        .price-list-item .item-price {
-            color: var(--accent);
-            font-weight: 600;
-        }
-        
-        /* NEW: Additional Notes */
-        .additional-notes {
-            margin: 1.5rem 0;
-            padding: 1rem;
-            background-color: rgba(66, 153, 225, 0.05);
-            border-left: 3px solid var(--secondary);
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .additional-notes h4 {
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-            font-size: 1.1rem;
-        }
-        
-        .additional-notes p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        /* NEW: Order Quantity Section */
-        .order-quantity {
-            margin: 1.5rem 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            align-items: center;
-        }
-        
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .quantity-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(230, 126, 34, 0.1);
-            color: var(--accent);
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .quantity-btn:hover {
-            background-color: var(--accent);
-            color: white;
-        }
-        
-        .quantity-input {
-            width: 70px;
-            height: 40px;
-            text-align: center;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        
-        .quantity-input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
-        }
-        
-        .unit-selector {
-            position: relative;
-        }
-        
-        .unit-selector select {
-            height: 40px;
-            padding: 0 1rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            appearance: none;
-            padding-right: 2rem;
-            background-color: white;
-        }
-        
-        .unit-selector::after {
-            content: '\f078';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            pointer-events: none;
-            color: var(--text-light);
-            font-size: 0.8rem;
-        }
-        
-        .unit-selector select:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
-        }
-        
-        .total-price {
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .total-price span {
-            color: var(--accent);
-        }
-        
-        /* NEW: Pre-order Section */
-        .pre-order-section {
-            margin: 1.5rem 0;
-            padding: 1.5rem;
-            background-color: rgba(56, 161, 105, 0.05);
-            border-radius: 8px;
-            border: 1px dashed var(--success);
-            display: none;
-        }
-        
-        .pre-order-section.active {
-            display: block;
-        }
-        
-        .pre-order-section h4 {
-            margin-bottom: 1rem;
-            color: var(--dark);
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .pre-order-section h4 i {
-            color: var(--success);
-        }
-        
-        .pre-order-input {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .pre-order-input input {
-            flex: 1;
-            height: 40px;
-            padding: 0 1rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-        
-        .pre-order-input input:focus {
-            outline: none;
-            border-color: var(--success);
-            box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.1);
-        }
-        
-        .pre-order-btn {
-            background-color: var(--success);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .pre-order-btn:hover {
-            background-color: #2f855a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(56, 161, 105, 0.2);
-        }
-        
-        .pre-order-btn:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        
         .gallery-specs {
             margin-top: 1.5rem;
             border-top: 1px solid #eee;
@@ -1297,7 +1060,6 @@
             display: flex;
             gap: 1.2rem;
             margin-top: 2rem;
-            flex-wrap: wrap;
         }
         
         .btn-small {
@@ -2684,14 +2446,40 @@
             <div class="nav-links" id="navLinks">
                 <a href="#home">Beranda</a>
                 
+                <!-- Improved Transaction Menu with Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Transaksi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="https://lenterakarya.github.io/LKS-payment-versi-gratis/" target="_blank">Aplikasi Kasir Gratis</a>
+                        <a href="https://lenterakarya.github.io/transaksi/" target="_blank">Aplikasi Kasir Pro</a>
+                    </div>
+                </div>
+                
                 <!-- Updated Ojek Online Menu -->
                 <a href="https://lenterakarya.github.io/NOS/" target="_blank">Layanan Ojek Online</a>
+                
+                <!-- Improved UMKM Zone Menu with Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Zona UMKM <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="https://lenterakarya.github.io/umkm-online/" target="_blank">Komunitas Usaha 1</a>
+                        <a href="https://lenterakarya.github.io/umkm-online/" target="_blank">Komunitas Usaha 2</a>
+                        <a href="https://lenterakarya.github.io/umkm-online/" target="_blank">Komunitas Usaha 3</a>
+                        <a href="https://lenterakarya.github.io/umkm-online/" target="_blank">Komunitas Usaha 4</a>
+                        <a href="https://lenterakarya.github.io/umkm-online/" target="_blank">Komunitas Usaha 5</a>
+                        <a href="https://lenterakarya.github.io/umkm-online/" target="_blank">Komunitas Usaha 6</a>
+                    </div>
+                </div>
                 
                 <!-- Updated Services Menu with Dropdown -->
                 <div class="dropdown">
                     <a href="#" class="dropdown-toggle">Layanan <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
+                        <a href="https://lenterakarya.github.io/catatan-bisnis/" target="_blank">Aplikasi Catatan UMKM</a>
                         <a href="https://lenterakarya.github.io/NOS/" target="_blank">Layanan Ojek Online</a>
+                        <a href="https://lenterakarya.github.io/LKS-payment-versi-gratis/" target="_blank">Aplikasi Pembayaran Kasir</a>
+                        <a href="https://lenterakarya.github.io/list-umkm/" target="_blank">Zona Daftar UMKM</a>
+                        <a href="https://lenterakarya.github.io/homestay/" target="_blank">Zona Penginapan & Wisata</a>
                     </div>
                 </div>
                 
@@ -2748,164 +2536,341 @@
             </div>
             
             <div class="gallery-grid">
-                <!-- GALLERY ITEM - LIVESTOCK PRODUCT -->
-                <div class="gallery-item" data-category="livestock">
-                    <a href="https://lenterakarya.github.io/umkm-online/" target="_blank" class="gallery-badge seller">Gerai: Ardiwillis Farm</a>
-                    <span class="gallery-badge promo">Peternakan</span>
+                <!-- GALLERY ITEM 1 - OJEK ONLINE -->
+                                          
+                
+ <!-- GALLERY ITEM - LIVESTOCK PRODUCT -->
+<div class="gallery-item" data-category="livestock">
+    <a href="https://lenterakarya.github.io/umkm-online/" target="_blank" class="gallery-badge seller">Gerai: Ardiwillis Farm</a>
+    <span class="gallery-badge promo">Peternakan</span>
+    <div class="gallery-image-container">
+        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam2%20-%20Ardiwilis%20Farm.jpeg" alt="Produk Unggulan Ardiwillis Farm" class="gallery-image lazy" loading="lazy">
+    </div>
+    <div class="gallery-details">
+        <h3 class="gallery-title">Paket Lengkap Ternak Ayam</h3>
+        <div class="gallery-meta">
+            <span class="gallery-code">Kode: AWF-2025-001</span>
+            <span class="gallery-seller"><i class="fas fa-store"></i> Ardiwillis Farm</span>
+        </div>
+        <p class="gallery-price">
+            Rp 8.000
+            <span class="original-price">Rp 10.000</span>
+            <span class="discount">20%</span>
+        </p>
+        
+        <div class="gallery-actions">
+            <button class="btn-detail premium-btn" data-target="details-AWF-2025-001">
+                <i class="fas fa-chevron-down"></i> Detail Produk
+            </button>
+            <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)" class="btn-order premium-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Pesan Sekarang
+            </a>
+        </div>
+        
+        <div id="details-AWF-2025-001" class="gallery-detail-expanded">
+            <div class="gallery-carousel">
+                <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam2%20-%20Ardiwilis%20Farm.jpeg" alt="Produk Unggulan Ardiwillis Farm" class="gallery-main-image lazy" loading="lazy" id="main-image-livestock">
+                <div class="gallery-thumbnails">
+                    <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/telur2%20-%20Ardiwilis%20Farm.jpeg" class="thumbnail active lazy" loading="lazy" data-main-image="main-image-livestock">
+                    <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam1%20-%20Ardiwilis%20Farm.jpeg" alt="DOC Ayam" class="thumbnail lazy" loading="lazy" data-main-image="main-image-livestock">
+                    <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam4%20-%20Ardiwilis%20Farm.jpeg" alt="Ayam Karkas" class="thumbnail lazy" loading="lazy" data-main-image="main-image-livestock">
+                    <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam3%20-%20Ardiwilis%20Farm.jpeg" alt="Ayam Bakar" class="thumbnail lazy" loading="lazy" data-main-image="main-image-livestock">
+                </div>
+            </div>
+            
+            <div class="gallery-content">
+                <p class="gallery-description">
+                    Ardiwillis Farm menyediakan produk unggulan peternakan ayam berkualitas tinggi. 
+                    Kami menyediakan telur tetas fertil dengan daya tetas tinggi, DOC (Day Old Chicken) 
+                    berbagai strain unggul, ayam karkas segar, dan ayam bakar siap saji dengan bumbu khas. 
+                    Semua produk dihasilkan dari peternakan yang dikelola secara profesional dengan standar 
+                    kesehatan dan kebersihan tinggi. (Note: Harga tersebut bukan harga tetap, & bisa berubah)
+                </p>
+                
+                <div class="gallery-specs">
+                    <!-- ... (spesifikasi produk) ... -->
+                </div>
+            </div>
+            
+            <div class="gallery-actions-expanded">
+                <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)%20dan%20ingin%20bertanya%20lebih%20lanjut." class="btn-whatsapp premium-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                </a>
+                <a href="tel:+6285258544543" class="btn-call premium-btn">
+                    <i class="fas fa-phone-alt"></i> Telepon Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi toggle detail produk
+    document.querySelectorAll('.btn-detail').forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const details = document.getElementById(targetId);
+            const icon = this.querySelector('i');
+            
+            details.classList.toggle('active');
+            
+            if (details.classList.contains('active')) {
+                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                this.classList.add('active');
+                details.style.maxHeight = details.scrollHeight + 'px';
+            } else {
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                this.classList.remove('active');
+                details.style.maxHeight = null;
+            }
+        });
+    });
+    
+    // Fungsi galeri thumbnail
+    document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.addEventListener('click', function() {
+            const mainImageId = this.getAttribute('data-main-image');
+            const mainImage = document.getElementById(mainImageId);
+            const thumbnails = this.parentElement.querySelectorAll('.thumbnail');
+            
+            // Update gambar utama
+            mainImage.src = this.src;
+            mainImage.alt = this.alt || '';
+            
+            // Update status aktif thumbnail
+            thumbnails.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});
+</script>
+
+<style>
+/* Gaya Premium untuk Tombol dan Galeri */
+.premium-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.premium-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.premium-btn:active {
+    transform: translateY(0);
+}
+
+.premium-btn i {
+    font-size: 16px;
+}
+
+.btn-detail {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    border: 1px solid #6e8efb;
+}
+
+.btn-detail.active {
+    background: linear-gradient(135deg, #a777e3, #6e8efb);
+}
+
+.btn-order, .btn-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-call {
+    background: linear-gradient(135deg, #4285F4, #3367D6);
+    color: white;
+    text-decoration: none;
+}
+
+/* Galeri Detail */
+.gallery-detail-expanded {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    background: white;
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.gallery-detail-expanded.active {
+    max-height: 2000px;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+.gallery-carousel {
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.gallery-main-image {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 12px;
+    padding-bottom: 5px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.thumbnail.active {
+    border-color: #6e8efb;
+    box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.3);
+}
+
+.gallery-content {
+    padding: 0 10px;
+}
+
+.gallery-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.gallery-actions-expanded {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-actions, .gallery-actions-expanded {
+        flex-direction: column;
+    }
+    
+    .premium-btn {
+        width: 100%;
+    }
+}
+</style>
+                                                
+                                
+                <!-- GALLERY ITEM 6 - PROMOTIONAL ITEM -->
+                <div class="gallery-item" data-category="promo">
+                    <a href="https://lenterakarya.github.io/umkm-online/" target="_blank" class="gallery-badge seller">Gerai: PromoKita</a>
+                    <span class="gallery-badge promo">Promo</span>
                     <div class="gallery-image-container">
-                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam2%20-%20Ardiwilis%20Farm.jpeg" alt="Produk Unggulan Ardiwillis Farm" class="gallery-image lazy" loading="lazy">
+                        <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Banner Stand" class="gallery-image lazy" loading="lazy">
                     </div>
                     <div class="gallery-details">
-                        <h3 class="gallery-title">Paket Lengkap Ternak Ayam</h3>
+                        <h3 class="gallery-title">Paket Banner Stand</h3>
                         <div class="gallery-meta">
-                            <span class="gallery-code">Kode: AWF-2025-001</span>
-                            <span class="gallery-seller"><i class="fas fa-store"></i> Ardiwillis Farm</span>
+                            <span class="gallery-code">Kode: BNR-2025-006</span>
+                            <span class="gallery-seller"><i class="fas fa-store"></i> PromoKita</span>
                         </div>
                         <p class="gallery-price">
-                            Mulai dari Rp 8.000
-                            <span class="original-price">Rp 10.000</span>
-                            <span class="discount">20%</span>
+                            Rp 350.000
+                            <span class="original-price">Rp 450.000</span>
+                            <span class="discount">22%</span>
                         </p>
                         
-                        <div class="action-buttons">
-                            <button class="btn btn-primary btn-detail" data-target="details-AWF-2025-001">
-                                <i class="fas fa-chevron-down"></i> Detail Produk
-                            </button>
-                            <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)" class="btn btn-success" target="_blank">
-                                <i class="fab fa-whatsapp"></i> Pesan Sekarang
-                            </a>
-                            <button class="btn btn-outline btn-preorder" data-target="preorder-AWF-2025-001">
-                                <i class="fas fa-money-bill-wave"></i> Pre Order
-                            </button>
-                        </div>
-                        
-                        <div id="details-AWF-2025-001" class="gallery-detail-expanded">
+                        <div class="gallery-detail-expanded">
                             <div class="gallery-carousel">
-                                <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam2%20-%20Ardiwilis%20Farm.jpeg" alt="Produk Unggulan Ardiwillis Farm" class="gallery-main-image lazy" loading="lazy" id="main-image-livestock">
+                                <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Banner Stand - Tampilan Utama" class="gallery-main-image lazy" loading="lazy" id="main-image-6">
                                 <div class="gallery-thumbnails">
-                                    <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/telur2%20-%20Ardiwilis%20Farm.jpeg" class="thumbnail active lazy" loading="lazy" data-main-image="main-image-livestock">
-                                    <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam1%20-%20Ardiwilis%20Farm.jpeg" alt="DOC Ayam" class="thumbnail lazy" loading="lazy" data-main-image="main-image-livestock">
-                                    <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam4%20-%20Ardiwilis%20Farm.jpeg" alt="Ayam Karkas" class="thumbnail lazy" loading="lazy" data-main-image="main-image-livestock">
-                                    <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam3%20-%20Ardiwilis%20Farm.jpeg" alt="Ayam Bakar" class="thumbnail lazy" loading="lazy" data-main-image="main-image-livestock">
+                                    <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Banner Stand - Tampilan Utama" class="thumbnail active lazy" loading="lazy" onclick="changeMainImage('main-image-6', this)">
+                                    <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Banner Stand - Detail Cetakan" class="thumbnail lazy" loading="lazy" onclick="changeMainImage('main-image-6', this)">
+                                    <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Banner Stand - Sistem Lipat" class="thumbnail lazy" loading="lazy" onclick="changeMainImage('main-image-6', this)">
                                 </div>
                             </div>
                             
-                            <div class="gallery-content">
-                                <p class="gallery-description">
-                                    Ardiwillis Farm menyediakan produk unggulan peternakan ayam berkualitas tinggi. 
-                                    Kami menyediakan telur tetas fertil dengan daya tetas tinggi, DOC (Day Old Chicken) 
-                                    berbagai strain unggul, ayam karkas segar, dan ayam bakar siap saji dengan bumbu khas. 
-                                    Semua produk dihasilkan dari peternakan yang dikelola secara profesional dengan standar 
-                                    kesehatan dan kebersihan tinggi. (Note: Harga tersebut bukan harga tetap, & bisa berubah)
-                                </p>
-                                
-                                <!-- NEW: Price List Section -->
-                                <div class="price-list">
-                                    <div class="price-list-header">
-                                        <span>Item Produk</span>
-                                        <span>Harga</span>
-                                    </div>
-                                    <div class="price-list-item">
-                                        <span class="item-name">DOC Ayam (per ekor)</span>
-                                        <span class="item-price">Rp 8.000</span>
-                                    </div>
-                                    <div class="price-list-item">
-                                        <span class="item-name">Telur Tetas (per butir)</span>
-                                        <span class="item-price">Rp 3.500</span>
-                                    </div>
-                                    <div class="price-list-item">
-                                        <span class="item-name">Ayam Karkas (per kg)</span>
-                                        <span class="item-price">Rp 35.000</span>
-                                    </div>
-                                    <div class="price-list-item">
-                                        <span class="item-name">Ayam Bakar (per ekor)</span>
-                                        <span class="item-price">Rp 45.000</span>
-                                    </div>
+                            <p class="gallery-description">
+                                Paket lengkap banner stand termasuk desain, cetak, dan stand. 
+                                Ukuran: 80cm x 200cm. Cetakan vinyl berkualitas tinggi. Sempurna untuk pameran, 
+                                acara, atau promosi di toko. Panduan pemasangan termasuk.
+                            </p>
+                            
+                            <div class="gallery-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Kode Produk:</span>
+                                    <span class="spec-value">BNR-2025-006</span>
                                 </div>
-                                
-                                <!-- NEW: Additional Notes Section -->
-                                <div class="additional-notes">
-                                    <h4>Catatan Tambahan:</h4>
-                                    <p>Harga dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya. Untuk informasi lebih lanjut, silakan hubungi kami.</p>
+                                <div class="spec-item">
+                                    <span class="spec-label">Gerai:</span>
+                                    <span class="spec-value">PromoKita</span>
                                 </div>
-                                
-                                <!-- NEW: Order Quantity Section -->
-                                <div class="order-quantity">
-                                    <div class="quantity-control">
-                                        <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
-                                        <input type="number" class="quantity-input" value="1" min="1">
-                                        <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
-                                    </div>
-                                    
-                                    <div class="unit-selector">
-                                        <select class="unit-select">
-                                            <option value="unit">Unit</option>
-                                            <option value="buah">Buah</option>
-                                            <option value="ekor">Ekor</option>
-                                            <option value="dus">Dus</option>
-                                            <option value="kg">Kg</option>
-                                            <option value="lembar">Lembar</option>
-                                            <option value="liter">Liter</option>
-                                            <option value="pack">Pack</option>
-                                            <option value="karung">Karung</option>
-                                            <option value="botol">Botol</option>
-                                            <option value="box">Box</option>
-                                            <option value="set">Set</option>
-                                            <option value="meter">Meter</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="total-price">
-                                        Total: <span id="total-price">Rp 8.000</span>
-                                    </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Ukuran:</span>
+                                    <span class="spec-value">80cm x 200cm</span>
                                 </div>
-                                
-                                <!-- NEW: Pre-order Section -->
-                                <div class="pre-order-section" id="preorder-AWF-2025-001">
-                                    <h4><i class="fas fa-money-bill-wave"></i> Pre Order (DP)</h4>
-                                    <div class="pre-order-input">
-                                        <input type="number" class="pre-order-amount" placeholder="Masukkan jumlah DP (Rp)">
-                                        <button class="pre-order-btn" disabled>
-                                            <i class="fas fa-check"></i> Konfirmasi
-                                        </button>
-                                    </div>
-                                    <p>Dengan mengisi DP, Anda menyetujui untuk melakukan pembayaran uang muka sebesar jumlah yang dimasukkan.</p>
+                                <div class="spec-item">
+                                    <span class="spec-label">Material:</span>
+                                    <span class="spec-value">Vinyl Premium</span>
                                 </div>
-                                
-                                <div class="gallery-specs">
-                                    <div class="spec-item">
-                                        <div class="spec-label">Kategori:</div>
-                                        <div class="spec-value">Peternakan</div>
-                                    </div>
-                                    <div class="spec-item">
-                                        <div class="spec-label">Lokasi:</div>
-                                        <div class="spec-value">Situbondo, Jawa Timur</div>
-                                    </div>
-                                    <div class="spec-item">
-                                        <div class="spec-label">Ketersediaan:</div>
-                                        <div class="spec-value">Tersedia</div>
-                                    </div>
-                                    <div class="spec-item">
-                                        <div class="spec-label">Pengiriman:</div>
-                                        <div class="spec-value">Gratis ongkir wilayah Situbondo (minimal order Rp 100.000)</div>
-                                    </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Waktu Produksi:</span>
+                                    <span class="spec-value">3-5 hari kerja</span>
                                 </div>
-                                
-                                <div class="action-buttons">
-                                    <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)%20dan%20ingin%20bertanya%20lebih%20lanjut." class="btn btn-success" target="_blank">
-                                        <i class="fab fa-whatsapp"></i> Chat via WhatsApp
-                                    </a>
-                                    <a href="tel:+6285258544543" class="btn btn-primary">
-                                        <i class="fas fa-phone-alt"></i> Telepon Sekarang
-                                    </a>
+                                <div class="spec-item">
+                                    <span class="spec-label">Garansi:</span>
+                                    <span class="spec-value">1 tahun</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Termasuk:</span>
+                                    <span class="spec-value">Stand portable, tas pembawa</span>
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="action-buttons">
+                            <button class="btn btn-outline btn-small toggle-description">Detail</button>
+                            <button class="btn btn-primary btn-small order-btn">Dapatkan Penawaran</button>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Add more gallery items here following the same structure -->
-                
             </div>
         </section>
         
@@ -2949,7 +2914,7 @@
                 </p>
                 
                 <p class="ojek-text emoji">
-                    � Klik tombol di bawah ini untuk mengakses layanan
+                    🎯 Klik tombol di bawah ini untuk mengakses layanan
                 </p>
                 
                 <p class="ojek-text">
@@ -3076,6 +3041,9 @@
                     <li><a href="#gallery">Galeri</a></li>
                     <li><a href="https://lenterakarya.github.io/testimoni/" target="_blank">Testimoni</a></li>
                     <li><a href="https://lenterakarya.github.io/tentang-LKS/" target="_blank">Tentang Kami</a></li>
+                    <li><a href="https://lenterakarya.github.io/catatan-umkm/" target="_blank">Aplikasi Catatan UMKM Full Gratis</a></li>
+                    <li><a href="https://lenterakarya.github.io/LKS-payment-versi-gratis/" target="_blank">Aplikasi Pembayaran Versi Gratis</a></li>
+                    <li><a href="https://lenterakarya.github.io/transaksi/" target="_blank">Aplikasi Pembayaran Versi Pro</a></li>
                     <li><a href="https://pergunu.github.io/ujian-online/" target="_blank">Website Pendidikan By Lentera Karya</a></li>
                 </ul>
             </div>
@@ -3083,7 +3051,12 @@
             <div class="footer-col">
                 <h3>Layanan</h3>
                 <ul class="footer-links">
+                    <li><a href="https://lenterakarya.github.io/catatan-bisnis/" target="_blank">Aplikasi Catatan UMKM</a></li>
                     <li><a href="https://lenterakarya.github.io/NOS/" target="_blank">Layanan Ojek Online</a></li>
+                    <li><a href="https://lenterakarya.github.io/LKS-payment-versi-gratis/" target="_blank">Aplikasi Pembayaran Kasir</a></li>
+                    <li><a href="https://lenterakarya.github.io/list-umkm/" target="_blank">Zona Daftar UMKM</a></li>
+                    <li><a href="https://lenterakarya.github.io/homestay/" target="_blank">Zona Penginapan & Wisata</a></li>
+                    <li><a href="https://lenterakarya.github.io/bisnis/" target="_blank">Konsultasi Layanan Platform Jualan Kita</a></li>
                 </ul>
             </div>
             
@@ -3373,38 +3346,18 @@
         window.addEventListener('scroll', animateOnScroll);
         
         // Toggle description visibility
-        document.querySelectorAll('.btn-detail').forEach(button => {
+        document.querySelectorAll('.toggle-description').forEach(button => {
             button.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const expandedContent = document.getElementById(targetId);
+                const expandedContent = this.closest('.gallery-details').querySelector('.gallery-detail-expanded');
                 expandedContent.classList.toggle('active');
                 
-                // Update button text and icon
-                if (expandedContent.classList.contains('active')) {
-                    this.innerHTML = '<i class="fas fa-chevron-up"></i> Sembunyikan';
-                } else {
-                    this.innerHTML = '<i class="fas fa-chevron-down"></i> Detail Produk';
-                }
+                // Update button text
+                this.textContent = expandedContent.classList.contains('active') ? 'Sembunyikan' : 'Detail';
                 
                 // Scroll to expanded content if opened
                 if (expandedContent.classList.contains('active')) {
                     expandedContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
-                
-                // Play button sound
-                playButtonSound();
-            });
-        });
-        
-        // Toggle pre-order section
-        document.querySelectorAll('.btn-preorder').forEach(button => {
-            button.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const preOrderSection = document.getElementById(targetId);
-                preOrderSection.classList.toggle('active');
-                
-                // Scroll to pre-order section
-                preOrderSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 
                 // Play button sound
                 playButtonSound();
@@ -3456,92 +3409,6 @@
                 window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
                 
                 // Play button sound
-                playButtonSound();
-            });
-        });
-        
-        // Quantity control buttons
-        document.querySelectorAll('.quantity-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const input = this.parentElement.querySelector('.quantity-input');
-                let value = parseInt(input.value);
-                
-                if (this.classList.contains('minus')) {
-                    if (value > 1) {
-                        input.value = value - 1;
-                    }
-                } else {
-                    input.value = value + 1;
-                }
-                
-                // Update total price
-                updateTotalPrice(this.closest('.gallery-item'));
-                
-                playButtonSound();
-            });
-        });
-        
-        // Quantity input change
-        document.querySelectorAll('.quantity-input').forEach(input => {
-            input.addEventListener('change', function() {
-                if (this.value < 1) {
-                    this.value = 1;
-                }
-                
-                // Update total price
-                updateTotalPrice(this.closest('.gallery-item'));
-            });
-        });
-        
-        // Update total price function
-        function updateTotalPrice(galleryItem) {
-            const quantity = parseInt(galleryItem.querySelector('.quantity-input').value);
-            const basePrice = 8000; // This should be dynamic based on selected product
-            const totalPrice = quantity * basePrice;
-            
-            galleryItem.querySelector('#total-price').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
-        }
-        
-        // Pre-order amount validation
-        document.querySelectorAll('.pre-order-amount').forEach(input => {
-            input.addEventListener('input', function() {
-                const preOrderBtn = this.closest('.pre-order-input').querySelector('.pre-order-btn');
-                if (this.value && parseInt(this.value) > 0) {
-                    preOrderBtn.disabled = false;
-                } else {
-                    preOrderBtn.disabled = true;
-                }
-            });
-        });
-        
-        // Pre-order button click
-        document.querySelectorAll('.pre-order-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const preOrderSection = this.closest('.pre-order-section');
-                const galleryItem = preOrderSection.closest('.gallery-item');
-                const amount = preOrderSection.querySelector('.pre-order-amount').value;
-                const productName = galleryItem.querySelector('.gallery-title').textContent;
-                const productCode = galleryItem.querySelector('.gallery-code').textContent;
-                const quantity = galleryItem.querySelector('.quantity-input').value;
-                const unit = galleryItem.querySelector('.unit-select').value;
-                const sellerName = galleryItem.querySelector('.gallery-seller').textContent.trim();
-                const whatsappNumber = galleryItem.querySelector('.btn-whatsapp').getAttribute('href').split('?')[0].split('/').pop();
-                
-                const message = `Halo ${sellerName}, saya ingin melakukan Pre Order (DP) untuk produk berikut:\n\nProduk: ${productName}\nKode: ${productCode}\nJumlah: ${quantity} ${unit}\nDP: Rp ${parseInt(amount).toLocaleString('id-ID')}\n\nMohon konfirmasi ketersediaan dan detail pembayaran. Terima kasih.`;
-                const encodedMessage = encodeURIComponent(message);
-                
-                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-                
-                // Show success message
-                alert(`Pre Order (DP) sebesar Rp ${parseInt(amount).toLocaleString('id-ID')} telah dikirim ke penjual. Silakan lanjutkan pembayaran sesuai instruksi yang diberikan.`);
-                
-                // Reset form
-                preOrderSection.querySelector('.pre-order-amount').value = '';
-                this.disabled = true;
-                preOrderSection.classList.remove('active');
-                
                 playButtonSound();
             });
         });
