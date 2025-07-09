@@ -811,6 +811,7 @@
             object-fit: cover;
             display: block;
             transition: transform 0.8s ease;
+            cursor: pointer;
         }
         
         .gallery-item:hover .gallery-image {
@@ -3155,7 +3156,8 @@
         
         // Initialize image zoom functionality
         function initImageZoom() {
-            document.querySelectorAll('.gallery-main-image').forEach(img => {
+            // Add click event to gallery images
+            document.querySelectorAll('.gallery-image, .gallery-main-image').forEach(img => {
                 img.addEventListener('click', function() {
                     const zoomedImage = document.getElementById('zoomedImage');
                     zoomedImage.src = this.src;
