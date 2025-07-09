@@ -3134,7 +3134,18 @@
             document.querySelectorAll('.thumbnail').forEach(thumbnail => {
                 thumbnail.addEventListener('click', function() {
                     const mainImageId = this.getAttribute('data-main-image');
-                    changeMainImage(mainImageId, this);
+                    const mainImage = document.getElementById(mainImageId);
+                    
+                    // Update main image source
+                    mainImage.src = this.src;
+                    mainImage.alt = this.alt;
+                    
+                    // Update active state for thumbnails
+                    const thumbnails = this.parentElement.querySelectorAll('.thumbnail');
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    playButtonSound();
                 });
             });
             
@@ -3152,20 +3163,6 @@
                     playButtonSound();
                 });
             });
-        }
-        
-        // Change main image in gallery carousel
-        function changeMainImage(mainImageId, thumbnail) {
-            const mainImage = document.getElementById(mainImageId);
-            mainImage.src = thumbnail.src;
-            mainImage.alt = thumbnail.alt;
-            
-            // Update active thumbnail
-            const thumbnails = thumbnail.parentElement.querySelectorAll('.thumbnail');
-            thumbnails.forEach(t => t.classList.remove('active'));
-            thumbnail.classList.add('active');
-            
-            playButtonSound();
         }
         
         // Close image modal
