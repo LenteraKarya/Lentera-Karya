@@ -3098,6 +3098,9 @@
             
             // Initialize thumbnail functionality
             initThumbnails();
+            
+            // Initialize image zoom functionality
+            initImageZoom();
         });
         
         // Jalankan saat scroll
@@ -3148,8 +3151,10 @@
                     playButtonSound();
                 });
             });
-            
-            // Zoom image functionality
+        }
+        
+        // Initialize image zoom functionality
+        function initImageZoom() {
             document.querySelectorAll('.gallery-main-image').forEach(img => {
                 img.addEventListener('click', function() {
                     const zoomedImage = document.getElementById('zoomedImage');
@@ -3194,6 +3199,10 @@
             }
             if (e.target === document.getElementById('imageModal')) {
                 document.getElementById('imageModal').classList.remove('show');
+                document.body.style.overflow = '';
+            }
+            if (e.target === document.getElementById('searchModal')) {
+                document.getElementById('searchModal').classList.remove('show');
                 document.body.style.overflow = '';
             }
         });
@@ -3466,14 +3475,6 @@
         searchModalInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 performSearch(this.value.trim());
-            }
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target === searchModal) {
-                searchModal.classList.remove('show');
-                document.body.style.overflow = '';
             }
         });
         
