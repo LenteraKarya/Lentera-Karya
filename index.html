@@ -882,7 +882,7 @@
             margin-left: 0.5rem;
         }
         
-        /* Price Variations */
+        /* Price Variations Section */
         .price-variations {
             margin: 1.5rem 0;
             border-top: 1px solid #eee;
@@ -1082,7 +1082,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            display: none;
+            display: flex;
             align-items: center;
             gap: 0.5rem;
         }
@@ -1091,6 +1091,30 @@
             background-color: #3182ce;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(66, 153, 225, 0.2);
+        }
+        
+        /* Order Now Button */
+        .order-now-btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .order-now-btn:hover {
+            background-color: #2f855a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(56, 161, 105, 0.2);
         }
         
         /* Notes Section */
@@ -2547,7 +2571,7 @@
                     <a href="https://lenterakarya.github.io/umkm-online/" target="_blank" class="gallery-badge seller">Gerai: Ardiwillis Farm</a>
                     <span class="gallery-badge promo">Peternakan</span>
                     <div class="gallery-image-container">
-                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam2%20-%20Ardiwilis%20Farm.jpeg" alt="Produk Unggulan Ardiwillis Farm" class="gallery-image lazy" loading="lazy">
+                        <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam2%20-%20Ardiwilis%20Farm.jpeg" alt="Produk Unggulan Ardiwillis Farm" class="gallery-image lazy" loading="lazy" id="main-image-livestock">
                     </div>
                     <div class="gallery-details">
                         <h3 class="gallery-title">Paket Lengkap Ternak Ayam</h3>
@@ -2617,7 +2641,7 @@
                                             <span>Telur fertil (3.000 s/d 5.000)</span>
                                             <span class="price">Rp 3.000</span>
                                         </div>
-                                        <div class="price-option active" data-price="8000">
+                                        <div class="price-option" data-price="8000">
                                             <span>DOC (8.000 s/d 20.000)</span>
                                             <span class="price">Rp 8.000</span>
                                         </div>
@@ -2665,7 +2689,7 @@
                                 <!-- Total Price -->
                                 <div class="total-price">
                                     <span class="total-price-label">Total Harga:</span>
-                                    <span class="total-price-value">Rp 8.000</span>
+                                    <span class="total-price-value">Rp 3.000</span>
                                 </div>
                                 
                                 <!-- Pre-order Section -->
@@ -2678,6 +2702,11 @@
                                         <i class="fas fa-shopping-cart"></i> Pre-order Sekarang
                                     </button>
                                 </div>
+                                
+                                <!-- Order Now Button -->
+                                <button class="order-now-btn" id="orderNowBtn">
+                                    <i class="fas fa-paper-plane"></i> Kirim Pesanan Sekarang
+                                </button>
                                 
                                 <!-- Notes Section -->
                                 <div class="notes-section">
@@ -3063,6 +3092,12 @@
             
             // Initialize pre-order functionality
             initPreOrder();
+            
+            // Initialize order now functionality
+            initOrderNow();
+            
+            // Initialize thumbnail functionality
+            initThumbnails();
         });
         
         // Jalankan saat scroll
@@ -3093,6 +3128,32 @@
             });
         });
         
+        // Initialize thumbnail functionality
+        function initThumbnails() {
+            // Change main image when thumbnail is clicked
+            document.querySelectorAll('.thumbnail').forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    const mainImageId = this.getAttribute('data-main-image');
+                    changeMainImage(mainImageId, this);
+                });
+            });
+            
+            // Zoom image functionality
+            document.querySelectorAll('.gallery-main-image').forEach(img => {
+                img.addEventListener('click', function() {
+                    const zoomedImage = document.getElementById('zoomedImage');
+                    zoomedImage.src = this.src;
+                    zoomedImage.alt = this.alt;
+                    
+                    const imageModal = document.getElementById('imageModal');
+                    imageModal.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                    
+                    playButtonSound();
+                });
+            });
+        }
+        
         // Change main image in gallery carousel
         function changeMainImage(mainImageId, thumbnail) {
             const mainImage = document.getElementById(mainImageId);
@@ -3106,21 +3167,6 @@
             
             playButtonSound();
         }
-        
-        // Zoom image functionality
-        document.querySelectorAll('.gallery-main-image').forEach(img => {
-            img.addEventListener('click', function() {
-                const zoomedImage = document.getElementById('zoomedImage');
-                zoomedImage.src = this.src;
-                zoomedImage.alt = this.alt;
-                
-                const imageModal = document.getElementById('imageModal');
-                imageModal.classList.add('show');
-                document.body.style.overflow = 'hidden';
-                
-                playButtonSound();
-            });
-        });
         
         // Close image modal
         document.querySelector('.close-image-modal').addEventListener('click', function() {
@@ -3676,6 +3722,47 @@
                                            `- Sisa: Rp ${(totalPrice - dpAmount).toLocaleString('id-ID')}\n\n` +
                                            `Catatan: ${notes}\n\n` +
                                            `Saya ingin melakukan pre-order produk ini. Mohon konfirmasi ketersediaan dan detail pembayaran lebih lanjut.`;
+                    
+                    const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+                    window.open(`https://wa.me/${sellerPhone}?text=${encodedWhatsappMessage}`, '_blank');
+                    
+                    playButtonSound();
+                });
+            });
+        }
+        
+        // Initialize order now functionality
+        function initOrderNow() {
+            document.querySelectorAll('.order-now-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productDetail = this.closest('.gallery-detail-expanded');
+                    const productTitle = productDetail.closest('.gallery-item').querySelector('.gallery-title').textContent;
+                    const productCode = productDetail.closest('.gallery-item').querySelector('.gallery-code').textContent;
+                    const sellerName = productDetail.closest('.gallery-item').querySelector('.gallery-seller').textContent;
+                    const sellerPhone = productDetail.closest('.gallery-item').querySelector('.btn-primary').href.match(/wa\.me\/(\d+)/)[1];
+                    
+                    const selectedPriceOption = productDetail.querySelector('.price-option.active');
+                    const priceOptionText = selectedPriceOption.querySelector('span:first-child').textContent;
+                    const price = parseFloat(selectedPriceOption.dataset.price);
+                    
+                    const quantity = parseInt(productDetail.querySelector('.quantity-input').value) || 1;
+                    const unit = productDetail.querySelector('.unit-select').value;
+                    const totalPrice = price * quantity;
+                    
+                    const notes = productDetail.querySelector('.notes-textarea').value || 'Tidak ada catatan tambahan';
+                    
+                    // Create WhatsApp message
+                    const whatsappMessage = `*PESANAN PRODUK*\n\n` +
+                                           `Produk: ${productTitle}\n` +
+                                           `Kode: ${productCode}\n` +
+                                           `Penjual: ${sellerName}\n\n` +
+                                           `Detail Pesanan:\n` +
+                                           `- Pilihan: ${priceOptionText}\n` +
+                                           `- Jumlah: ${quantity} ${unit}\n` +
+                                           `- Harga Satuan: Rp ${price.toLocaleString('id-ID')}\n` +
+                                           `- Total Harga: Rp ${totalPrice.toLocaleString('id-ID')}\n\n` +
+                                           `Catatan: ${notes}\n\n` +
+                                           `Saya ingin memesan produk ini. Mohon konfirmasi ketersediaan dan detail pembayaran lebih lanjut.`;
                     
                     const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
                     window.open(`https://wa.me/${sellerPhone}?text=${encodedWhatsappMessage}`, '_blank');
