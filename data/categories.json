@@ -1,0 +1,14 @@
+[
+    {
+        "id": "rental",
+        "name": "Sewa"
+    },
+    {
+        "id": "promo",
+        "name": "Promosi"
+    },
+    {
+        "id": "livestock",
+        "name": "Peternakan"
+    }
+]
