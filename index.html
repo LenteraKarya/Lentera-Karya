@@ -1353,28 +1353,9 @@
             box-shadow: 0 5px 15px rgba(221, 107, 32, 0.3);
         }
         
-        /* UPDATED: Developer Notes */
+        /* UPDATED: Developer Notes - HIDDEN */
         .developer-notes {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background-color: rgba(42, 67, 101, 0.05);
-            border-radius: 8px;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .developer-notes-title {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .developer-notes-content {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.6;
+            display: none;
         }
         
         /* Contact Section */
@@ -2624,17 +2605,6 @@
                             </button>
                         </div>
                         
-                        <!-- Developer Notes -->
-                        <div class="developer-notes">
-                            <div class="developer-notes-title">
-                                <i class="fas fa-code"></i>
-                                <span>Catatan Developer</span>
-                            </div>
-                            <div class="developer-notes-content">
-                                Tidak ada catatan khusus secara default.
-                            </div>
-                        </div>
-                        
                         <div id="details-AWF-2025-001" class="gallery-detail-expanded">
                             <div class="gallery-carousel">
                                 <img src="https://raw.githubusercontent.com/LenteraKarya/jualan-kita/refs/heads/main/assets/produk/ayam2%20-%20Ardiwilis%20Farm.jpeg" alt="Produk Unggulan Ardiwillis Farm" class="gallery-main-image lazy" loading="lazy" id="main-image-livestock">
@@ -2784,17 +2754,6 @@
                             <button class="btn-preorder">
                                 <i class="fas fa-paper-plane"></i> Kirim Pre-Order
                             </button>
-                        </div>
-                        
-                        <!-- Developer Notes -->
-                        <div class="developer-notes">
-                            <div class="developer-notes-title">
-                                <i class="fas fa-code"></i>
-                                <span>Catatan Developer</span>
-                            </div>
-                            <div class="developer-notes-content">
-                                Tidak ada catatan khusus secara default.
-                            </div>
                         </div>
                         
                         <div id="details-BNR-2025-006" class="gallery-detail-expanded">
@@ -3248,9 +3207,11 @@
             playButtonSound();
         }
         
-        // Zoom image functionality
-        document.querySelectorAll('.gallery-main-image').forEach(img => {
-            img.addEventListener('click', function() {
+        // Zoom image functionality for gallery images
+        document.querySelectorAll('.gallery-main-image, .thumbnail').forEach(img => {
+            img.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent triggering parent click events
+                
                 const zoomedImage = document.getElementById('zoomedImage');
                 zoomedImage.src = this.src;
                 zoomedImage.alt = this.alt;
@@ -3267,6 +3228,14 @@
         document.querySelector('.close-image-modal').addEventListener('click', function() {
             document.getElementById('imageModal').classList.remove('show');
             document.body.style.overflow = '';
+        });
+        
+        // Close modal when clicking outside the content
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('imageModal')) {
+                document.getElementById('imageModal').classList.remove('show');
+                document.body.style.overflow = '';
+            }
         });
         
         // Price variation selection
@@ -3499,10 +3468,6 @@
         window.addEventListener('click', function(e) {
             if (e.target === orderModal) {
                 orderModal.classList.remove('show');
-                document.body.style.overflow = '';
-            }
-            if (e.target === document.getElementById('imageModal')) {
-                document.getElementById('imageModal').classList.remove('show');
                 document.body.style.overflow = '';
             }
         });
@@ -3775,14 +3740,6 @@
         searchModalInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 performSearch(this.value.trim());
-            }
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target === searchModal) {
-                searchModal.classList.remove('show');
-                document.body.style.overflow = '';
             }
         });
         
