@@ -1002,6 +1002,347 @@
             font-size: 0.95rem;
         }
         
+        /* NEW: Improved Product Action Buttons */
+        .gallery-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn-detail {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: rgba(66, 153, 225, 0.1);
+            color: var(--secondary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn-detail:hover {
+            background-color: rgba(66, 153, 225, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .btn-detail i {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-detail.active i {
+            transform: rotate(180deg);
+        }
+        
+        .btn-order {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: var(--success);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn-order:hover {
+            background-color: #2f855a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(56, 161, 105, 0.3);
+        }
+        
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #25D366;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn-call:hover {
+            background-color: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(42, 67, 101, 0.3);
+        }
+        
+        /* NEW: Price Variations */
+        .price-variations {
+            margin: 1.5rem 0;
+            border-top: 1px solid #eee;
+            padding-top: 1.5rem;
+        }
+        
+        .price-variation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            transition: var(--transition);
+            background-color: rgba(248, 249, 250, 0.5);
+        }
+        
+        .price-variation:hover {
+            background-color: rgba(230, 126, 34, 0.05);
+        }
+        
+        .price-variation.active {
+            background-color: rgba(230, 126, 34, 0.1);
+            border-left: 3px solid var(--accent);
+        }
+        
+        .price-variation-name {
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .price-variation-value {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        /* NEW: Quantity Selector */
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .quantity-label {
+            font-weight: 500;
+            color: var(--dark);
+            min-width: 80px;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(66, 153, 225, 0.1);
+            color: var(--secondary);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .quantity-btn:hover {
+            background-color: rgba(66, 153, 225, 0.2);
+        }
+        
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+            padding: 0.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .quantity-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+        
+        .unit-selector {
+            margin-left: 1rem;
+        }
+        
+        .unit-selector select {
+            padding: 0.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background-color: white;
+        }
+        
+        .unit-selector select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        /* NEW: Total Price Display */
+        .total-price {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: rgba(56, 161, 105, 0.1);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .total-price-label {
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .total-price-value {
+            font-weight: 700;
+            color: var(--success);
+            font-size: 1.2rem;
+        }
+        
+        /* NEW: Pre-order Form */
+        .preorder-form {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: rgba(248, 249, 250, 0.8);
+            border-radius: 12px;
+            border: 1px dashed var(--accent);
+            display: none;
+        }
+        
+        .preorder-form.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .preorder-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .preorder-title i {
+            color: var(--accent);
+        }
+        
+        .preorder-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .preorder-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+        
+        .preorder-note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .btn-preorder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            background-color: var(--warning);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn-preorder:hover {
+            background-color: #c05621;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(221, 107, 32, 0.3);
+        }
+        
+        /* NEW: Developer Notes */
+        .developer-notes {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: rgba(42, 67, 101, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .developer-notes-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .developer-notes-content {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
         /* Contact Section */
         .contact-container {
             display: grid;
@@ -2181,13 +2522,83 @@
                             <span class="discount">20%</span>
                         </p>
                         
+                        <!-- Price Variations -->
+                        <div class="price-variations">
+                            <div class="price-variation active" data-price="8000">
+                                <span class="price-variation-name">Ecer (per ekor)</span>
+                                <span class="price-variation-value">Rp 8.000</span>
+                            </div>
+                            <div class="price-variation" data-price="75000">
+                                <span class="price-variation-name">1 Dus (10 ekor)</span>
+                                <span class="price-variation-value">Rp 75.000</span>
+                            </div>
+                            <div class="price-variation" data-price="700000">
+                                <span class="price-variation-name">1 Karung (100 ekor)</span>
+                                <span class="price-variation-value">Rp 700.000</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Quantity Selector -->
+                        <div class="quantity-selector">
+                            <span class="quantity-label">Jumlah:</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1">
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <div class="unit-selector">
+                                <select class="unit-select">
+                                    <option value="ekor">ekor</option>
+                                    <option value="dus">dus</option>
+                                    <option value="karung">karung</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Total Price -->
+                        <div class="total-price">
+                            <span class="total-price-label">Total Harga:</span>
+                            <span class="total-price-value">Rp 8.000</span>
+                        </div>
+                        
+                        <!-- Action Buttons -->
                         <div class="gallery-actions">
-                            <button class="btn-detail premium-btn" data-target="details-AWF-2025-001">
+                            <button class="btn-detail" data-target="details-AWF-2025-001">
                                 <i class="fas fa-chevron-down"></i> Detail Produk
                             </button>
-                            <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)" class="btn-order premium-btn" target="_blank">
-                                <i class="fab fa-whatsapp"></i> Pesan Sekarang
-                            </a>
+                            <button class="btn-order">
+                                <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                            </button>
+                            <button class="btn-preorder-toggle">
+                                <i class="fas fa-calendar-check"></i> Pre-Order
+                            </button>
+                        </div>
+                        
+                        <!-- Pre-order Form -->
+                        <div class="preorder-form">
+                            <div class="preorder-title">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Form Uang Muka (DP)</span>
+                            </div>
+                            <input type="number" class="preorder-input" placeholder="Masukkan nominal DP (minimal 30%)">
+                            <p class="preorder-note">
+                                * Untuk pre-order, harap masukkan nominal uang muka minimal 30% dari total harga. 
+                                Kami akan menghubungi Anda untuk konfirmasi lebih lanjut.
+                            </p>
+                            <button class="btn-preorder">
+                                <i class="fas fa-paper-plane"></i> Kirim Pre-Order
+                            </button>
+                        </div>
+                        
+                        <!-- Developer Notes -->
+                        <div class="developer-notes">
+                            <div class="developer-notes-title">
+                                <i class="fas fa-code"></i>
+                                <span>Catatan Developer</span>
+                            </div>
+                            <div class="developer-notes-content">
+                                <!-- This area is for developer notes -->
+                            </div>
                         </div>
                         
                         <div id="details-AWF-2025-001" class="gallery-detail-expanded">
@@ -2211,15 +2622,42 @@
                                 </p>
                                 
                                 <div class="gallery-specs">
-                                    <!-- ... (spesifikasi produk) ... -->
+                                    <div class="spec-item">
+                                        <span class="spec-label">Kode Produk:</span>
+                                        <span class="spec-value">AWF-2025-001</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Gerai:</span>
+                                        <span class="spec-value">Ardiwillis Farm</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Jenis:</span>
+                                        <span class="spec-value">Ayam Pedaging</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Usia:</span>
+                                        <span class="spec-value">DOC (1 hari)</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Strain:</span>
+                                        <span class="spec-value">Cobb 500</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Garansi:</span>
+                                        <span class="spec-value">Hidup sampai diterima</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Minimal Order:</span>
+                                        <span class="spec-value">10 ekor</span>
+                                    </div>
                                 </div>
                             </div>
                             
                             <div class="gallery-actions-expanded">
-                                <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)%20dan%20ingin%20bertanya%20lebih%20lanjut." class="btn-whatsapp premium-btn" target="_blank">
+                                <a href="https://wa.me/6285258544543?text=Halo%20Ardiwillis%20Farm,%20saya%20tertarik%20dengan%20Paket%20Lengkap%20Ternak%20Ayam%20(AWF-2025-001)%20dan%20ingin%20bertanya%20lebih%20lanjut." class="btn-whatsapp" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Chat via WhatsApp
                                 </a>
-                                <a href="tel:+6285258544543" class="btn-call premium-btn">
+                                <a href="tel:+6285258544543" class="btn-call">
                                     <i class="fas fa-phone-alt"></i> Telepon Sekarang
                                 </a>
                             </div>
@@ -2246,7 +2684,86 @@
                             <span class="discount">22%</span>
                         </p>
                         
-                        <div class="gallery-detail-expanded">
+                        <!-- Price Variations -->
+                        <div class="price-variations">
+                            <div class="price-variation active" data-price="350000">
+                                <span class="price-variation-name">Standar (80x200cm)</span>
+                                <span class="price-variation-value">Rp 350.000</span>
+                            </div>
+                            <div class="price-variation" data-price="500000">
+                                <span class="price-variation-name">Besar (100x200cm)</span>
+                                <span class="price-variation-value">Rp 500.000</span>
+                            </div>
+                            <div class="price-variation" data-price="750000">
+                                <span class="price-variation-name">Premium (120x200cm)</span>
+                                <span class="price-variation-value">Rp 750.000</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Quantity Selector -->
+                        <div class="quantity-selector">
+                            <span class="quantity-label">Jumlah:</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1">
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <div class="unit-selector">
+                                <select class="unit-select">
+                                    <option value="buah">buah</option>
+                                    <option value="set">set</option>
+                                    <option value="pack">pack</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Total Price -->
+                        <div class="total-price">
+                            <span class="total-price-label">Total Harga:</span>
+                            <span class="total-price-value">Rp 350.000</span>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="gallery-actions">
+                            <button class="btn-detail" data-target="details-BNR-2025-006">
+                                <i class="fas fa-chevron-down"></i> Detail Produk
+                            </button>
+                            <button class="btn-order">
+                                <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                            </button>
+                            <button class="btn-preorder-toggle">
+                                <i class="fas fa-calendar-check"></i> Pre-Order
+                            </button>
+                        </div>
+                        
+                        <!-- Pre-order Form -->
+                        <div class="preorder-form">
+                            <div class="preorder-title">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Form Uang Muka (DP)</span>
+                            </div>
+                            <input type="number" class="preorder-input" placeholder="Masukkan nominal DP (minimal 30%)">
+                            <p class="preorder-note">
+                                * Untuk pre-order, harap masukkan nominal uang muka minimal 30% dari total harga. 
+                                Kami akan menghubungi Anda untuk konfirmasi lebih lanjut.
+                            </p>
+                            <button class="btn-preorder">
+                                <i class="fas fa-paper-plane"></i> Kirim Pre-Order
+                            </button>
+                        </div>
+                        
+                        <!-- Developer Notes -->
+                        <div class="developer-notes">
+                            <div class="developer-notes-title">
+                                <i class="fas fa-code"></i>
+                                <span>Catatan Developer</span>
+                            </div>
+                            <div class="developer-notes-content">
+                                <!-- This area is for developer notes -->
+                            </div>
+                        </div>
+                        
+                        <div id="details-BNR-2025-006" class="gallery-detail-expanded">
                             <div class="gallery-carousel">
                                 <img src="https://i.imgur.com/ACIsEuy.jpg" alt="Banner Stand - Tampilan Utama" class="gallery-main-image lazy" loading="lazy" id="main-image-6">
                                 <div class="gallery-thumbnails">
@@ -2292,11 +2809,15 @@
                                     <span class="spec-value">Stand portable, tas pembawa</span>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="action-buttons">
-                            <button class="btn btn-outline btn-small toggle-description">Detail</button>
-                            <button class="btn btn-primary btn-small order-btn">Dapatkan Penawaran</button>
+                            
+                            <div class="gallery-actions-expanded">
+                                <a href="https://wa.me/6287865614222?text=Halo%20PromoKita,%20saya%20tertarik%20dengan%20Paket%20Banner%20Stand%20(BNR-2025-006)%20dan%20ingin%20bertanya%20lebih%20lanjut." class="btn-whatsapp" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                                </a>
+                                <a href="tel:+6287865614222" class="btn-call">
+                                    <i class="fas fa-phone-alt"></i> Telepon Sekarang
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2654,13 +3175,20 @@
         window.addEventListener('scroll', animateOnScroll);
         
         // Toggle description visibility
-        document.querySelectorAll('.toggle-description').forEach(button => {
+        document.querySelectorAll('.btn-detail').forEach(button => {
             button.addEventListener('click', function() {
-                const expandedContent = this.closest('.gallery-details').querySelector('.gallery-detail-expanded');
+                const targetId = this.getAttribute('data-target');
+                const expandedContent = document.getElementById(targetId);
                 expandedContent.classList.toggle('active');
                 
-                // Update button text
-                this.textContent = expandedContent.classList.contains('active') ? 'Sembunyikan' : 'Detail';
+                // Update button text and icon
+                if (expandedContent.classList.contains('active')) {
+                    this.innerHTML = '<i class="fas fa-chevron-up"></i> Sembunyikan Detail';
+                    this.classList.add('active');
+                } else {
+                    this.innerHTML = '<i class="fas fa-chevron-down"></i> Detail Produk';
+                    this.classList.remove('active');
+                }
                 
                 // Scroll to expanded content if opened
                 if (expandedContent.classList.contains('active')) {
@@ -2707,16 +3235,210 @@
             document.body.style.overflow = '';
         });
         
-        // Order button functionality
-        document.querySelectorAll('.order-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const itemTitle = this.closest('.gallery-details').querySelector('.gallery-title').textContent;
-                const itemCode = this.closest('.gallery-details').querySelector('.gallery-code').textContent;
-                const message = `Halo, saya tertarik dengan produk: ${itemTitle} (${itemCode}). Mohon info lebih lanjut.`;
-                const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/6287865614222?text=${encodedMessage}`, '_blank');
+        // Price variation selection
+        document.querySelectorAll('.price-variation').forEach(variation => {
+            variation.addEventListener('click', function() {
+                // Remove active class from all variations
+                const variations = this.parentElement.querySelectorAll('.price-variation');
+                variations.forEach(v => v.classList.remove('active'));
                 
-                // Play button sound
+                // Add active class to clicked variation
+                this.classList.add('active');
+                
+                // Update total price
+                updateTotalPrice(this.closest('.gallery-details'));
+                
+                playButtonSound();
+            });
+        });
+        
+        // Quantity controls
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.quantity-input');
+                let value = parseInt(input.value);
+                
+                if (this.classList.contains('plus')) {
+                    value++;
+                } else if (this.classList.contains('minus') && value > 1) {
+                    value--;
+                }
+                
+                input.value = value;
+                
+                // Update total price
+                updateTotalPrice(this.closest('.gallery-details'));
+                
+                playButtonSound();
+            });
+        });
+        
+        // Quantity input change
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('change', function() {
+                if (this.value < 1) this.value = 1;
+                
+                // Update total price
+                updateTotalPrice(this.closest('.gallery-details'));
+            });
+        });
+        
+        // Unit selector change
+        document.querySelectorAll('.unit-select').forEach(select => {
+            select.addEventListener('change', function() {
+                // Update price based on selected unit
+                const detailsContainer = this.closest('.gallery-details');
+                const variations = detailsContainer.querySelectorAll('.price-variation');
+                
+                // Find the variation that matches the selected unit
+                let selectedVariation = null;
+                variations.forEach(variation => {
+                    const variationName = variation.querySelector('.price-variation-name').textContent.toLowerCase();
+                    const selectedUnit = this.value.toLowerCase();
+                    
+                    if (variationName.includes(selectedUnit)) {
+                        selectedVariation = variation;
+                    }
+                });
+                
+                // If matching variation found, select it
+                if (selectedVariation) {
+                    variations.forEach(v => v.classList.remove('active'));
+                    selectedVariation.classList.add('active');
+                }
+                
+                // Update total price
+                updateTotalPrice(detailsContainer);
+                
+                playButtonSound();
+            });
+        });
+        
+        // Function to update total price
+        function updateTotalPrice(detailsContainer) {
+            const activeVariation = detailsContainer.querySelector('.price-variation.active');
+            const quantityInput = detailsContainer.querySelector('.quantity-input');
+            
+            if (activeVariation && quantityInput) {
+                const price = parseFloat(activeVariation.getAttribute('data-price'));
+                const quantity = parseInt(quantityInput.value);
+                const totalPrice = price * quantity;
+                
+                // Format price with thousand separators
+                const formattedPrice = new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    minimumFractionDigits: 0
+                }).format(totalPrice).replace('IDR', 'Rp');
+                
+                // Update total price display
+                const totalPriceElement = detailsContainer.querySelector('.total-price-value');
+                if (totalPriceElement) {
+                    totalPriceElement.textContent = formattedPrice;
+                }
+            }
+        }
+        
+        // Toggle pre-order form
+        document.querySelectorAll('.btn-preorder-toggle').forEach(button => {
+            button.addEventListener('click', function() {
+                const preorderForm = this.closest('.gallery-details').querySelector('.preorder-form');
+                preorderForm.classList.toggle('active');
+                
+                // Update button text
+                if (preorderForm.classList.contains('active')) {
+                    this.innerHTML = '<i class="fas fa-times"></i> Batal Pre-Order';
+                } else {
+                    this.innerHTML = '<i class="fas fa-calendar-check"></i> Pre-Order';
+                }
+                
+                playButtonSound();
+            });
+        });
+        
+        // Submit pre-order
+        document.querySelectorAll('.btn-preorder').forEach(button => {
+            button.addEventListener('click', function() {
+                const preorderForm = this.closest('.preorder-form');
+                const dpInput = preorderForm.querySelector('.preorder-input');
+                const dpValue = parseFloat(dpInput.value);
+                
+                // Validate DP input
+                if (isNaN(dpValue) || dpValue <= 0) {
+                    alert('Mohon masukkan nominal DP yang valid');
+                    return;
+                }
+                
+                const detailsContainer = preorderForm.closest('.gallery-details');
+                const productTitle = detailsContainer.querySelector('.gallery-title').textContent;
+                const productCode = detailsContainer.querySelector('.gallery-code').textContent;
+                const totalPriceText = detailsContainer.querySelector('.total-price-value').textContent;
+                const totalPrice = parseFloat(totalPriceText.replace(/[^\d]/g, ''));
+                
+                // Calculate DP percentage
+                const dpPercentage = Math.round((dpValue / totalPrice) * 100);
+                
+                // Validate minimum DP (30%)
+                if (dpPercentage < 30) {
+                    alert(`Uang muka minimal 30% dari total harga (Rp ${Math.round(totalPrice * 0.3)})`);
+                    return;
+                }
+                
+                // Get WhatsApp number from seller link
+                let whatsappNumber = '6287865614222'; // Default
+                const sellerLink = detailsContainer.closest('.gallery-item').querySelector('.gallery-badge.seller');
+                if (sellerLink) {
+                    const href = sellerLink.getAttribute('href');
+                    const match = href.match(/wa\.me\/(\d+)/);
+                    if (match) {
+                        whatsappNumber = match[1];
+                    }
+                }
+                
+                // Prepare WhatsApp message
+                const message = `Halo, saya ingin melakukan pre-order produk:\n\n*${productTitle}* (${productCode})\n\nTotal Harga: ${totalPriceText}\nUang Muka: Rp ${dpValue.toLocaleString('id-ID')} (${dpPercentage}%)\n\nMohon info lebih lanjut mengenai cara pembayaran dan pengiriman. Terima kasih.`;
+                const encodedMessage = encodeURIComponent(message);
+                
+                // Open WhatsApp
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+                
+                // Reset form
+                dpInput.value = '';
+                preorderForm.classList.remove('active');
+                this.closest('.gallery-details').querySelector('.btn-preorder-toggle').innerHTML = '<i class="fas fa-calendar-check"></i> Pre-Order';
+                
+                playButtonSound();
+            });
+        });
+        
+        // Order button functionality
+        document.querySelectorAll('.btn-order').forEach(button => {
+            button.addEventListener('click', function() {
+                const detailsContainer = this.closest('.gallery-details');
+                const productTitle = detailsContainer.querySelector('.gallery-title').textContent;
+                const productCode = detailsContainer.querySelector('.gallery-code').textContent;
+                const totalPrice = detailsContainer.querySelector('.total-price-value').textContent;
+                const quantity = detailsContainer.querySelector('.quantity-input').value;
+                const unit = detailsContainer.querySelector('.unit-select').value;
+                
+                // Get WhatsApp number from seller link
+                let whatsappNumber = '6287865614222'; // Default
+                const sellerLink = detailsContainer.closest('.gallery-item').querySelector('.gallery-badge.seller');
+                if (sellerLink) {
+                    const href = sellerLink.getAttribute('href');
+                    const match = href.match(/wa\.me\/(\d+)/);
+                    if (match) {
+                        whatsappNumber = match[1];
+                    }
+                }
+                
+                // Prepare WhatsApp message
+                const message = `Halo, saya ingin memesan produk:\n\n*${productTitle}* (${productCode})\n\nJumlah: ${quantity} ${unit}\nTotal Harga: ${totalPrice}\n\nMohon info lebih lanjut mengenai cara pembayaran dan pengiriman. Terima kasih.`;
+                const encodedMessage = encodeURIComponent(message);
+                
+                // Open WhatsApp
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+                
                 playButtonSound();
             });
         });
@@ -3074,8 +3796,8 @@
                         searchModal.classList.remove('show');
                         document.body.style.overflow = '';
                         // Expand the item details if collapsed
-                        const toggleBtn = item.querySelector('.toggle-description');
-                        if (toggleBtn && toggleBtn.textContent === 'Detail') {
+                        const toggleBtn = item.querySelector('.btn-detail');
+                        if (toggleBtn && !toggleBtn.classList.contains('active')) {
                             toggleBtn.click();
                         }
                     });
