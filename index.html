@@ -746,6 +746,7 @@
             object-fit: cover;
             display: block;
             transition: transform 0.8s ease;
+            cursor: pointer;
         }
         
         .gallery-item:hover .gallery-image {
@@ -1112,6 +1113,36 @@
             box-shadow: 0 5px 15px rgba(42, 67, 101, 0.3);
         }
         
+        /* IMPROVED: Pre-order Toggle Button */
+        .btn-preorder-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: rgba(221, 107, 32, 0.15);
+            color: var(--warning);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid rgba(221, 107, 32, 0.2);
+            width: 100%;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        .btn-preorder-toggle:hover {
+            background-color: rgba(221, 107, 32, 0.25);
+            transform: translateY(-2px);
+            border-color: rgba(221, 107, 32, 0.3);
+        }
+        
+        .btn-preorder-toggle.active {
+            background-color: rgba(221, 107, 32, 0.25);
+            border-color: var(--warning);
+        }
+        
         /* NEW: Price Variations */
         .price-variations {
             margin: 1.5rem 0;
@@ -1128,6 +1159,7 @@
             margin-bottom: 0.8rem;
             transition: var(--transition);
             background-color: rgba(248, 249, 250, 0.5);
+            cursor: pointer;
         }
         
         .price-variation:hover {
@@ -1244,14 +1276,15 @@
             font-size: 1.2rem;
         }
         
-        /* NEW: Pre-order Form */
+        /* IMPROVED: Pre-order Form */
         .preorder-form {
             margin-top: 1.5rem;
             padding: 1.5rem;
-            background-color: rgba(248, 249, 250, 0.8);
+            background-color: rgba(255, 251, 235, 0.8);
             border-radius: 12px;
-            border: 1px dashed var(--accent);
+            border: 1px dashed var(--warning);
             display: none;
+            transition: var(--transition);
         }
         
         .preorder-form.active {
@@ -1270,7 +1303,7 @@
         }
         
         .preorder-title i {
-            color: var(--accent);
+            color: var(--warning);
         }
         
         .preorder-input {
@@ -1281,12 +1314,13 @@
             margin-bottom: 1rem;
             font-size: 1rem;
             transition: var(--transition);
+            background-color: white;
         }
         
         .preorder-input:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+            border-color: var(--warning);
+            box-shadow: 0 0 0 3px rgba(221, 107, 32, 0.1);
         }
         
         .preorder-note {
@@ -1319,11 +1353,11 @@
             box-shadow: 0 5px 15px rgba(221, 107, 32, 0.3);
         }
         
-        /* NEW: Developer Notes */
+        /* UPDATED: Developer Notes */
         .developer-notes {
             margin-top: 1.5rem;
             padding: 1rem;
-            background-color: rgba(42, 67, 101, 0.1);
+            background-color: rgba(42, 67, 101, 0.05);
             border-radius: 8px;
             border-left: 3px solid var(--primary);
         }
@@ -2597,7 +2631,7 @@
                                 <span>Catatan Developer</span>
                             </div>
                             <div class="developer-notes-content">
-                                <!-- This area is for developer notes -->
+                                Tidak ada catatan khusus secara default.
                             </div>
                         </div>
                         
@@ -2759,7 +2793,7 @@
                                 <span>Catatan Developer</span>
                             </div>
                             <div class="developer-notes-content">
-                                <!-- This area is for developer notes -->
+                                Tidak ada catatan khusus secara default.
                             </div>
                         </div>
                         
@@ -3348,8 +3382,10 @@
                 // Update button text
                 if (preorderForm.classList.contains('active')) {
                     this.innerHTML = '<i class="fas fa-times"></i> Batal Pre-Order';
+                    this.classList.add('active');
                 } else {
                     this.innerHTML = '<i class="fas fa-calendar-check"></i> Pre-Order';
+                    this.classList.remove('active');
                 }
                 
                 playButtonSound();
@@ -3406,6 +3442,7 @@
                 dpInput.value = '';
                 preorderForm.classList.remove('active');
                 this.closest('.gallery-details').querySelector('.btn-preorder-toggle').innerHTML = '<i class="fas fa-calendar-check"></i> Pre-Order';
+                this.closest('.gallery-details').querySelector('.btn-preorder-toggle').classList.remove('active');
                 
                 playButtonSound();
             });
