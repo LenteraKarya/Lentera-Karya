@@ -1,0 +1,103 @@
+{
+    "id": "promokita",
+    "name": "PromoKita",
+    "category": "promo",
+    "description": "PromoKita menyediakan berbagai kebutuhan promosi dan pemasaran untuk usaha Anda. Mulai dari pembuatan banner, spanduk, brosur, hingga strategi pemasaran digital. Tim kreatif kami siap membantu meningkatkan visibilitas bisnis Anda.",
+    "website": "https://lenterakarya.github.io/umkm-online/",
+    "contact": {
+        "phone": "+6287865614222",
+        "whatsapp": "+6287865614222",
+        "email": "promokita@example.com"
+    },
+    "products": [
+        {
+            "code": "BNR-2025-001",
+            "name": "Paket Banner Stand",
+            "type": "Banner Promosi",
+            "price_variations": [
+                {
+                    "name": "Standar (80x200cm)",
+                    "price": 350000,
+                    "original_price": 450000,
+                    "discount": 22,
+                    "unit": "buah"
+                },
+                {
+                    "name": "Besar (100x200cm)",
+                    "price": 500000,
+                    "original_price": 650000,
+                    "discount": 23,
+                    "unit": "buah"
+                },
+                {
+                    "name": "Premium (120x200cm)",
+                    "price": 750000,
+                    "original_price": 900000,
+                    "discount": 17,
+                    "unit": "buah"
+                }
+            ],
+            "images": [
+                "https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/produk/banner1-promokita.jpg",
+                "https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/produk/banner2-promokita.jpg",
+                "https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/produk/banner3-promokita.jpg"
+            ],
+            "specs": {
+                "Kode Produk": "BNR-2025-001",
+                "Gerai": "PromoKita",
+                "Ukuran": "80cm x 200cm",
+                "Material": "Vinyl Premium",
+                "Waktu Produksi": "3-5 hari kerja",
+                "Garansi": "1 tahun",
+                "Termasuk": "Stand portable, tas pembawa",
+                "Minimal Order": "1 buah"
+            },
+            "description": "Paket lengkap banner stand termasuk desain, cetak, dan stand. Ukuran: 80cm x 200cm. Cetakan vinyl berkualitas tinggi. Sempurna untuk pameran, acara, atau promosi di toko. Panduan pemasangan termasuk."
+        },
+        {
+            "code": "DIG-2025-001",
+            "name": "Paket Digital Marketing",
+            "type": "Jasa Promosi",
+            "price_variations": [
+                {
+                    "name": "Paket Dasar",
+                    "price": 1500000,
+                    "original_price": 2000000,
+                    "discount": 25,
+                    "unit": "paket",
+                    "duration": "1 bulan"
+                },
+                {
+                    "name": "Paket Professional",
+                    "price": 3000000,
+                    "original_price": 4000000,
+                    "discount": 25,
+                    "unit": "paket",
+                    "duration": "1 bulan"
+                },
+                {
+                    "name": "Paket Enterprise",
+                    "price": 5000000,
+                    "original_price": 7000000,
+                    "discount": 29,
+                    "unit": "paket",
+                    "duration": "1 bulan"
+                }
+            ],
+            "images": [
+                "https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/produk/digital1-promokita.jpg",
+                "https://raw.githubusercontent.com/LenteraKarya/jualan-kita/main/assets/produk/digital2-promokita.jpg"
+            ],
+            "specs": {
+                "Kode Produk": "DIG-2025-001",
+                "Gerai": "PromoKita",
+                "Layanan": "Manajemen Media Sosial",
+                "Platform": "Instagram, Facebook, TikTok",
+                "Konten": "15-30 post per bulan",
+                "Jangkauan": "Target audience spesifik",
+                "Laporan": "Mingguan & bulanan"
+            },
+            "description": "Layanan lengkap manajemen media sosial untuk bisnis Anda. Termasuk pembuatan konten, penjadwalan posting, engagement dengan audience, dan analisis performa. Dikelola oleh tim profesional dengan pengalaman di bidang digital marketing."
+        }
+    ]
+}
