@@ -652,6 +652,45 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(230, 126, 34, 0.2);
         }
+
+        /* New Category Buttons */
+        .product-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 2rem auto 3rem;
+            max-width: 1000px;
+        }
+
+        .product-category-btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .product-category-btn:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(66, 153, 225, 0.2);
+        }
+
+        .product-category-btn.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(66, 153, 225, 0.3);
+        }
         
         /* UPDATED GALLERY GRID - 2 COLUMNS INSTEAD OF 3 */
         .gallery-grid {
@@ -2510,6 +2549,20 @@
             <div class="gallery-intro">
                 <p>Jelajahi koleksi karya dan layanan premium kami. Klik "Detail" untuk melihat lebih banyak gambar dan informasi.</p>
                 
+                <!-- New Product Categories -->
+                <div class="product-categories">
+                    <button class="product-category-btn" data-category="food">Makanan & Minuman</button>
+                    <button class="product-category-btn" data-category="snack">Kue & Cemilan</button>
+                    <button class="product-category-btn" data-category="construction">Alat Konstruksi</button>
+                    <button class="product-category-btn" data-category="office">Alat Kantor</button>
+                    <button class="product-category-btn" data-category="household">Alat Rumah Tangga</button>
+                    <button class="product-category-btn" data-category="software">Software Aplikasi</button>
+                    <button class="product-category-btn" data-category="electronics">Elektronik</button>
+                    <button class="product-category-btn" data-category="fishery">Perikanan</button>
+                    <button class="product-category-btn" data-category="livestock">Peternakan</button>
+                    <button class="product-category-btn" data-category="agriculture">Pertanian</button>
+                </div>
+                
                 <div class="category-tabs">
                     <button class="category-btn active" data-category="all">Semua</button>
                     <button class="category-btn" data-category="rental">Sewa</button>
@@ -3441,6 +3494,24 @@
                         item.style.display = 'none';
                     }
                 });
+                
+                playButtonSound();
+            });
+        });
+
+        // Product category filtering
+        document.querySelectorAll('.product-category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.product-category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                // In a real implementation, you would filter products by category here
+                // For now, we'll just show an alert
+                alert(`Filter produk untuk kategori: ${this.textContent}`);
                 
                 playButtonSound();
             });
